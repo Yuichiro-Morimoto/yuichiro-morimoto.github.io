@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>ホビサヤ by もりー｜旅するポッドキャスター 守本悠一郎 公式サイト</title>
+<meta name="description" content="旅するポッドキャスター／著者、もりー（守本悠一郎）の公式サイト。ポッドキャスト「ホビサヤ」を中心に、東南アジアの旅、7言語の独学、AIとひとり事業について発信。軸は「人生の主導権を取り戻す」。出演・登壇・共著のご相談はこちら。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ホビサヤ by もりー｜旅するポッドキャスター">
+<meta property="og:description" content="もりー（守本悠一郎）の公式サイト。話せるテーマ、著書、実績、出演・登壇のご依頼窓口をまとめています。">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Person",
+ "name": "守本悠一郎",
+ "alternateName": "もりー",
+ "jobTitle": "旅するポッドキャスター／著者",
+ "description": "ポッドキャスト「ホビサヤ」配信者。東南アジア7ヶ国を旅し、7言語を独学。AIを相棒にひとり事業を運営。軸テーマは「人生の主導権を取り戻す」。",
+ "sameAs": [
+  "https://www.youtube.com/@molly_travel1994",
+  "https://www.youtube.com/@yellow_korean",
+  "https://www.youtube.com/@yellow_languages",
+  "https://stand.fm/channels/687f93ed2d8270496ec18d41",
+  "https://note.com/yuichiro_morimo"
+ ]
+}
+</script>
+<style>
+:root{
+  --ink:#0F1596;
+  --ink-soft:#3a41ad;
+  --text:#252a31;
+  --muted:#68727e;
+  --faint:#98a2ad;
+  --line:#dde4ea;
+  --bg:#ffffff;
+  --bg-cool:#f4f7fa;
+  --bg-deep:#eef2f7;
+  --card:#ffffff;
+  --radius:14px;
+  --maxw:880px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.85;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--ink);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:84px 0}
+.sec-label{
+  font-size:12px;letter-spacing:.34em;color:var(--ink);
+  font-weight:700;text-transform:uppercase;margin-bottom:10px;
+}
+.sec-title{font-size:28px;font-weight:800;letter-spacing:.04em;margin-bottom:14px}
+.sec-lead{color:var(--muted);max-width:640px;margin-bottom:40px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:800;letter-spacing:.06em;font-size:17px;color:var(--text)}
+.logo span{color:var(--ink)}
+nav{display:flex;gap:22px;font-size:13.5px}
+nav a{color:var(--muted)}
+nav a:hover{color:var(--ink);text-decoration:none}
+@media(max-width:640px){nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:110px 0 130px;
+  background:linear-gradient(180deg,#ffffff 0%,var(--bg-cool) 78%,var(--bg-deep) 100%);
+}
+.hero .kicker{
+  font-size:13px;letter-spacing:.42em;color:var(--ink);font-weight:700;margin-bottom:22px;
+}
+.hero h1{
+  font-size:clamp(40px,8.4vw,68px);font-weight:900;letter-spacing:.03em;line-height:1.25;
+}
+.hero h1 .by{color:var(--ink)}
+.hero .role{
+  margin-top:22px;font-size:clamp(17px,3.4vw,22px);font-weight:700;letter-spacing:.14em;
+}
+.hero .axis{
+  margin-top:14px;font-size:clamp(16px,3vw,20px);color:var(--muted);letter-spacing:.06em;
+}
+.hero .axis strong{color:var(--text);font-weight:800}
+.hero .cta-row{margin-top:42px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  display:inline-block;padding:14px 30px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:.05em;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:0 10px 24px rgba(15,21,150,.22)}
+.btn-ghost{border:1px solid var(--line);color:var(--text);background:#fff}
+.waves{position:absolute;left:0;right:0;bottom:-6px;width:100%;height:90px;pointer-events:none}
+.waves svg{width:100%;height:100%;display:block}
+
+/* ---------- profile ---------- */
+.profile-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.profile-grid p{margin-bottom:18px;max-width:680px}
+.profile-grid .hl{font-weight:700}
+.stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.stat{
+  background:var(--bg-cool);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 22px;min-width:150px;flex:1;
+}
+.stat .num{font-size:24px;font-weight:900;color:var(--ink);letter-spacing:.02em;line-height:1.3}
+.stat .cap{font-size:12.5px;color:var(--muted);letter-spacing:.06em}
+
+/* ---------- themes ---------- */
+#themes{background:var(--bg-cool)}
+.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:700px){.theme-grid{grid-template-columns:1fr}}
+.theme{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 26px 22px;
+}
+.theme .t-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.theme .t-no{font-size:12px;font-weight:800;color:var(--faint);letter-spacing:.2em}
+.theme h3{font-size:17.5px;font-weight:800;letter-spacing:.02em}
+.theme .record{font-size:13px;color:var(--ink-soft);font-weight:700;margin-bottom:12px}
+.theme ul{list-style:none}
+.theme li{font-size:14.5px;padding:7px 0;border-top:1px dashed var(--line);color:#3a4149}
+.theme li:first-child{border-top:none}
+.theme li b{color:var(--text)}
+.theme .rep{margin-top:12px;font-size:12.5px;color:var(--faint);line-height:1.7}
+
+/* ---------- achievements ---------- */
+.ach-list{list-style:none}
+.ach{
+  display:flex;gap:22px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline;
+}
+.ach:first-child{border-top:none}
+.ach .year{font-weight:900;color:var(--ink);font-size:19px;min-width:64px;letter-spacing:.02em}
+.ach .body h3{font-size:16.5px;font-weight:800;margin-bottom:4px}
+.ach .body p{font-size:14.5px;color:var(--muted)}
+@media(max-width:560px){.ach{flex-direction:column;gap:4px}}
+
+/* ---------- books ---------- */
+#books{background:var(--bg-cool)}
+.book-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+@media(max-width:760px){.book-grid{grid-template-columns:1fr}}
+.book{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.book .b-tag{font-size:11.5px;letter-spacing:.24em;color:var(--ink);font-weight:700}
+.book h3{font-size:17px;font-weight:800;line-height:1.6}
+.book p{font-size:14px;color:var(--muted);flex:1}
+.book .b-link{font-size:14px;font-weight:700}
+
+/* ---------- law ---------- */
+.law-box{
+  border:1px solid var(--ink);border-radius:var(--radius);
+  padding:44px 40px;text-align:center;background:#fff;
+}
+.law-box .l-kicker{font-size:12px;letter-spacing:.34em;color:var(--ink);font-weight:700;margin-bottom:14px}
+.law-box h3{font-size:clamp(24px,5vw,32px);font-weight:900;letter-spacing:.05em;margin-bottom:16px}
+.law-box p{color:var(--muted);max-width:560px;margin:0 auto}
+@media(max-width:560px){.law-box{padding:34px 22px}}
+
+/* ---------- links ---------- */
+#links{background:var(--bg-cool)}
+.link-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.link-grid{grid-template-columns:1fr}}
+.link-card{
+  display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 24px;color:var(--text);
+}
+.link-card:hover{text-decoration:none;border-color:var(--ink-soft)}
+.link-card .l-name{font-weight:800;font-size:16px}
+.link-card .l-desc{font-size:13px;color:var(--muted)}
+.link-card .l-arrow{float:right;color:var(--ink);font-weight:800}
+
+/* ---------- contact ---------- */
+.contact-box{text-align:center;padding:20px 0 0}
+.contact-box p{color:var(--muted);max-width:560px;margin:0 auto 30px}
+.btn-big{padding:18px 46px;font-size:17px}
+.formats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:36px}
+.formats span{
+  font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 16px;background:#fff;
+}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:38px 0 46px;background:var(--bg-cool)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
+footer .f-logo{font-weight:800;letter-spacing:.05em}
+footer .f-logo span{color:var(--ink)}
+footer small{color:var(--faint);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="logo">ホビサヤ <span>by もりー</span></div>
+    <nav>
+      <a href="#profile">プロフィール</a>
+      <a href="#themes">話せるテーマ</a>
+      <a href="#achievements">実績</a>
+      <a href="#books">著書</a>
+      <a href="#links">リンク</a>
+      <a href="#contact">ご依頼</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">HOBISAYA by MORI</div>
+    <h1>ホビサヤ <span class="by">by もりー</span></h1>
+    <div class="role">旅するポッドキャスター</div>
+    <p class="axis">軸は、<strong>「人生の主導権を取り戻す」</strong>こと。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">出演・登壇のご依頼</a>
+      <a class="btn btn-ghost" href="#themes">話せるテーマを見る</a>
+    </div>
+  </div>
+  <div class="waves" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <path d="M0,52 C240,90 420,14 720,44 C1020,74 1200,26 1440,52 L1440,90 L0,90 Z" fill="#dbe5ef" opacity="0.55"/>
+      <path d="M0,66 C260,96 480,34 760,58 C1040,82 1240,44 1440,64 L1440,90 L0,90 Z" fill="#c3d2e2" opacity="0.5"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ PROFILE ============ -->
+<section id="profile">
+  <div class="wrap">
+    <div class="sec-label">Profile</div>
+    <h2 class="sec-title">プロフィール</h2>
+    <div class="profile-grid">
+      <p><span class="hl">もりー（守本悠一郎）</span>。旅するポッドキャスター／著者。</p>
+      <p>ポッドキャスト「ホビサヤ」（stand.fm／YouTube）を配信し、YouTubeでは3チャンネルを運営。東南アジアを中心に7ヶ国を旅し、韓国語・タイ語・インドネシア語など7言語を独学で身につけました。AIを相棒にひとり事業を回し、自作アラームアプリ「世界の音で目覚める」も開発しています。</p>
+      <p>発信の軸は「人生の主導権を取り戻す」。他人の物差しから降りて、自分の選択で生きるための考え方を、旅と日常の実践から語ります。</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">565回</div><div class="cap">ポッドキャスト「ホビサヤ」配信実績</div></div>
+      <div class="stat"><div class="num">8万人超</div><div class="cap">YellowPen韓国語 登録者数</div></div>
+      <div class="stat"><div class="num">7ヶ国・7言語</div><div class="cap">訪問国と独学した言語</div></div>
+      <div class="stat"><div class="num">3冊</div><div class="cap">著書（うち1冊は制作中）</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THEMES ============ -->
+<section id="themes">
+  <div class="wrap">
+    <div class="sec-label">Themes</div>
+    <h2 class="sec-title">話せるテーマ</h2>
+    <p class="sec-lead">トークショー、ポッドキャストのゲスト出演、講演、共著・寄稿のご相談用に、話せるテーマをまとめました。各テーマには、ポッドキャスト「ホビサヤ」での実際の配信実績（全565放送からの棚卸し）を添えています。</p>
+    <div class="theme-grid">
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">01</span><h3>考え方・マインドセット（思考法）</h3></div>
+        <div class="record">約129回・44時間分の配信実績（ホビサヤ最大のテーマ）</div>
+        <ul>
+          <li><b>白黒つけるな、グレーで考えろ</b> — 煽らない、断定しない。ご意見番としての思考法</li>
+          <li><b>「頭がいい」は幻想である</b> — 頭の良さを分解すると、残るのは習慣と思考の型</li>
+          <li><b>今は決めない、という選択</b> — 即断即決が正解とは限らない場面の見極め</li>
+        </ul>
+        <div class="rep">代表回：「人は物事『A』と『B』があると、優越を付けたくなる」ほか</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">02</span><h3>生き方とキャリアの「主導権」</h3></div>
+        <div class="record">約127回（仕事術76回＋生き方51回）の配信実績</div>
+        <ul>
+          <li><b>人生の主導権を取り戻す方法</b> — 他人の物差しから降りて、自分の選択で生きるための考え方（著書の核）</li>
+          <li><b>「好き」か「稼げる」かは、気にしなくていい</b> — 仕事の4象限は流動的。あえて「嫌な2割」を残すと全体がうまく回る理由</li>
+          <li><b>フリーか就職か、迷った時点で就職すべき</b> — 独立経験者だから話せる、フリーランスの現実と向き不向き</li>
+          <li><b>選択肢が減ると幸福になる</b> — ミニマルな暮らしと意思決定の話</li>
+        </ul>
+        <div class="rep">代表回：「人生の満足感のカギは『主導権』」「生活の2割は『嫌なこと』を残しておく方が良い」「フリーランスのデメリット」</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">03</span><h3>人間関係・コミュニケーション論</h3></div>
+        <div class="record">約53回・16.5時間の配信実績</div>
+        <ul>
+          <li><b>人間関係で悩むか、リセットするか</b> — 関係の棚卸しと距離の取り方</li>
+          <li><b>「茶室型」と「道場型」</b> — 場の空気で変わるコミュニケーションの型（独自概念）</li>
+          <li><b>「あいつは読解力が無い」で片付けるな</b> — 伝わらない原因を相手のせいにしない話し方・聞き方</li>
+        </ul>
+        <div class="rep">代表回：著書『ホビサヤ』第2章・第4章の元になった配信ほか</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">04</span><h3>哲学・スピリチュアル × ロジック</h3></div>
+        <div class="record">約41回・13.5時間の配信実績</div>
+        <ul>
+          <li><b>スピリチュアルとロジックは、同じことを言っている</b> — 一見対極の2つが指す先の共通点</li>
+          <li><b>直感と分析の使い分け</b> — どちらかではなく、場面で切り替える実践論</li>
+        </ul>
+        <div class="rep">代表回：著書『ホビサヤ』第7章の元になった配信ほか</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">05</span><h3>AIとひとり事業</h3></div>
+        <div class="record">約20回、最近急増中のテーマ</div>
+        <ul>
+          <li><b>AI時代の鍵は「全部任せる覚悟」</b> — AIに仕事を任せ切ることで生まれる時間と、任せる側に残る仕事</li>
+          <li><b>ひとり事業 × AI運用の実践</b> — YouTube 3チャンネルの運営、書籍制作、アプリ開発までをAIと回す現場の話</li>
+          <li><b>「コンピュータの中に工場を持つ」個人の働き方</b> — 試すコストが激減した時代に、個人がどこまで作れるか</li>
+        </ul>
+        <div class="rep">代表回：「AIに『全部任せる』が出来ない人間たち」「アイデアをAIに話したら3分でアプリができた話」</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">06</span><h3>旅と世界</h3></div>
+        <div class="record">旅行の語り・実況340回超、旅を語る回 約56回</div>
+        <ul>
+          <li><b>東南アジア7ヶ国の歩き方</b> — 格安で、安全に、現地の人と仲良くなる旅の技術</li>
+          <li><b>現地の人の家に泊まる旅</b> — 観光地ではない「暮らし」を見に行くスタイル</li>
+          <li><b>旅しながら働く・稼ぐ</b> — 旅するポッドキャスターの収録と収益の仕組み</li>
+        </ul>
+        <div class="rep">代表回：「東南アジアに戻りたい！海外放浪の日々を振り返る」「『LCCってどうなの？』に答える」</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">07</span><h3>語学学習（YellowPen式）</h3></div>
+        <div class="record">ポッドキャスト約55回＋語学チャンネルと著書が裏付け</div>
+        <ul>
+          <li><b>独学で7言語を身につけた方法</b> — 言語の「読み方」から入ると挫折しない</li>
+          <li><b>ハングルはアルファベットに置き換えて読む／タイ文字は仕組みで読む</b> — YellowPen式メソッドの解説（著書あり）</li>
+          <li><b>語学は「稼ぐ道具」より「世界を広げる趣味」</b> — 語学好きが語る、続けるコツ</li>
+        </ul>
+        <div class="rep">代表回：「語学に『挫折』などないことを証明する」「英語学習者の8割が陥る『学習ゾンビ』」</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">08</span><h3>発信と収益化</h3></div>
+        <div class="record">3チャンネル運営と出版の実践が裏付け</div>
+        <ul>
+          <li><b>登録者10万人を目指すYouTube運営</b> — Shorts中心の伸ばし方、3チャンネルの回し方（YellowPen韓国語 登録者8万人超）</li>
+          <li><b>Kindle出版という、もう一つの収入源</b> — 個人が本を出して売るまでの全工程</li>
+          <li><b>不労所得 月18万円への道</b> — ポッドキャスト・YouTube・書籍を組み合わせる設計図</li>
+        </ul>
+        <div class="rep">代表回：「無職YouTuber、先月の収益報告」「今後のYouTubeの方針について」</div>
+      </div>
+
+      <div class="theme">
+        <div class="t-head"><span class="t-no">09</span><h3>健康寿命とウェルビーイング</h3></div>
+        <div class="record">約16回の配信実績（実践を継続しながら蓄積中）</div>
+        <ul>
+          <li><b>「動けるおじさん」でいるための習慣</b> — ヨガ・瞑想・自重トレーニングを無理なく続ける方法</li>
+          <li><b>世界の朝の音で目覚める</b> — 自作アラームアプリと、旅先で集めた音の話</li>
+        </ul>
+        <div class="rep">代表回：「初めてヨガをやってみた話」「初めて瞑想15分やってみたら世界がセピア色に見えた話」</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-label">Achievements</div>
+    <h2 class="sec-title">実績</h2>
+    <ul class="ach-list">
+      <li class="ach">
+        <div class="year">2017</div>
+        <div class="body">
+          <h3>武蔵野美術大学 基礎デザイン学科 卒業制作優秀作品に選出</h3>
+          <p>作品「スカーフチェア SCARF CHAIR」（ビニール、平面が立体になる椅子）。担当教員は柴田文江教授。<a href="https://selected.musabi.ac.jp/y2017/scd/s06" target="_blank" rel="noopener">大学の選出作品ページ</a></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ BOOKS ============ -->
+<section id="books">
+  <div class="wrap">
+    <div class="sec-label">Books</div>
+    <h2 class="sec-title">著書</h2>
+    <div class="book-grid">
+      <div class="book">
+        <div class="b-tag">SELF-HELP</div>
+        <h3>『ホビサヤ 人生の主導権を取り戻す方法』</h3>
+        <p>ポッドキャスト「ホビサヤ」の語りを再構成した自己啓発書。グレーで考える思考法、仕事の4象限と「2割残しの法則」、主導権の取り戻し方を10章で語ります。</p>
+      </div>
+      <div class="book">
+        <div class="b-tag">THAI</div>
+        <h3>『はじめてのタイ文字：とりあえず読めるYellowPen式タイ語入門』</h3>
+        <p>タイ旅行フレーズ集ではなく「タイ文字の読み方・発音の入門」が主役の一冊。仕組みで読めるようになるYellowPen式メソッドを解説します。</p>
+        <a class="b-link" href="https://www.amazon.co.jp/dp/B0HS6SF3P1?tag=newplain01-22" target="_blank" rel="noopener">Amazonで見る →</a>
+      </div>
+      <div class="book">
+        <div class="b-tag">KOREAN</div>
+        <h3>『アルファベットで読むハングル：YellowPen式 韓国語入門』</h3>
+        <p>ハングルをアルファベットに置き換えて読むメソッドで、「読めるようになる」ことに絞った入門書。</p>
+        <span class="b-link" style="color:var(--faint)">制作中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAW ============ -->
+<section id="law">
+  <div class="wrap">
+    <div class="sec-label" style="text-align:center">The Law</div>
+    <div class="law-box">
+      <div class="l-kicker">MORI'S LAW</div>
+      <h3>2割残しの法則</h3>
+      <p>仕事の中の「やりたくない2割」は、消す対象ではなく、あえて残すものとして自分で選ぶ。嫌な仕事を消しても、新たに2割が「嫌」になる。だからこそ、残す2割を自分で選ぶことに主導権があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LINKS ============ -->
+<section id="links">
+  <div class="wrap">
+    <div class="sec-label">Channels &amp; Links</div>
+    <h2 class="sec-title">チャンネル・リンク集</h2>
+    <div class="link-grid">
+      <a class="link-card" href="https://www.youtube.com/@molly_travel1994" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">YouTube｜ホビサヤ by もりー</div>
+        <div class="l-desc">ポッドキャストと旅のメインチャンネル</div>
+      </a>
+      <a class="link-card" href="https://www.youtube.com/@yellow_korean" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">YouTube｜YellowPen韓国語</div>
+        <div class="l-desc">登録者8万人超。銀の盾（10万人）を目指す韓国語チャンネル</div>
+      </a>
+      <a class="link-card" href="https://www.youtube.com/@yellow_languages" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">YouTube｜YellowPenタイ語</div>
+        <div class="l-desc">タイ文字とタイ語の学習チャンネル</div>
+      </a>
+      <a class="link-card" href="https://stand.fm/channels/687f93ed2d8270496ec18d41" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">stand.fm｜ホビサヤ</div>
+        <div class="l-desc">ポッドキャストの配信拠点（旅行に限らない日常トーク）</div>
+      </a>
+      <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">note｜もりー</div>
+        <div class="l-desc">ホビサヤの書き起こしと読み物</div>
+      </a>
+      <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">アプリ｜世界の音で目覚める</div>
+        <div class="l-desc">世界の朝の実録音が毎回変わるアラームアプリ（Daybreak Atlas）</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-label" style="text-align:center">Contact</div>
+    <h2 class="sec-title" style="text-align:center">出演・登壇のご依頼</h2>
+    <div class="contact-box">
+      <p>トークショー、ポッドキャストやラジオへのゲスト出演、講演、共著・寄稿のご相談は、こちらのフォームからお寄せください。（呼ばれる側の出演のみ承っています。主催・集客は行っていません）</p>
+      <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">出演・登壇のご依頼フォーム</a>
+      <div class="formats">
+        <span>トークショー／パネルディスカッション</span>
+        <span>ポッドキャスト・ラジオ・配信番組へのゲスト出演</span>
+        <span>講演・トークイベント</span>
+        <span>共著・寄稿・対談記事</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-logo">ホビサヤ <span>by もりー</span></div>
+    <small>© Mori (Yuichiro Morimoto)</small>
+  </div>
+</footer>
+
+</body>
+</html>
