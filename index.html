@@ -197,6 +197,14 @@ nav a:hover{color:var(--ink);text-decoration:none}
 .btn-big{padding:20px 54px;font-size:15px}
 .formats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;margin-top:48px}
 .formats span{font-size:12.5px;color:var(--muted);letter-spacing:.06em}
+.contact-box .advisory{max-width:640px;margin:56px auto 0;padding-top:44px;border-top:1px solid var(--line-soft);text-align:start}
+.advisory h3{font-size:17px;font-weight:700;letter-spacing:.05em;text-align:center;margin-bottom:18px}
+.contact-box .advisory p{margin:0 auto 20px;text-align:start}
+.advisory ul{list-style:none;max-width:560px;margin:0 auto 22px}
+.advisory li{font-size:14.5px;color:#3c4046;line-height:1.9;padding:7px 0;padding-inline-start:20px;position:relative}
+.advisory li::before{content:"\2014";position:absolute;inset-inline-start:0;color:var(--faint)}
+.contact-box .advisory .a-terms{text-align:center;font-size:13.5px;line-height:2.1}
+.advisory .a-cta{text-align:center;margin-top:26px}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:48px 0 56px;background:#fff}
@@ -507,7 +515,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">出演・登壇のご依頼</h2>
     <div class="contact-box">
-      <p>トークショー、ポッドキャストやラジオへのゲスト出演、講演、共著・寄稿のご相談は、こちらのフォームからお寄せください。企業向けには、コンサルティング・アドバイザリーも承っています。（呼ばれる側の出演のみ承っています。主催・集客は行っていません）</p>
+      <p>トークショー、ポッドキャストやラジオへのゲスト出演、講演、共著・寄稿のご相談は、こちらのフォームからお寄せください。（呼ばれる側の出演のみ承っています。主催・集客は行っていません）</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">出演・登壇のご依頼フォーム</a>
       <div class="formats">
         <span>トークショー／パネルディスカッション</span>
@@ -516,6 +524,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>共著・寄稿・対談記事</span>
       
         <span>コンサルティング・アドバイザリー</span>
+      </div>
+      <div class="advisory">
+        <h3>コンサルティング・アドバイザリー</h3>
+        <p>観察者の目で御社の会議に参加し、外からは見えにくい「あたりまえ」の偏りに気づく視点をお渡しします。</p>
+        <ul>
+          <li>月1回、会議に参加します（オンライン・対面、両方可）</li>
+          <li>御社のHPやSNSに「アドバイザー：もりー」と表記いただけます。会議の様子の写真撮影・発信も可能です</li>
+          <li>いただいたお話の守秘は徹底します。そのうえで、差し支えない範囲でポッドキャストで話題に出すことがあるかもしれません</li>
+        </ul>
+        <p class="a-terms">数社限定でお受けしています。<br>月額50,000円（税込）<br>内容によっては、お受けできない場合があります。</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSftYa7em2jZwibIyQj5QAf_DyFV8xNlUERORg0kzkBVegWY_g/viewform" target="_blank" rel="noopener">お申し込みフォーム</a></div>
       </div>
     </div>
   </div>
@@ -812,7 +831,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Speaking &amp; Appearance Inquiries</h2>
     <div class="contact-box">
-      <p>For talk shows, guest appearances on podcasts and radio, lectures, and co-writing or contributed pieces, please get in touch via the form. For companies, I also offer consulting and advisory services. (I accept guest and speaking invitations only; I don't host or promote my own audience-gathering events.)</p>
+      <p>For talk shows, guest appearances on podcasts and radio, lectures, and co-writing or contributed pieces, please get in touch via the form. (I accept guest and speaking invitations only; I don't host or promote my own audience-gathering events.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Speaking &amp; Appearance Inquiry Form</a>
       <div class="formats">
         <span>Talk shows / panel discussions</span>
@@ -821,6 +840,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Co-writing, contributions &amp; interview articles</span>
       
         <span>Consulting & Advisory</span>
+      </div>
+      <div class="advisory">
+        <h3>Consulting &amp; Advisory</h3>
+        <p>I will join your company&rsquo;s meetings with an observer&rsquo;s eye, offering a perspective that helps you notice the biases hidden in what everyone takes for granted &mdash; the things that are hard to see from the inside.</p>
+        <ul>
+          <li>I join one meeting a month (online or in person &mdash; both are fine)</li>
+          <li>You may list &ldquo;Advisor: Molly&rdquo; on your company&rsquo;s website and social media. Photos of our meetings may also be taken and shared</li>
+          <li>Everything you share with me is kept strictly confidential. That said, within a range that causes no issues, I may occasionally bring it up as a topic on my podcast</li>
+        </ul>
+        <p class="a-terms">I accept only a small number of companies.<br>&yen;50,000 per month (tax included)<br>Depending on the content, I may not be able to accept.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Application Form</a></div>
       </div>
     </div>
   </div>
@@ -1117,7 +1147,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">출연·강연 의뢰</h2>
     <div class="contact-box">
-      <p>토크쇼, 팟캐스트나 라디오 게스트 출연, 강연, 공저·기고 상담은 이 폼으로 보내 주세요. 기업을 대상으로는 컨설팅·자문도 받고 있습니다. (초청받는 출연만 받고 있으며, 주최·모객은 하지 않습니다)</p>
+      <p>토크쇼, 팟캐스트나 라디오 게스트 출연, 강연, 공저·기고 상담은 이 폼으로 보내 주세요. (초청받는 출연만 받고 있으며, 주최·모객은 하지 않습니다)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">출연·강연 의뢰 폼</a>
       <div class="formats">
         <span>토크쇼 / 패널 토론</span>
@@ -1126,6 +1156,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>공저·기고·대담 기사</span>
       
         <span>컨설팅·자문</span>
+      </div>
+      <div class="advisory">
+        <h3>컨설팅·자문</h3>
+        <p>관찰자의 시선으로 귀사의 회의에 참여해, 안에서는 보이기 어려운 '당연함'의 편향을 깨닫게 하는 관점을 전해 드립니다.</p>
+        <ul>
+          <li>월 1회 회의에 참여합니다 (온라인·대면 모두 가능)</li>
+          <li>귀사의 홈페이지나 SNS에 '어드바이저: Molly'라고 표기하실 수 있습니다. 회의 모습의 사진 촬영·발신도 가능합니다</li>
+          <li>들려주신 이야기는 철저히 비밀로 지킵니다. 그 위에, 문제가 없는 범위에서 팟캐스트에서 화제로 삼을 수도 있습니다</li>
+        </ul>
+        <p class="a-terms">소수 기업만 받고 있습니다.<br>월 50,000엔 (세금 포함)<br>내용에 따라서는 받지 못할 수도 있습니다.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">신청 폼</a></div>
       </div>
     </div>
   </div>
@@ -1422,7 +1463,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Permintaan Tampil &amp; Berbicara</h2>
     <div class="contact-box">
-      <p>Untuk talk show, tampil sebagai tamu di podcast dan radio, ceramah, serta konsultasi penulisan bersama dan kontribusi tulisan, silakan sampaikan melalui formulir ini. Untuk perusahaan, saya juga menerima konsultasi dan advis. (Saya hanya menerima peran sebagai pihak yang diundang untuk tampil. Saya tidak menyelenggarakan acara atau mengumpulkan peserta sendiri.)</p>
+      <p>Untuk talk show, tampil sebagai tamu di podcast dan radio, ceramah, serta konsultasi penulisan bersama dan kontribusi tulisan, silakan sampaikan melalui formulir ini. (Saya hanya menerima peran sebagai pihak yang diundang untuk tampil. Saya tidak menyelenggarakan acara atau mengumpulkan peserta sendiri.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Formulir Permintaan Tampil &amp; Berbicara</a>
       <div class="formats">
         <span>Talk show / diskusi panel</span>
@@ -1431,6 +1472,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Penulisan bersama, kontribusi tulisan, &amp; artikel dialog</span>
       
         <span>Konsultasi & Advis</span>
+      </div>
+      <div class="advisory">
+        <h3>Konsultasi &amp; Advis</h3>
+        <p>Saya akan mengikuti rapat perusahaan Anda dengan sudut pandang seorang pengamat, dan memberikan perspektif yang membantu menyadari bias dalam hal-hal yang dianggap &lsquo;sudah sewajarnya&rsquo; &mdash; yang sulit terlihat dari dalam.</p>
+        <ul>
+          <li>Saya mengikuti rapat satu kali sebulan (online maupun tatap muka, keduanya bisa)</li>
+          <li>Anda dapat mencantumkan &lsquo;Penasihat: Molly&rsquo; di situs web dan media sosial perusahaan Anda. Foto suasana rapat juga boleh diambil dan dibagikan</li>
+          <li>Semua yang Anda sampaikan akan saya jaga kerahasiaannya. Meski begitu, dalam batas yang tidak menimbulkan masalah, mungkin sesekali saya jadikan topik di podcast</li>
+        </ul>
+        <p class="a-terms">Saya hanya menerima untuk sejumlah kecil perusahaan.<br>50.000 yen per bulan (termasuk pajak)<br>Tergantung isinya, ada kemungkinan saya tidak dapat menerima.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Formulir Pendaftaran</a></div>
       </div>
     </div>
   </div>
@@ -1727,7 +1779,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Permohonan Jemputan &amp; Syarahan</h2>
     <div class="contact-box">
-      <p>Untuk rancangan bual bicara, penampilan tetamu dalam podcast atau radio, syarahan, serta perbincangan penulisan bersama dan sumbangan artikel, sila hubungi saya melalui borang ini. Untuk syarikat, saya juga menerima perundingan dan khidmat nasihat. (Saya hanya menerima jemputan sebagai tetamu atau penceramah. Saya tidak menganjurkan acara atau mengumpul peserta sendiri.)</p>
+      <p>Untuk rancangan bual bicara, penampilan tetamu dalam podcast atau radio, syarahan, serta perbincangan penulisan bersama dan sumbangan artikel, sila hubungi saya melalui borang ini. (Saya hanya menerima jemputan sebagai tetamu atau penceramah. Saya tidak menganjurkan acara atau mengumpul peserta sendiri.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Borang Permohonan Jemputan &amp; Syarahan</a>
       <div class="formats">
         <span>Rancangan bual bicara / perbincangan panel</span>
@@ -1736,6 +1788,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Penulisan bersama, sumbangan artikel &amp; wawancara dialog</span>
       
         <span>Perundingan & Khidmat Nasihat</span>
+      </div>
+      <div class="advisory">
+        <h3>Perundingan &amp; Khidmat Nasihat</h3>
+        <p>Saya akan menyertai mesyuarat syarikat anda dengan pandangan seorang pemerhati, dan menyampaikan perspektif yang membantu menyedari bias dalam perkara yang dianggap &lsquo;biasa&rsquo; &mdash; yang sukar dilihat dari dalam.</p>
+        <ul>
+          <li>Saya menyertai mesyuarat sebulan sekali (dalam talian atau bersemuka, kedua-duanya boleh)</li>
+          <li>Anda boleh menyenaraikan &lsquo;Penasihat: Molly&rsquo; di laman web dan media sosial syarikat anda. Gambar suasana mesyuarat juga boleh diambil dan dikongsi</li>
+          <li>Segala yang anda kongsikan akan saya rahsiakan sepenuhnya. Namun begitu, dalam lingkungan yang tidak menimbulkan masalah, mungkin sekali-sekala saya jadikan topik dalam podcast</li>
+        </ul>
+        <p class="a-terms">Saya hanya menerima untuk sebilangan kecil syarikat.<br>50,000 yen sebulan (termasuk cukai)<br>Bergantung pada kandungannya, ada kemungkinan saya tidak dapat menerima.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Borang Permohonan</a></div>
       </div>
     </div>
   </div>
@@ -2032,7 +2095,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Mời tham gia chương trình / diễn thuyết</h2>
     <div class="contact-box">
-      <p>Nếu bạn muốn trao đổi về talk show, khách mời trên podcast hay radio, diễn thuyết, đồng tác giả / bài viết cộng tác, xin vui lòng gửi qua biểu mẫu này. Đối với doanh nghiệp, tôi cũng nhận tư vấn và cố vấn. (Tôi chỉ nhận tham gia với vai trò được mời. Tôi không tự tổ chức hay kêu gọi khán giả.)</p>
+      <p>Nếu bạn muốn trao đổi về talk show, khách mời trên podcast hay radio, diễn thuyết, đồng tác giả / bài viết cộng tác, xin vui lòng gửi qua biểu mẫu này. (Tôi chỉ nhận tham gia với vai trò được mời. Tôi không tự tổ chức hay kêu gọi khán giả.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Biểu mẫu mời tham gia chương trình / diễn thuyết</a>
       <div class="formats">
         <span>Talk show / Thảo luận bàn tròn</span>
@@ -2041,6 +2104,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Đồng tác giả / Bài viết cộng tác / Bài phỏng vấn đối thoại</span>
       
         <span>Tư vấn & Cố vấn</span>
+      </div>
+      <div class="advisory">
+        <h3>Tư vấn &amp; Cố vấn</h3>
+        <p>Tôi sẽ tham gia các cuộc họp của công ty bạn với góc nhìn của một người quan sát, mang đến một góc nhìn giúp nhận ra những thiên kiến trong điều được coi là &lsquo;đương nhiên&rsquo; &mdash; những điều khó thấy từ bên trong.</p>
+        <ul>
+          <li>Tôi tham gia họp mỗi tháng một lần (trực tuyến hoặc trực tiếp, cả hai đều được)</li>
+          <li>Bạn có thể ghi &lsquo;Cố vấn: Molly&rsquo; trên trang web và mạng xã hội của công ty. Cũng có thể chụp ảnh và chia sẻ hình ảnh cuộc họp</li>
+          <li>Mọi điều bạn chia sẻ đều được tôi giữ bí mật tuyệt đối. Tuy nhiên, trong phạm vi không gây vấn đề, đôi khi tôi có thể nhắc đến như một chủ đề trên podcast</li>
+        </ul>
+        <p class="a-terms">Tôi chỉ nhận cho một số ít công ty.<br>50.000 yên mỗi tháng (đã bao gồm thuế)<br>Tùy theo nội dung, có trường hợp tôi không thể nhận.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Biểu mẫu đăng ký</a></div>
       </div>
     </div>
   </div>
@@ -2337,7 +2411,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">ការស្នើសុំចូលរួម និងឡើងឆាក</h2>
     <div class="contact-box">
-      <p>សម្រាប់ការពិគ្រោះអំពីកម្មវិធីជជែក ការចូលរួមជាភ្ញៀវក្នុងផតខាស់ និងវិទ្យុ បាឋកថា និងការនិពន្ធរួមគ្នា/ការរួមចំណែក សូមផ្ញើមកតាមរយៈទម្រង់បែបបទនេះ។ សម្រាប់ក្រុមហ៊ុន យើងក៏ទទួលការប្រឹក្សា និងផ្តល់យោបល់ផងដែរ។ (យើងទទួលតែការចូលរួមក្នុងនាមជាភាគីដែលត្រូវបានអញ្ជើញប៉ុណ្ណោះ។ យើងមិនរៀបចំ ឬប្រមូលអ្នកចូលរួមដោយខ្លួនឯងទេ)</p>
+      <p>សម្រាប់ការពិគ្រោះអំពីកម្មវិធីជជែក ការចូលរួមជាភ្ញៀវក្នុងផតខាស់ និងវិទ្យុ បាឋកថា និងការនិពន្ធរួមគ្នា/ការរួមចំណែក សូមផ្ញើមកតាមរយៈទម្រង់បែបបទនេះ។ (យើងទទួលតែការចូលរួមក្នុងនាមជាភាគីដែលត្រូវបានអញ្ជើញប៉ុណ្ណោះ។ យើងមិនរៀបចំ ឬប្រមូលអ្នកចូលរួមដោយខ្លួនឯងទេ)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">ទម្រង់ស្នើសុំការចូលរួម និងឡើងឆាក</a>
       <div class="formats">
         <span>កម្មវិធីជជែក / ការពិភាក្សាជាក្រុម</span>
@@ -2346,6 +2420,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>ការនិពន្ធរួមគ្នា ការរួមចំណែក និងអត្ថបទសន្ទនា</span>
       
         <span>ការប្រឹក្សា និងផ្តល់យោបល់</span>
+      </div>
+      <div class="advisory">
+        <h3>ការប្រឹក្សា និងផ្តល់យោបល់</h3>
+        <p>ខ្ញុំនឹងចូលរួមការប្រជុំរបស់ក្រុមហ៊ុនអ្នកដោយភ្នែករបស់អ្នកសង្កេត និងផ្តល់នូវទស្សនៈដែលជួយឲ្យមើលឃើញភាពលំអៀងនៅក្នុងរឿងដែលគេចាត់ទុកថា «ជាធម្មតា» ដែលពិបាកមើលឃើញពីខាងក្នុង។</p>
+        <ul>
+          <li>ខ្ញុំចូលរួមការប្រជុំមួយខែម្តង (តាមអនឡាញ ឬជួបផ្ទាល់ ទាំងពីរក៏បាន)</li>
+          <li>អ្នកអាចសរសេរថា «ទីប្រឹក្សា៖ Molly» នៅលើគេហទំព័រ និងបណ្ដាញសង្គមរបស់ក្រុមហ៊ុនអ្នក។ ការថតរូបបរិយាកាសប្រជុំ និងចែករំលែកក៏អាចធ្វើបានដែរ</li>
+          <li>រឿងរ៉ាវដែលអ្នកប្រាប់ ខ្ញុំនឹងរក្សាការសម្ងាត់យ៉ាងម៉ឺងម៉ាត់។ លើសពីនេះ ក្នុងចន្លោះដែលមិនបង្កបញ្ហា ខ្ញុំអាចនឹងលើកយកមកនិយាយក្នុងផតខាស់ម្តងម្កាល</li>
+        </ul>
+        <p class="a-terms">ខ្ញុំទទួលសម្រាប់តែក្រុមហ៊ុនមួយចំនួនតូចប៉ុណ្ណោះ។<br>50,000 យ៉េន ក្នុងមួយខែ (រួមបញ្ចូលពន្ធ)<br>អាស្រ័យលើខ្លឹមសារ អាចមានករណីដែលខ្ញុំមិនអាចទទួលបាន។</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">ទម្រង់ស្នើសុំ</a></div>
       </div>
     </div>
   </div>
@@ -2643,7 +2728,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Solicitudes de participación y conferencias</h2>
     <div class="contact-box">
-      <p>Para consultas sobre talk shows, participaciones como invitado en pódcast o radio, conferencias y coautorías o colaboraciones, usa este formulario. Para empresas, también ofrezco consultoría y asesoramiento. (Solo acepto invitaciones para participar; no organizo ni convoco eventos propios.)</p>
+      <p>Para consultas sobre talk shows, participaciones como invitado en pódcast o radio, conferencias y coautorías o colaboraciones, usa este formulario. (Solo acepto invitaciones para participar; no organizo ni convoco eventos propios.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Formulario de solicitud de participación y conferencias</a>
       <div class="formats">
         <span>Talk shows / mesas redondas</span>
@@ -2652,6 +2737,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Coautorías, colaboraciones y entrevistas</span>
       
         <span>Consultoría y Asesoramiento</span>
+      </div>
+      <div class="advisory">
+        <h3>Consultoría y Asesoramiento</h3>
+        <p>Participaré en las reuniones de su empresa con la mirada de un observador, aportando una perspectiva que ayuda a detectar los sesgos de lo que se da por &laquo;normal&raquo;, algo difícil de ver desde dentro.</p>
+        <ul>
+          <li>Participo en una reunión al mes (en línea o presencial, ambas opciones son posibles)</li>
+          <li>Puede indicar &laquo;Asesor: Molly&raquo; en la web y las redes sociales de su empresa. También pueden tomarse y compartirse fotos de las reuniones</li>
+          <li>Todo lo que me cuente se mantendrá en estricta confidencialidad. Dicho esto, dentro de un margen que no cause problemas, es posible que alguna vez lo mencione como tema en mi pódcast</li>
+        </ul>
+        <p class="a-terms">Acepto solo a un número reducido de empresas.<br>50.000 yenes al mes (impuestos incluidos)<br>Según el contenido, es posible que no pueda aceptar.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Formulario de solicitud</a></div>
       </div>
     </div>
   </div>
@@ -2949,7 +3045,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Pedidos de participação e palestras</h2>
     <div class="contact-box">
-      <p>Para consultas sobre talk shows, participações como convidado em podcasts ou no rádio, palestras e coautorias ou colaborações, use este formulário. Para empresas, também ofereço consultoria e assessoria. (Aceito apenas convites para participar; não organizo nem promovo eventos próprios.)</p>
+      <p>Para consultas sobre talk shows, participações como convidado em podcasts ou no rádio, palestras e coautorias ou colaborações, use este formulário. (Aceito apenas convites para participar; não organizo nem promovo eventos próprios.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Formulário de pedido de participação e palestras</a>
       <div class="formats">
         <span>Talk shows / mesas-redondas</span>
@@ -2958,6 +3054,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Coautorias, colaborações e entrevistas</span>
       
         <span>Consultoria e Assessoria</span>
+      </div>
+      <div class="advisory">
+        <h3>Consultoria e Assessoria</h3>
+        <p>Participarei das reuniões da sua empresa com o olhar de um observador, oferecendo uma perspectiva que ajuda a perceber os vieses daquilo que é tido como &laquo;normal&raquo; &mdash; algo difícil de enxergar de dentro.</p>
+        <ul>
+          <li>Participo de uma reunião por mês (on-line ou presencial, ambas as opções são possíveis)</li>
+          <li>Você pode indicar &laquo;Assessor: Molly&raquo; no site e nas redes sociais da sua empresa. Fotos das reuniões também podem ser tiradas e compartilhadas</li>
+          <li>Tudo o que me for contado será mantido em sigilo absoluto. Dito isso, dentro de um limite que não cause problemas, é possível que eu o mencione ocasionalmente como tema no meu podcast</li>
+        </ul>
+        <p class="a-terms">Aceito apenas um número reduzido de empresas.<br>50.000 ienes por mês (impostos incluídos)<br>Dependendo do conteúdo, pode ser que eu não possa aceitar.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Formulário de inscrição</a></div>
       </div>
     </div>
   </div>
@@ -3255,7 +3362,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Demandes d'invitation et de conférence</h2>
     <div class="contact-box">
-      <p>Pour les demandes de talk-shows, d'invitations dans des podcasts ou à la radio, de conférences et de coécritures ou contributions, utilisez ce formulaire. Pour les entreprises, je propose aussi des services de conseil et d’accompagnement. (Je n'accepte que les invitations à participer ; je n'organise ni ne recrute pour mes propres événements.)</p>
+      <p>Pour les demandes de talk-shows, d'invitations dans des podcasts ou à la radio, de conférences et de coécritures ou contributions, utilisez ce formulaire. (Je n'accepte que les invitations à participer ; je n'organise ni ne recrute pour mes propres événements.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Formulaire de demande d'invitation et de conférence</a>
       <div class="formats">
         <span>Talk-shows / tables rondes</span>
@@ -3264,6 +3371,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Coécritures, contributions et entretiens</span>
       
         <span>Conseil et Accompagnement</span>
+      </div>
+      <div class="advisory">
+        <h3>Conseil et Accompagnement</h3>
+        <p>Je participerai aux réunions de votre entreprise avec le regard d&rsquo;un observateur, en apportant un point de vue qui aide à repérer les biais de ce qui semble &laquo; aller de soi &raquo; &mdash; des choses difficiles à voir de l&rsquo;intérieur.</p>
+        <ul>
+          <li>Je participe à une réunion par mois (en ligne ou en présentiel, les deux sont possibles)</li>
+          <li>Vous pouvez indiquer &laquo; Conseiller : Molly &raquo; sur le site web et les réseaux sociaux de votre entreprise. Des photos des réunions peuvent également être prises et partagées</li>
+          <li>Tout ce que vous me confierez restera strictement confidentiel. Cela dit, dans une mesure qui ne pose aucun problème, il pourra m&rsquo;arriver d&rsquo;en parler comme sujet dans mon podcast</li>
+        </ul>
+        <p class="a-terms">Je n&rsquo;accepte qu&rsquo;un petit nombre d&rsquo;entreprises.<br>50 000 yens par mois (taxes comprises)<br>Selon le contenu, il est possible que je ne puisse pas accepter.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Formulaire de demande</a></div>
       </div>
     </div>
   </div>
@@ -3561,7 +3679,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">Anfragen für Auftritte &amp; Vorträge</h2>
     <div class="contact-box">
-      <p>Für Anfragen zu Talkshows, Gastauftritten in Podcasts oder im Radio, Vorträgen und gemeinsamen Büchern oder Beiträgen nutzen Sie bitte dieses Formular. Für Unternehmen biete ich auch Beratung und Begleitung. (Ich nehme nur Einladungen zu Auftritten an; eigene Veranstaltungen organisiere und bewerbe ich nicht.)</p>
+      <p>Für Anfragen zu Talkshows, Gastauftritten in Podcasts oder im Radio, Vorträgen und gemeinsamen Büchern oder Beiträgen nutzen Sie bitte dieses Formular. (Ich nehme nur Einladungen zu Auftritten an; eigene Veranstaltungen organisiere und bewerbe ich nicht.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">Formular für Auftritts- und Vortragsanfragen</a>
       <div class="formats">
         <span>Talkshows / Podiumsdiskussionen</span>
@@ -3570,6 +3688,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>Gemeinsame Bücher, Beiträge und Gespräche</span>
       
         <span>Beratung und Begleitung</span>
+      </div>
+      <div class="advisory">
+        <h3>Beratung und Begleitung</h3>
+        <p>Ich nehme mit dem Blick eines Beobachters an den Besprechungen Ihres Unternehmens teil und bringe eine Perspektive ein, die hilft, Verzerrungen im vermeintlich &raquo;Selbstverständlichen&laquo; zu erkennen &ndash; etwas, das von innen schwer zu sehen ist.</p>
+        <ul>
+          <li>Ich nehme einmal im Monat an einer Besprechung teil (online oder vor Ort, beides ist möglich)</li>
+          <li>Sie dürfen &raquo;Berater: Molly&laquo; auf der Website und in den sozialen Medien Ihres Unternehmens angeben. Auch Fotos von den Besprechungen dürfen aufgenommen und geteilt werden</li>
+          <li>Alles, was Sie mir anvertrauen, behandle ich streng vertraulich. Darüber hinaus kann es vorkommen, dass ich es &ndash; in einem unbedenklichen Rahmen &ndash; gelegentlich als Thema in meinem Podcast aufgreife</li>
+        </ul>
+        <p class="a-terms">Ich nehme nur eine kleine Anzahl von Unternehmen an.<br>50.000 Yen pro Monat (inkl. Steuern)<br>Je nach Inhalt kann es sein, dass ich nicht annehmen kann.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">Antragsformular</a></div>
       </div>
     </div>
   </div>
@@ -3867,7 +3996,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">節目邀約・演講邀請</h2>
     <div class="contact-box">
-      <p>談話節目、播客或廣播的來賓邀約、演講、合著與投稿等洽詢，請透過此表單與我聯繫。對企業方面，也提供顧問與諮詢服務。（僅承接受邀出席，不主辦、不招募活動。）</p>
+      <p>談話節目、播客或廣播的來賓邀約、演講、合著與投稿等洽詢，請透過此表單與我聯繫。（僅承接受邀出席，不主辦、不招募活動。）</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">節目邀約・演講邀請表單</a>
       <div class="formats">
         <span>談話節目／座談會</span>
@@ -3876,6 +4005,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>合著・投稿・對談文章</span>
       
         <span>顧問與諮詢</span>
+      </div>
+      <div class="advisory">
+        <h3>顧問與諮詢</h3>
+        <p>我會以觀察者的眼光參與貴公司的會議，帶來能幫助察覺「理所當然」背後偏見的視角——這些是身在其中難以看見的東西。</p>
+        <ul>
+          <li>每月參加一次會議（線上或面對面，兩者皆可）</li>
+          <li>您可以在公司網站與社群媒體上標示「顧問：Molly」。也可以拍攝並分享會議的照片</li>
+          <li>您所分享的內容，我會嚴格保密。在此基礎上，在不造成困擾的範圍內，我偶爾可能會在播客中將其作為話題提及</li>
+        </ul>
+        <p class="a-terms">僅接受少數公司。<br>每月 50,000 日圓（含稅）<br>視內容而定，也可能有無法承接的情況。</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">申請表單</a></div>
       </div>
     </div>
   </div>
@@ -4173,7 +4313,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">उपस्थिति व व्याख्यान के अनुरोध</h2>
     <div class="contact-box">
-      <p>टॉक शो, पॉडकास्ट या रेडियो में मेहमान उपस्थिति, व्याख्यान और सह-लेखन या योगदान के अनुरोध इस फ़ॉर्म से भेजें। कंपनियों के लिए, परामर्श और सलाह भी उपलब्ध है। (मैं केवल आमंत्रित उपस्थितियाँ स्वीकार करता हूँ; अपने कार्यक्रम आयोजित या प्रचारित नहीं करता।)</p>
+      <p>टॉक शो, पॉडकास्ट या रेडियो में मेहमान उपस्थिति, व्याख्यान और सह-लेखन या योगदान के अनुरोध इस फ़ॉर्म से भेजें। (मैं केवल आमंत्रित उपस्थितियाँ स्वीकार करता हूँ; अपने कार्यक्रम आयोजित या प्रचारित नहीं करता।)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">उपस्थिति व व्याख्यान अनुरोध फ़ॉर्म</a>
       <div class="formats">
         <span>टॉक शो / पैनल चर्चा</span>
@@ -4182,6 +4322,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>सह-लेखन, योगदान और संवाद लेख</span>
       
         <span>परामर्श और सलाह</span>
+      </div>
+      <div class="advisory">
+        <h3>परामर्श और सलाह</h3>
+        <p>मैं एक पर्यवेक्षक की नज़र से आपकी कंपनी की बैठकों में शामिल होऊँगा और ऐसा दृष्टिकोण दूँगा जो 'स्वाभाविक' मानी जाने वाली बातों में छिपे पूर्वाग्रहों को पहचानने में मदद करे — जो भीतर से देखना मुश्किल होता है।</p>
+        <ul>
+          <li>मैं महीने में एक बार बैठक में शामिल होता हूँ (ऑनलाइन या आमने-सामने, दोनों संभव हैं)</li>
+          <li>आप अपनी कंपनी की वेबसाइट और सोशल मीडिया पर 'सलाहकार: Molly' लिख सकते हैं। बैठकों की तस्वीरें भी ली और साझा की जा सकती हैं</li>
+          <li>आप जो कुछ भी साझा करेंगे, उसे मैं पूरी तरह गोपनीय रखूँगा। इसके साथ ही, जिस सीमा तक कोई समस्या न हो, कभी-कभी मैं इसे अपने पॉडकास्ट में विषय के रूप में उठा सकता हूँ</li>
+        </ul>
+        <p class="a-terms">मैं केवल कुछ ही कंपनियों के लिए स्वीकार करता हूँ।<br>50,000 येन प्रति माह (कर सहित)<br>सामग्री के आधार पर, कुछ मामलों में स्वीकार करना संभव नहीं हो सकता।</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">आवेदन फ़ॉर्म</a></div>
       </div>
     </div>
   </div>
@@ -4479,7 +4630,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">طلبات الظهور والمحاضرات</h2>
     <div class="contact-box">
-      <p>لطلبات البرامج الحوارية، والظهور ضيفًا في البودكاست أو الإذاعة، والمحاضرات، والمشاركة في التأليف أو الكتابة، يرجى استخدام هذا النموذج. وللشركات، أقدّم أيضًا الاستشارات والمشورة. (أقبل فقط الدعوات للظهور؛ لا أنظّم فعالياتي الخاصة ولا أروّج لها.)</p>
+      <p>لطلبات البرامج الحوارية، والظهور ضيفًا في البودكاست أو الإذاعة، والمحاضرات، والمشاركة في التأليف أو الكتابة، يرجى استخدام هذا النموذج. (أقبل فقط الدعوات للظهور؛ لا أنظّم فعالياتي الخاصة ولا أروّج لها.)</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">نموذج طلب الظهور والمحاضرات</a>
       <div class="formats">
         <span>برامج حوارية / نقاشات جماعية</span>
@@ -4488,6 +4639,17 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span>تأليف مشترك ومساهمات ومقالات حوارية</span>
       
         <span>الاستشارات والمشورة</span>
+      </div>
+      <div class="advisory">
+        <h3>الاستشارات والمشورة</h3>
+        <p>سأشارك في اجتماعات شركتكم بعين المراقب، مقدّمًا منظورًا يساعد على إدراك الانحيازات الكامنة في ما يُعتبر «أمرًا مسلّمًا به» — وهي أمور يصعب رؤيتها من الداخل.</p>
+        <ul>
+          <li>أشارك في اجتماع واحد شهريًا (عبر الإنترنت أو حضوريًا، وكلاهما ممكن)</li>
+          <li>يمكنكم ذكر «المستشار: Molly» على موقع شركتكم وحساباتها على وسائل التواصل الاجتماعي. ويمكن أيضًا تصوير أجواء الاجتماعات ومشاركتها</li>
+          <li>كل ما تشاركونني به سيبقى سرّيًا تمامًا. ومع ذلك، وضمن حدود لا تسبب أي إشكال، قد أذكره أحيانًا كموضوع في البودكاست الخاص بي</li>
+        </ul>
+        <p class="a-terms">أقبل عددًا محدودًا فقط من الشركات.<br>50,000 ين شهريًا (شامل الضريبة)<br>وبحسب المحتوى، قد يتعذر عليّ القبول في بعض الحالات.</p>
+        <div class="a-cta"><a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdiTZdZi7lWL-tjgq4_g2ROW85E0NZcZwcs8rpoXiPe01rsOQ/viewform" target="_blank" rel="noopener">نموذج التقديم</a></div>
       </div>
     </div>
   </div>
