@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="cat.png">
+<link rel="apple-touch-icon" href="cat.png">
 <title>ホビサヤ by もりー｜もりー公式ホームページ</title>
 <meta name="description" content="ホビサヤ by もりーは、旅するポッドキャスター・もりーの公式ホームページ。ポッドキャスト『ホビサヤ』、話せるテーマ、著書『ホビサヤ』、出演・登壇のご依頼はこちら。">
 <link rel="canonical" href="https://yuichiro-morimoto.github.io/">
@@ -102,6 +104,8 @@ nav a:hover{color:var(--ink);text-decoration:none}
 }
 .hero .axis strong{color:var(--text);font-weight:700}
 .hero .cta-row{margin-top:56px;display:flex;flex-wrap:wrap;gap:18px 36px;align-items:center}
+.hero-cat{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
+@media(max-width:900px){.hero-cat{position:static;display:block;margin-top:44px;width:140px;height:140px}}
 .btn{
   display:inline-block;padding:16px 38px;border-radius:0;font-weight:600;font-size:14px;letter-spacing:.14em;
   transition:background .2s ease,color .2s ease,box-shadow .2s ease;
@@ -234,6 +238,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <a class="btn btn-primary" href="#contact">出演・登壇のご依頼</a>
       <a class="btn btn-ghost" href="#themes">話せるテーマを見る</a>
     </div>
+    <img class="hero-cat" src="cat.png" alt="ホビサヤの白猫">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
