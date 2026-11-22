@@ -123,6 +123,8 @@ nav a:hover{color:var(--ink);text-decoration:none}
 
 /* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.profile-photo{width:200px;height:200px;object-fit:cover;border-radius:16px;margin-bottom:26px}
+.book-cover{width:170px;height:auto;display:block;margin-bottom:18px}
 .profile-grid p{margin-bottom:22px;max-width:680px}
 .profile-grid .hl{font-weight:700}
 .stats{display:flex;flex-wrap:wrap;gap:0 40px;margin-top:44px}
@@ -238,7 +240,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <a class="btn btn-primary" href="#contact">出演・登壇のご依頼</a>
       <a class="btn btn-ghost" href="#themes">話せるテーマを見る</a>
     </div>
-    <img class="hero-cat" src="cat.png" alt="ホビサヤの白猫">
+    <img class="hero-cat" src="cat-hero.png" alt="ホビサヤの白猫">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -254,6 +256,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">プロフィール</h2>
     <div class="profile-grid">
+      <img class="profile-photo" src="profile.jpg" alt="遺跡に立つもりー">
       <p><span class="hl">もりー</span>です。ポッドキャスト『ホビサヤ』のパーソナリティで、旅するポッドキャスター／著者として活動しています。</p>
       <p>ポッドキャスト「ホビサヤ」（stand.fm／YouTube）を配信し、YouTubeでは3チャンネルを運営。東南アジアを中心に世界12ヶ国を旅し、韓国語・タイ語・インドネシア語など東南アジアの言語を独学で学んできました。AIを相棒にひとり事業を回し、自作アラームアプリ「世界の音で目覚める」も開発しています。</p>
       <p>発信の軸は「人生の主導権を取り戻す」。他人の物差しから降りて、自分の選択で生きるための考え方を、旅と日常の実践から語ります。</p>
@@ -430,8 +433,10 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="book-grid">
       <div class="book">
         <div class="b-tag">SELF-HELP</div>
+        <a href="https://www.amazon.co.jp/dp/B0HS7X8HHV?tag=newplain01-22" target="_blank" rel="noopener"><img class="book-cover" src="book-hobisaya.jpg" alt="『ホビサヤ 人生の主導権を取り戻す方法』表紙"></a>
         <h3>『ホビサヤ 人生の主導権を取り戻す方法』</h3>
         <p>ポッドキャスト「ホビサヤ」の語りを再構成した自己啓発書。グレーで考える思考法、仕事の4象限と「2割残しの法則」、主導権の取り戻し方を10章で語ります。</p>
+        <a class="b-link" href="https://www.amazon.co.jp/dp/B0HS7X8HHV?tag=newplain01-22" target="_blank" rel="noopener">Amazonで見る →</a>
       </div>
     </div>
   </div>
@@ -485,7 +490,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="sec-label" style="text-align:center">Contact</div>
     <h2 class="sec-title" style="text-align:center">出演・登壇のご依頼</h2>
     <div class="contact-box">
-      <p>トークショー、ポッドキャストやラジオへのゲスト出演、講演、共著・寄稿のご相談は、こちらのフォームからお寄せください。（呼ばれる側の出演のみ承っています。主催・集客は行っていません）</p>
+      <p>トークショー、ポッドキャストやラジオへのゲスト出演、講演、共著・寄稿のご相談は、こちらのフォームからお寄せください。企業向けには、現場を観察する文化人類学的な視点からのコンサルティング（調査・研修・諮問）も承っています。（呼ばれる側の出演のみ承っています。主催・集客は行っていません）</p>
       <a class="btn btn-primary btn-big" href="https://docs.google.com/forms/d/e/1FAIpQLSf0Uhc8mAmSJMSolHMZtL5gKjye0BMOym5LWNIUpBn-Idz7dg/viewform" target="_blank" rel="noopener">出演・登壇のご依頼フォーム</a>
       <div class="formats">
         <span>トークショー／パネルディスカッション</span>
