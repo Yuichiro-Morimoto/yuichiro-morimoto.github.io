@@ -856,9 +856,9 @@ function wmFitDots(svg, scale){
 (function(){
   document.querySelectorAll('.world-map').forEach(function(map){
     var tip = map.querySelector('.wm-tip');
-    var svg = map.querySelector('svg');
-    if(!tip || !svg) return;
     var pins = Array.prototype.slice.call(map.querySelectorAll('[data-tip]'));
+    var svg = pins.length ? pins[0].closest('svg') : null;
+    if(!tip || !svg) return;
     var current = null;
     function centerOf(el){
       var dot = el.querySelector('.wm-dot') || el;
