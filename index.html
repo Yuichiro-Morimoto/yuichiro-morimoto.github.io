@@ -342,6 +342,10 @@ footer small{font-size:13.5px}
 .formats span{font-size:14px}
 .contact-box .advisory .a-terms{font-size:15px}
 .proj-card .p-desc{font-size:15.5px}
+
+/* ---------- inline map tooltip robustness (2026-11-23) ---------- */
+.world-map{position:relative}
+.world-map .wm-tip{position:absolute}
 </style>
 </head>
 <body>
@@ -894,12 +898,13 @@ function wmFitDots(svg, scale){
       tip.textContent = el.getAttribute('data-tip');
       tip.hidden = false;
       var c = centerOf(el);
+      var mr = map.getBoundingClientRect();
       var tw = tip.offsetWidth, th = tip.offsetHeight;
-      var x = c.x - tw / 2;
-      var y = c.y - th - 12;
+      var x = c.x - mr.left - tw / 2;
+      var y = c.y - mr.top - th - 12;
       if(x < 6) x = 6;
-      if(x + tw > window.innerWidth - 6) x = window.innerWidth - tw - 6;
-      if(y < 6) y = c.y + 16;
+      if(x + tw > mr.width - 6) x = mr.width - tw - 6;
+      if(y < 6) y = c.y - mr.top + 16;
       tip.style.left = x + 'px';
       tip.style.top = y + 'px';
     }
@@ -918,11 +923,13 @@ function wmFitDots(svg, scale){
       });
       return best;
     }
-    svg.addEventListener('mousemove', function(e){
+    function onHover(e){
       var el = nearest(e.clientX, e.clientY, 30);
       if(el){ if(el !== current) show(el); } else if(current) hide();
-    });
-    svg.addEventListener('mouseleave', hide);
+    }
+    map.addEventListener('mousemove', onHover);
+    map.addEventListener('pointermove', onHover);
+    map.addEventListener('mouseleave', hide);
     svg.addEventListener('click', function(e){
       var el = nearest(e.clientX, e.clientY, 30);
       if(el && el.tagName.toLowerCase() === 'a'){
