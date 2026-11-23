@@ -379,13 +379,13 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="career">
       <h3 class="career-title">Parcours</h3>
       <dl class="career-list">
-        <div class="career-row"><dt>1994</dt><dd>Naissance</dd></div>
+        <div class="career-row"><dt>1994</dt><dd>Naissance au Japon</dd></div>
         <div class="career-row"><dt>2000</dt><dd>Scolarisé dans une école japonaise à Taïwan</dd></div>
         <div class="career-row"><dt>2006</dt><dd>Découvre l'automobile et aspire à devenir designer automobile</dd></div>
         <div class="career-row"><dt>2014</dt><dd>Entre au département de design de la faculté d'ingénierie de l'université de Chiba</dd></div>
         <div class="career-row"><dt>2016</dt><dd>Transféré au département de design fondamental de la faculté d'art et de design de l'université d'art Musashino</dd></div>
         <div class="career-row"><dt>2018</dt><dd>Débute comme designer indépendant (agence de design eau → guilde de design NEWPLAIN)</dd></div>
-        <div class="career-row"><dt>2019</dt><dd>Expose lors d'une exposition à Stockholm</dd></div>
+        <div class="career-row"><dt>2019</dt><dd>Expose à la Stockholm Furniture Fair, l'un des trois grands salons du meuble au monde</dd></div>
         <div class="career-row"><dt>2023</dt><dd>Grand Prix de la 60e édition des Prix Senden Kaigi</dd></div>
         <div class="career-row"><dt>2023</dt><dd>Lance des chaînes de langues sur YouTube</dd></div>
         <div class="career-row"><dt>2024</dt><dd>Commence à voyager à travers le monde</dd></div>
@@ -857,9 +857,9 @@ function wmFitDots(svg, scale){
 (function(){
   document.querySelectorAll('.world-map').forEach(function(map){
     var tip = map.querySelector('.wm-tip');
-    var svg = map.querySelector('svg');
-    if(!tip || !svg) return;
     var pins = Array.prototype.slice.call(map.querySelectorAll('[data-tip]'));
+    var svg = pins.length ? pins[0].closest('svg') : null;
+    if(!tip || !svg) return;
     var current = null;
     function centerOf(el){
       var dot = el.querySelector('.wm-dot') || el;
