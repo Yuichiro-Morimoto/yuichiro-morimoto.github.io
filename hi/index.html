@@ -379,13 +379,13 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="career">
       <h3 class="career-title">संक्षिप्त जीवनी</h3>
       <dl class="career-list">
-        <div class="career-row"><dt>1994</dt><dd>जन्म</dd></div>
+        <div class="career-row"><dt>1994</dt><dd>जापान में जन्म</dd></div>
         <div class="career-row"><dt>2000</dt><dd>ताइवान में एक जापानी स्कूल में समय बिताया</dd></div>
         <div class="career-row"><dt>2006</dt><dd>कारों से परिचय हुआ और कार डिज़ाइनर बनने का सपना देखा</dd></div>
         <div class="career-row"><dt>2014</dt><dd>चिबा विश्वविद्यालय के इंजीनियरिंग संकाय के डिज़ाइन विभाग में प्रवेश</dd></div>
         <div class="career-row"><dt>2016</dt><dd>मुसाशिनो कला विश्वविद्यालय के कला एवं डिज़ाइन संकाय के बेसिक डिज़ाइन विभाग में स्थानांतरण</dd></div>
         <div class="career-row"><dt>2018</dt><dd>फ्रीलांस डिज़ाइनर के रूप में काम शुरू (डिज़ाइन फ़र्म eau → डिज़ाइन गिल्ड NEWPLAIN)</dd></div>
-        <div class="career-row"><dt>2019</dt><dd>स्टॉकहोम में एक प्रदर्शनी में भाग लिया</dd></div>
+        <div class="career-row"><dt>2019</dt><dd>दुनिया के तीन बड़े फ़र्नीचर मेलों में से एक, स्टॉकहोम फ़र्नीचर फ़ेयर में प्रदर्शनी</dd></div>
         <div class="career-row"><dt>2023</dt><dd>60वें «Senden Kaigi Award» में ग्रैंड प्रिक्स</dd></div>
         <div class="career-row"><dt>2023</dt><dd>YouTube पर भाषा चैनल शुरू किए</dd></div>
         <div class="career-row"><dt>2024</dt><dd>दुनिया की यात्रा शुरू की</dd></div>
@@ -857,9 +857,9 @@ function wmFitDots(svg, scale){
 (function(){
   document.querySelectorAll('.world-map').forEach(function(map){
     var tip = map.querySelector('.wm-tip');
-    var svg = map.querySelector('svg');
-    if(!tip || !svg) return;
     var pins = Array.prototype.slice.call(map.querySelectorAll('[data-tip]'));
+    var svg = pins.length ? pins[0].closest('svg') : null;
+    if(!tip || !svg) return;
     var current = null;
     function centerOf(el){
       var dot = el.querySelector('.wm-dot') || el;
