@@ -379,13 +379,13 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="career">
       <h3 class="career-title">Werdegang</h3>
       <dl class="career-list">
-        <div class="career-row"><dt>1994</dt><dd>Geboren</dd></div>
+        <div class="career-row"><dt>1994</dt><dd>Geboren in Japan</dd></div>
         <div class="career-row"><dt>2000</dt><dd>Schulzeit an einer japanischen Schule in Taiwan</dd></div>
         <div class="career-row"><dt>2006</dt><dd>Entdeckung der Autos und Berufsziel Autodesigner</dd></div>
         <div class="career-row"><dt>2014</dt><dd>Studium am Fachbereich Design der Fakultät für Ingenieurwissenschaften der Universität Chiba</dd></div>
         <div class="career-row"><dt>2016</dt><dd>Wechsel an den Fachbereich Basisdesign der Fakultät für Kunst und Design der Musashino Kunstuniversität</dd></div>
         <div class="career-row"><dt>2018</dt><dd>Beginn der Tätigkeit als freier Designer (Designbüro eau → Designgilde NEWPLAIN)</dd></div>
-        <div class="career-row"><dt>2019</dt><dd>Teilnahme an einer Ausstellung in Stockholm</dd></div>
+        <div class="career-row"><dt>2019</dt><dd>Ausstellung auf der Stockholm Furniture Fair, einer der drei großen Möbelmessen der Welt</dd></div>
         <div class="career-row"><dt>2023</dt><dd>Grand Prix beim 60. Senden Kaigi Award</dd></div>
         <div class="career-row"><dt>2023</dt><dd>Start von Sprachkanälen auf YouTube</dd></div>
         <div class="career-row"><dt>2024</dt><dd>Beginn der Weltreisen</dd></div>
@@ -857,9 +857,9 @@ function wmFitDots(svg, scale){
 (function(){
   document.querySelectorAll('.world-map').forEach(function(map){
     var tip = map.querySelector('.wm-tip');
-    var svg = map.querySelector('svg');
-    if(!tip || !svg) return;
     var pins = Array.prototype.slice.call(map.querySelectorAll('[data-tip]'));
+    var svg = pins.length ? pins[0].closest('svg') : null;
+    if(!tip || !svg) return;
     var current = null;
     function centerOf(el){
       var dot = el.querySelector('.wm-dot') || el;
