@@ -83,6 +83,28 @@ a.wm-link:hover .wm-dot{transform:scale(1.6)}
 a.wm-link.wm-hover .wm-dot{transform:scale(1.6)}
 .wm-pin{cursor:default}
 .wm-tip{position:fixed;z-index:300;background:#1c1e22;color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.03em;line-height:1.5;padding:7px 13px;border-radius:8px;white-space:nowrap;pointer-events:none;box-shadow:0 8px 24px rgba(20,30,40,.22)}
+/* ---------- hobisaya spacing (scoped) ---------- */
+#hobisaya .link-grid{margin-top:20px}
+/* ---------- law: second entry ---------- */
+.law-box h3.law-more{margin-top:46px}
+/* ---------- world map zoom ---------- */
+.wm-actions{display:flex;justify-content:flex-end;margin:-4px 0 10px}
+.wm-expand{display:inline-flex;align-items:center;gap:7px;font:inherit;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--ink);background:#fff;border:1px solid var(--line-dark);border-radius:999px;padding:7px 16px;cursor:pointer;transition:border-color .18s ease,background .18s ease}
+.wm-expand:hover{border-color:var(--ink);background:rgba(1,161,221,.06)}
+.wm-expand svg{width:15px;height:15px;flex:none}
+.wmz{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center}
+.wmz[hidden]{display:none}
+.wmz-backdrop{position:absolute;inset:0;background:rgba(18,24,30,.62)}
+.wmz-panel{position:relative;width:min(1240px,96vw);max-height:94dvh;background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(10,20,30,.35);padding:54px 18px 18px;display:flex;flex-direction:column}
+.wmz-bar{position:absolute;top:10px;right:12px;display:flex;gap:8px;z-index:5}
+.wmz-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line-dark);background:#fff;color:var(--text);font-size:19px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:inherit;padding:0}
+.wmz-btn:hover{border-color:var(--ink);color:var(--ink)}
+.wmz-viewport{overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab;border-radius:8px}
+.wmz-viewport.wmz-drag{cursor:grabbing}
+.wmz-stage{width:min(1180px,92vw,calc((94dvh - 100px)*2.4096));max-width:100%}
+.wmz-stage svg{width:100%;height:auto;display:block;direction:ltr}
+body.wmz-open{overflow:hidden}
+
 
 /* ---------- header ---------- */
 header{
@@ -378,6 +400,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>訪れた都市</h3>
       <p class="wm-note">水色のドットをクリックすると、その土地のプレイリストが開きます</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>地図を拡大</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="ベトナム・ハノイ"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="ベトナム・ダナン"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="ベトナム・ホイアン"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="ベトナム・ホーチミン"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="ベトナム・ダラット"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="ベトナム・ブンタウ"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="マレーシア・クアラルンプール"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="マレーシア・クアラトレンガヌ"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="マレーシア・イポー"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="マレーシア・ペナン"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="マレーシア・ランカウイ"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="マレーシア・コタキナバル"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="フィリピン・セブシティ"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="フィリピン・ミングラニーラ"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="フィリピン・オスロブ"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="タイ・バンコク" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="タイ・アユタヤ" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="インドネシア・ジョグジャカルタ"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="インドネシア・バリ"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="カンボジア・プノンペン"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="カンボジア・シェムリアップ"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="インド・ニューデリー" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="インド・アグラ" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="インド・ジャイプル" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="インド・バラナシ" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="韓国・ソウル" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="中国・蘇州" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="台湾・高雄" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="スウェーデン・ストックホルム" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="シンガポール・シンガポール" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="アメリカ・ホノルル" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="アメリカ・グアム" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="日本・那覇"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -394,11 +417,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok｜@molly_japanese</div>
         <div class="l-desc">旅先からのライブ配信</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram｜@molly_.yu</div>
-        <div class="l-desc">旅の写真とリール</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -431,6 +449,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜ホビサヤ by もりー</div>
         <div class="l-desc">ポッドキャストと旅のメインチャンネル</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify｜ホビサヤ</div>
+        <div class="l-desc">ホビサヤをSpotifyでも配信中</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜もりー</div>
@@ -440,11 +463,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">ニュースレター｜ホビサヤ Letter</div>
         <div class="l-desc">1週間の発信から、生き方のヒントを週1回お届け</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify｜ホビサヤ</div>
-        <div class="l-desc">ホビサヤをSpotifyでも配信中</div>
       </a>
     </div>
   </div>
@@ -457,6 +475,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>2割残しの法則</h3>
       <p>仕事の中の「やりたくない2割」は、消す対象ではなく、あえて残すものとして自分で選ぶ。嫌な仕事を消しても、新たに2割が「嫌」になる。だからこそ、残す2割を自分で選ぶことに主導権があります。</p>
+      <h3 class="law-more">長所・短所は幻想</h3>
+      <p>長所と短所は、別々のものではなく同じ「特徴」です。場所や時代、見る側が変われば、短所と呼ばれたものが長所に、長所が短所に入れ替わります。</p>
     </div>
   </div>
 </section>
@@ -817,6 +837,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Cities Visited</h3>
       <p class="wm-note">Click a blue dot to open the playlist for that place.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Enlarge map</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hanoi"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Vietnam · Da Nang"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hoi An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Vietnam · Ho Chi Minh City"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Da Lat"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Vung Tau"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Penang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Cebu City"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Thailand · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Thailand · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonesia · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonesia · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Cambodia · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Cambodia · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="India · New Delhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="India · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="South Korea · Seoul" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="China · Suzhou" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Taiwan · Kaohsiung" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Sweden · Stockholm" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapore · Singapore" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="USA · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="USA · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Japan · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -833,11 +854,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">Live streams from the road</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Travel photos and reels</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -870,6 +886,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube | HOBISAYA by Molly</div>
         <div class="l-desc">The main channel for the podcast and travel</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA, also on Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note | Molly</div>
@@ -879,11 +900,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Newsletter | HOBISAYA Letter</div>
         <div class="l-desc">Weekly hints for living, drawn from a week of HOBISAYA</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA, also on Spotify</div>
       </a>
     </div>
   </div>
@@ -896,6 +912,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>The Keep-Your-20% Rule</h3>
       <p>The 20% of your work you'd rather not do isn't something to eliminate — it's something to choose, deliberately, to keep. Get rid of the work you hate, and a new 20% will simply turn into the work you hate. That is exactly why the reins are in your hands when you choose which 20% to keep.</p>
+      <h3 class="law-more">Strengths and Weaknesses Are an Illusion</h3>
+      <p>Strengths and weaknesses are not separate things — they are the same trait. Change the place, the era, or who is looking, and what was called a weakness can become a strength, and a strength a weakness.</p>
     </div>
   </div>
 </section>
@@ -1256,6 +1274,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>방문한 도시</h3>
       <p class="wm-note">파란 점을 클릭하면 그곳의 재생목록이 열립니다</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>지도 확대</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="베트남 · 하노이"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="베트남 · 다낭"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="베트남 · 호이안"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="베트남 · 호찌민"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="베트남 · 달랏"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="베트남 · 붕따우"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="말레이시아 · 쿠알라룸푸르"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="말레이시아 · 쿠알라트렝가누"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="말레이시아 · 이포"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="말레이시아 · 페낭"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="말레이시아 · 랑카위"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="말레이시아 · 코타키나발루"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="필리핀 · 세부시티"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="필리핀 · 밍라닐라"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="필리핀 · 오슬롭"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="태국 · 방콕" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="태국 · 아유타야" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="인도네시아 · 족자카르타"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="인도네시아 · 발리"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="캄보디아 · 프놈펜"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="캄보디아 · 시엠립"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="인도 · 뉴델리" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="인도 · 아그라" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="인도 · 자이푸르" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="인도 · 바라나시" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="한국 · 서울" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="중국 · 쑤저우" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="대만 · 가오슝" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="스웨덴 · 스톡홀름" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="싱가포르 · 싱가포르" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="미국 · 호놀룰루" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="미국 · 괌" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="일본 · 나하"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -1272,11 +1291,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">여행지에서의 라이브 방송</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">여행 사진과 릴스</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -1309,6 +1323,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">팟캐스트와 여행의 메인 채널</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">Spotify에서도 만나는 HOBISAYA</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -1318,11 +1337,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">뉴스레터｜HOBISAYA Letter</div>
         <div class="l-desc">한 주의 발신에서 뽑은 삶의 힌트를 주 1회 전달</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">Spotify에서도 만나는 HOBISAYA</div>
       </a>
     </div>
   </div>
@@ -1335,6 +1349,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>20% 남기기의 법칙</h3>
       <p>일 속의 '하기 싫은 20%'는 없애야 할 대상이 아니라, 일부러 남기는 것으로 스스로 선택하는 것입니다. 싫은 일을 없애도 새롭게 20%가 '싫은 일'이 됩니다. 그렇기에 남길 20%를 스스로 선택하는 데에 주도권이 있습니다.</p>
+      <h3 class="law-more">장점과 단점은 환상</h3>
+      <p>장점과 단점은 별개의 것이 아니라 같은 '특징'입니다. 장소와 시대, 보는 사람이 바뀌면 단점이라 불리던 것이 장점이 되고, 장점이 단점으로 뒤바뀌기도 합니다.</p>
     </div>
   </div>
 </section>
@@ -1695,6 +1711,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Kota yang Dikunjungi</h3>
       <p class="wm-note">Klik titik biru untuk membuka daftar putar tempat tersebut.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Perbesar peta</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hanoi"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Vietnam · Da Nang"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hoi An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Vietnam · Kota Ho Chi Minh"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Da Lat"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Vung Tau"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Penang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipina · Kota Cebu"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipina · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipina · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Thailand · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Thailand · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonesia · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonesia · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Kamboja · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Kamboja · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="India · New Delhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="India · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="Korea Selatan · Seoul" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="Tiongkok · Suzhou" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Taiwan · Kaohsiung" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Swedia · Stockholm" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapura · Singapura" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="Amerika Serikat · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="Amerika Serikat · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Jepang · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -1711,11 +1728,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">Strim langsung dari perjalanan</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Foto dan reels perjalanan</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -1748,6 +1760,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">Kanal utama untuk podcast dan perjalanan</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA juga di Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -1757,11 +1774,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Newsletter | HOBISAYA Letter</div>
         <div class="l-desc">Petunjuk hidup dari rangkuman seminggu HOBISAYA, dikirim seminggu sekali</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA juga di Spotify</div>
       </a>
     </div>
   </div>
@@ -1774,6 +1786,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>Hukum Menyisakan 20 Persen</h3>
       <p>"20 persen pekerjaan yang tidak ingin dilakukan" bukanlah sesuatu untuk dihapus, melainkan sesuatu yang kita pilih sendiri untuk sengaja disisakan. Sekalipun pekerjaan yang dibenci dihilangkan, akan muncul lagi 20 persen baru yang terasa "tidak disukai". Justru karena itulah, kendali berada pada tindakan memilih sendiri 20 persen mana yang akan disisakan.</p>
+      <h3 class="law-more">Kelebihan dan Kekurangan Hanyalah Ilusi</h3>
+      <p>Kelebihan dan kekurangan bukanlah dua hal yang terpisah, melainkan 'ciri' yang sama. Berganti tempat, zaman, atau sudut pandang, yang disebut kekurangan bisa menjadi kelebihan, dan sebaliknya.</p>
     </div>
   </div>
 </section>
@@ -2134,6 +2148,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Bandar yang Dilawati</h3>
       <p class="wm-note">Klik titik biru untuk membuka senarai main tempat tersebut.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Besarkan peta</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hanoi"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Vietnam · Da Nang"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hoi An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Vietnam · Bandar Ho Chi Minh"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Da Lat"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Vung Tau"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Pulau Pinang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipina · Bandar Cebu"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipina · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipina · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Thailand · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Thailand · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonesia · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonesia · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Kemboja · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Kemboja · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="India · New Delhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="India · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="Korea Selatan · Seoul" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="China · Suzhou" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Taiwan · Kaohsiung" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Sweden · Stockholm" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapura · Singapura" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="Amerika Syarikat · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="Amerika Syarikat · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Jepun · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -2150,11 +2165,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">Siaran langsung dari perjalanan</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Foto dan reels perjalanan</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -2187,6 +2197,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube | HOBISAYA by Molly</div>
         <div class="l-desc">Saluran utama untuk podcast dan perjalanan</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA juga di Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note | Molly</div>
@@ -2196,11 +2211,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Newsletter | HOBISAYA Letter</div>
         <div class="l-desc">Petua kehidupan daripada seminggu HOBISAYA, dihantar seminggu sekali</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA juga di Spotify</div>
       </a>
     </div>
   </div>
@@ -2213,6 +2223,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>Peraturan Kekalkan 20%</h3>
       <p>“20% kerja yang tidak mahu dilakukan” bukanlah sesuatu untuk dihapuskan, tetapi sesuatu yang kita pilih sendiri untuk dikekalkan dengan sengaja. Walaupun kerja yang dibenci dihapuskan, 20% yang baharu akan muncul sebagai “tidak disukai”. Oleh sebab itu, kendali terletak pada tindakan memilih sendiri 20% yang hendak dikekalkan.</p>
+      <h3 class="law-more">Kelebihan dan Kekurangan Hanyalah Ilusi</h3>
+      <p>Kelebihan dan kekurangan bukanlah dua perkara berasingan, sebaliknya 'ciri' yang sama. Apabila tempat, zaman, atau sudut pandangan berubah, yang disebut kekurangan boleh menjadi kelebihan, dan sebaliknya.</p>
     </div>
   </div>
 </section>
@@ -2573,6 +2585,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Các thành phố đã đến</h3>
       <p class="wm-note">Nhấn vào chấm xanh để mở danh sách phát của nơi đó.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Phóng to bản đồ</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Việt Nam · Hà Nội"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Việt Nam · Đà Nẵng"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Việt Nam · Hội An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Việt Nam · TP. Hồ Chí Minh"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Việt Nam · Đà Lạt"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Việt Nam · Vũng Tàu"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Penang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Thành phố Cebu"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Thái Lan · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Thái Lan · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonesia · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonesia · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Campuchia · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Campuchia · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="Ấn Độ · New Delhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="Ấn Độ · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="Ấn Độ · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="Ấn Độ · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="Hàn Quốc · Seoul" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="Trung Quốc · Tô Châu" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Đài Loan · Cao Hùng" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Thụy Điển · Stockholm" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapore · Singapore" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="Hoa Kỳ · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="Hoa Kỳ · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Nhật Bản · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -2589,11 +2602,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">Phát trực tiếp từ các điểm du lịch</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Ảnh và reels du lịch</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -2626,6 +2634,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">Kênh chính cho podcast và du lịch</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA cũng có trên Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -2635,11 +2648,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Bản tin | HOBISAYA Letter</div>
         <div class="l-desc">Gợi ý sống rút ra từ một tuần HOBISAYA, gửi mỗi tuần một lần</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA cũng có trên Spotify</div>
       </a>
     </div>
   </div>
@@ -2652,6 +2660,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>Quy tắc giữ lại 20%</h3>
       <p>"20% công việc không muốn làm" trong công việc không phải là thứ cần loại bỏ, mà là thứ ta tự chọn để cố ý giữ lại. Dù loại bỏ công việc mình ghét, một 20% mới lại trở thành "không thích". Chính vì vậy, quyền làm chủ nằm ở việc tự mình chọn 20% sẽ giữ lại.</p>
+      <h3 class="law-more">Ưu điểm và nhược điểm chỉ là ảo tưởng</h3>
+      <p>Ưu điểm và nhược điểm không phải hai thứ tách biệt, mà là cùng một 'đặc điểm'. Khi nơi chốn, thời đại hay người nhìn thay đổi, điều bị gọi là nhược điểm có thể trở thành ưu điểm, và ngược lại.</p>
     </div>
   </div>
 </section>
@@ -3012,6 +3022,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>ទីក្រុងដែលបានទៅ</h3>
       <p class="wm-note">ចុចចំណុចពណ៌ខៀវ ដើម្បីបើកបញ្ជីចាក់របស់ទីនោះ</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>ពង្រីកផែនទី</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="វៀតណាម · ហាណូយ"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="វៀតណាម · ដាណាង"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="វៀតណាម · ហូយអាន"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="វៀតណាម · ហូជីមិញ"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="វៀតណាម · ដាឡាត"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="វៀតណាម · វុងតាវ"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ម៉ាឡេស៊ី · គូឡាឡាំពួរ"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ម៉ាឡេស៊ី · គូឡាតេរេងហ្គានូ"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ម៉ាឡេស៊ី · អ៊ីប៉ូ"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ម៉ាឡេស៊ី · ពីណាំង"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ម៉ាឡេស៊ី · ឡាំងកាវី"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ម៉ាឡេស៊ី · កូតាគីណាបាលូ"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="ហ្វីលីពីន · សេប៊ូ"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="ហ្វីលីពីន · មីងឡានីឡា"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="ហ្វីលីពីន · អូស្លុប"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="ថៃ · បាងកក" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="ថៃ · អយុធ្យា" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="ឥណ្ឌូនេស៊ី · យ៉ុកយ៉ាការតា"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="ឥណ្ឌូនេស៊ី · បាលី"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="កម្ពុជា · ភ្នំពេញ"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="កម្ពុជា · សៀមរាប"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="ឥណ្ឌា · ញូវដែលី" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="ឥណ្ឌា · អាហ្គ្រា" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="ឥណ្ឌា · ចៃពួរ" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="ឥណ្ឌា · វ៉ារ៉ាណាស៊ី" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="កូរ៉េខាងត្បូង · សេអ៊ូល" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="ចិន · ស៊ូចូវ" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="តៃវ៉ាន់ · កៅស្យុង" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="ស៊ុយអែត · ស្តុកហូម" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="សិង្ហបុរី · សិង្ហបុរី" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="សហរដ្ឋអាមេរិក · ហូណូលូលូ" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="សហរដ្ឋអាមេរិក · ហ្គាំ" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="ជប៉ុន · ណាហា"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -3028,11 +3039,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">ការផ្សាយផ្ទាល់ពីទីកន្លែងធ្វើដំណើរ</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">រូបថត និង reels នៃការធ្វើដំណើរ</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -3065,6 +3071,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">ឆានែលចម្បងសម្រាប់ផតខាស់ និងការធ្វើដំណើរ</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA ក៏មាននៅលើ Spotify ដែរ</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -3074,11 +3085,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">ព្រឹត្តិបត្រ | HOBISAYA Letter</div>
         <div class="l-desc">គន្លឹះជីវិតពីមួយសប្តាហ៍នៃ HOBISAYA ផ្ញើរៀងរាល់សប្តាហ៍</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA ក៏មាននៅលើ Spotify ដែរ</div>
       </a>
     </div>
   </div>
@@ -3091,6 +3097,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>ច្បាប់ទុក 20%</h3>
       <p>«20% នៃការងារដែលមិនចង់ធ្វើ» មិនមែនជាអ្វីដែលត្រូវលុបបំបាត់ទេ ប៉ុន្តែជាអ្វីដែលយើងជ្រើសរើសដោយខ្លួនឯងដើម្បីទុកវាដោយចេតនា។ ទោះបីលុបការងារដែលស្អប់ចេញក៏ដោយ ក៏នឹងមាន 20% ថ្មីក្លាយជា «មិនចូលចិត្ត» ដដែល។ ដូច្នេះហើយ អំណាចគ្រប់គ្រងស្ថិតនៅត្រង់ការជ្រើសរើសដោយខ្លួនឯងនូវ 20% ដែលត្រូវទុកនោះឯង។</p>
+      <h3 class="law-more">ចំណុចខ្លាំង និងចំណុចខ្សោយ គឺជាការបំភាន់</h3>
+      <p>ចំណុចខ្លាំង និងចំណុចខ្សោយ មិនមែនជារឿងពីរផ្សេងគ្នាទេ គឺជា 'លក្ខណៈ' តែមួយ។ នៅពេលទីកន្លែង សម័យកាល ឬអ្នកមើលផ្លាស់ប្តូរ អ្វីដែលហៅថាចំណុចខ្សោយ អាចក្លាយជាចំណុចខ្លាំង ហើយចំណុចខ្លាំងក៏អាចប្រែជាចំណុចខ្សោយវិញដែរ។</p>
     </div>
   </div>
 </section>
@@ -3452,6 +3460,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Ciudades visitadas</h3>
       <p class="wm-note">Haz clic en un punto azul para abrir la lista de reproducción de ese lugar.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Ampliar el mapa</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hanói"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Vietnam · Da Nang"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hoi An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Vietnam · Ciudad Ho Chi Minh"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Da Lat"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Vung Tau"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malasia · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malasia · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malasia · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malasia · Penang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malasia · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malasia · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipinas · Ciudad de Cebú"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipinas · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipinas · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Tailandia · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Tailandia · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonesia · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonesia · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Camboya · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Camboya · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="India · Nueva Delhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="India · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="India · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="Corea del Sur · Seúl" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="China · Suzhou" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Taiwán · Kaohsiung" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Suecia · Estocolmo" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapur · Singapur" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="Estados Unidos · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="Estados Unidos · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Japón · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -3468,11 +3477,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">En vivo desde los destinos</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Fotos y reels de viajes</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -3505,6 +3509,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">El canal principal del pódcast y los viajes</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA también en Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -3514,11 +3523,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Newsletter｜HOBISAYA Letter</div>
         <div class="l-desc">Una vez por semana, ideas para vivir extraídas de lo publicado en la semana</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA también en Spotify</div>
       </a>
     </div>
   </div>
@@ -3531,6 +3535,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>La regla de dejar el 20 %</h3>
       <p>El «20 % que no quieres hacer» del trabajo no es algo que eliminar, sino algo que eliges dejar a propósito. Aunque elimines el trabajo que odias, aparecerá otro 20 % «desagradable». Por eso, las riendas están en elegir tú mismo qué 20 % dejas.</p>
+      <h3 class="law-more">Las fortalezas y debilidades son una ilusión</h3>
+      <p>Las fortalezas y las debilidades no son cosas distintas: son el mismo 'rasgo'. Si cambia el lugar, la época o quién mira, lo que se llamaba debilidad puede convertirse en fortaleza, y al revés.</p>
     </div>
   </div>
 </section>
@@ -3892,6 +3898,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Cidades visitadas</h3>
       <p class="wm-note">Clique num ponto azul para abrir a playlist desse lugar.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Ampliar o mapa</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnã · Hanói"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Vietnã · Da Nang"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnã · Hoi An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Vietnã · Cidade de Ho Chi Minh"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnã · Da Lat"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnã · Vung Tau"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malásia · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malásia · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malásia · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malásia · Penang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malásia · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malásia · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipinas · Cidade de Cebu"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipinas · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Filipinas · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Tailândia · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Tailândia · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonésia · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonésia · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Camboja · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Camboja · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="Índia · Nova Délhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="Índia · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="Índia · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="Índia · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="Coreia do Sul · Seul" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="China · Suzhou" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Taiwan · Kaohsiung" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Suécia · Estocolmo" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapura · Singapura" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="Estados Unidos · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="Estados Unidos · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Japão · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -3908,11 +3915,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">Transmissões ao vivo da estrada</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Fotos e reels de viagem</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -3945,6 +3947,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">O canal principal do podcast e das viagens</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA também no Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -3954,11 +3961,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Newsletter｜HOBISAYA Letter</div>
         <div class="l-desc">Uma vez por semana, dicas de vida extraídas do que foi publicado na semana</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA também no Spotify</div>
       </a>
     </div>
   </div>
@@ -3971,6 +3973,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>A regra de deixar os 20%</h3>
       <p>Os «20% que você não quer fazer» do trabalho não são algo a eliminar, mas algo que você escolhe deixar de propósito. Mesmo que você elimine o trabalho que detesta, surgirão outros 20% «desagradáveis». Por isso, as rédeas estão em escolher você mesmo quais 20% deixar.</p>
+      <h3 class="law-more">Pontos fortes e fracos são uma ilusão</h3>
+      <p>Pontos fortes e pontos fracos não são coisas diferentes: são o mesmo 'traço'. Mudando o lugar, a época ou quem observa, o que era chamado de ponto fraco pode virar ponto forte, e vice-versa.</p>
     </div>
   </div>
 </section>
@@ -4332,6 +4336,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Villes visitées</h3>
       <p class="wm-note">Cliquez sur un point bleu pour ouvrir la playlist de ce lieu.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Agrandir la carte</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hanoï"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Vietnam · Da Nang"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hoi An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Vietnam · Hô Chi Minh-Ville"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Da Lat"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Vung Tau"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaisie · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaisie · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaisie · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaisie · Penang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaisie · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaisie · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Cebu City"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippines · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Thaïlande · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Thaïlande · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonésie · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonésie · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Cambodge · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Cambodge · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="Inde · New Delhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="Inde · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="Inde · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="Inde · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="Corée du Sud · Séoul" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="Chine · Suzhou" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Taïwan · Kaohsiung" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Suède · Stockholm" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapour · Singapour" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="États-Unis · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="États-Unis · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Japon · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -4348,11 +4353,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">En direct des destinations</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Photos et reels de voyage</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -4385,6 +4385,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">La chaîne principale du podcast et des voyages</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA aussi sur Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -4394,11 +4399,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Newsletter｜HOBISAYA Letter</div>
         <div class="l-desc">Une fois par semaine, des pistes pour vivre, tirées des publications de la semaine</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA aussi sur Spotify</div>
       </a>
     </div>
   </div>
@@ -4411,6 +4411,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>La règle des 20 % à laisser</h3>
       <p>Les « 20 % que tu ne veux pas faire » du travail ne sont pas quelque chose à éliminer, mais quelque chose que tu choisis de laisser, délibérément. Même si tu élimines le travail que tu détestes, un nouveau 20 % « désagréable » apparaîtra. C'est pour cela que les rênes sont dans le fait de choisir toi-même quels 20 % laisser.</p>
+      <h3 class="law-more">Les qualités et les défauts sont une illusion</h3>
+      <p>Les qualités et les défauts ne sont pas deux choses distinctes : c'est le même 'trait'. Selon le lieu, l'époque ou le regard des autres, ce qu'on appelait un défaut peut devenir une qualité, et inversement.</p>
     </div>
   </div>
 </section>
@@ -4772,6 +4774,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>Besuchte Städte</h3>
       <p class="wm-note">Klicken Sie auf einen blauen Punkt, um die Playlist dieses Ortes zu öffnen.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>Karte vergrößern</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hanoi"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="Vietnam · Da Nang"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Hoi An"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="Vietnam · Ho-Chi-Minh-Stadt"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Da Lat"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="Vietnam · Vung Tau"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Lumpur"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kuala Terengganu"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Ipoh"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Penang"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Langkawi"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="Malaysia · Kota Kinabalu"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippinen · Cebu City"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippinen · Minglanilla"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="Philippinen · Oslob"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="Thailand · Bangkok" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="Thailand · Ayutthaya" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="Indonesien · Yogyakarta"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="Indonesien · Bali"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Kambodscha · Phnom Penh"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="Kambodscha · Siem Reap"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="Indien · Neu-Delhi" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="Indien · Agra" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="Indien · Jaipur" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="Indien · Varanasi" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="Südkorea · Seoul" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="China · Suzhou" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="Taiwan · Kaohsiung" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="Schweden · Stockholm" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="Singapur · Singapur" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="USA · Honolulu" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="USA · Guam" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="Japan · Naha, Okinawa"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -4788,11 +4791,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">Livestreams von unterwegs</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">Reisefotos und Reels</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -4825,6 +4823,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">Der Hauptkanal für Podcast und Reisen</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA auch auf Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -4834,11 +4837,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">Newsletter｜HOBISAYA Letter</div>
         <div class="l-desc">Einmal pro Woche Lebensanregungen aus den Veröffentlichungen der Woche</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA auch auf Spotify</div>
       </a>
     </div>
   </div>
@@ -4851,6 +4849,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>Die Regel der bewussten 20 %</h3>
       <p>Die „20 %, die man nicht tun will“ in der Arbeit sind nichts, was man beseitigt, sondern etwas, das man bewusst selbst auswählt zu behalten. Selbst wenn man die gehasste Arbeit beseitigt, werden neue 20 % „unangenehm“. Genau deshalb liegen die Zügel darin, die behaltenen 20 % selbst zu wählen.</p>
+      <h3 class="law-more">Stärken und Schwächen sind eine Illusion</h3>
+      <p>Stärken und Schwächen sind keine getrennten Dinge, sondern dieselbe 'Eigenschaft'. Ändern sich Ort, Zeit oder der Blick der anderen, kann aus einer Schwäche eine Stärke werden — und umgekehrt.</p>
     </div>
   </div>
 </section>
@@ -5212,6 +5212,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>到访过的城市</h3>
       <p class="wm-note">点击蓝点即可打开该地的播放列表。</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>放大地圖</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="越南 · 河內"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="越南 · 峴港"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="越南 · 會安"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="越南 · 胡志明市"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="越南 · 大叻"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="越南 · 頭頓"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="馬來西亞 · 吉隆坡"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="馬來西亞 · 瓜拉登嘉樓"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="馬來西亞 · 怡保"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="馬來西亞 · 檳城"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="馬來西亞 · 蘭卡威"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="馬來西亞 · 亞庇"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="菲律賓 · 宿務市"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="菲律賓 · 明蘭利亞"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="菲律賓 · 奧斯洛布"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="泰國 · 曼谷" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="泰國 · 大城" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="印度尼西亞 · 日惹"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="印度尼西亞 · 巴厘島"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="柬埔寨 · 金邊"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="柬埔寨 · 暹粒"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="印度 · 新德里" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="印度 · 阿格拉" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="印度 · 齋浦爾" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="印度 · 瓦拉納西" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="韓國 · 首爾" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="中國 · 蘇州" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="台灣 · 高雄" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="瑞典 · 斯德哥爾摩" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="新加坡 · 新加坡" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="美國 · 檀香山" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="美國 · 關島" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="日本 · 那霸（沖繩）"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -5228,11 +5229,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">來自旅途的直播</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">旅行照片与短视频</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -5265,6 +5261,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">播客與旅行的主頻道</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">在 Spotify 也能收听 HOBISAYA</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -5274,11 +5275,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">電子報｜HOBISAYA Letter</div>
         <div class="l-desc">每週一次，從一週的發聲中提煉人生的提示</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">在 Spotify 也能收听 HOBISAYA</div>
       </a>
     </div>
   </div>
@@ -5291,6 +5287,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>留下兩成的法則</h3>
       <p>工作中「不想做的那兩成」，不是要消滅的對象，而是由自己刻意選擇留下的東西。就算消滅了討厭的工作，新的兩成又會變成「討厭」。正因如此，由自己選擇要留下哪兩成，才是主導權所在。</p>
+      <h3 class="law-more">優點和缺點都是幻象</h3>
+      <p>優點和缺點並不是兩回事，而是同一個『特徵』。只要地點、時代或看的人不同，被稱為缺點的東西可以變成優點，優點也可能變成缺點。</p>
     </div>
   </div>
 </section>
@@ -5652,6 +5650,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>घूमे गए शहर</h3>
       <p class="wm-note">उस जगह की प्लेलिस्ट खोलने के लिए नीले बिंदु पर क्लिक करें।</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>मानचित्र बड़ा करें</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="वियतनाम · हनोई"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="वियतनाम · दा नांग"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="वियतनाम · होई आन"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="वियतनाम · हो ची मिन्ह सिटी"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="वियतनाम · दा लाट"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="वियतनाम · वुंग ताऊ"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="मलेशिया · कुआलालंपुर"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="मलेशिया · कुआला तेरेंगानु"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="मलेशिया · इपोह"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="मलेशिया · पेनांग"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="मलेशिया · लंगकावी"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="मलेशिया · कोटा किनाबालु"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="फ़िलीपींस · सेबू सिटी"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="फ़िलीपींस · मिंगलानिला"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="फ़िलीपींस · ओस्लोब"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="थाईलैंड · बैंकॉक" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="थाईलैंड · अयुत्या" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="इंडोनेशिया · योग्याकार्ता"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="इंडोनेशिया · बाली"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="कंबोडिया · नोम पेन्ह"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="कंबोडिया · सिएम रीप"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="भारत · नई दिल्ली" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="भारत · आगरा" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="भारत · जयपुर" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="भारत · वाराणसी" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="दक्षिण कोरिया · सियोल" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="चीन · सूझोऊ" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="ताइवान · काऊशुंग" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="स्वीडन · स्टॉकहोम" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="सिंगापुर · सिंगापुर" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="संयुक्त राज्य अमेरिका · होनोलूलू" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="संयुक्त राज्य अमेरिका · गुआम" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="जापान · नाहा, ओकिनावा"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -5668,11 +5667,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">यात्रा से लाइव स्ट्रीम</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">यात्रा की तस्वीरें और रील्स</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
@@ -5705,6 +5699,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">पॉडकास्ट और यात्रा का मुख्य चैनल</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA Spotify पर भी उपलब्ध</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">→</span>
         <div class="l-name">note｜Molly</div>
@@ -5714,11 +5713,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">न्यूज़लेटर｜HOBISAYA Letter</div>
         <div class="l-desc">हफ़्ते में एक बार, उस हफ़्ते के प्रकाशनों से जीवन के संकेत</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA Spotify पर भी उपलब्ध</div>
       </a>
     </div>
   </div>
@@ -5731,6 +5725,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>20% छोड़ने का नियम</h3>
       <p>काम में «जो 20% आप नहीं करना चाहते», वह हटाने की चीज़ नहीं है, बल्कि खुद चुनकर छोड़ने की चीज़ है। नापसंद काम हटा भी दें तो नए 20% «नापसंद» बन जाते हैं। इसीलिए बागडोर इसमें है कि कौन-से 20% छोड़ने हैं, यह आप खुद चुनें।</p>
+      <h3 class="law-more">मज़बूतियाँ और कमज़ोरियाँ एक भ्रम हैं</h3>
+      <p>मज़बूतियाँ और कमज़ोरियाँ अलग-अलग चीज़ें नहीं हैं — वे एक ही 'विशेषता' हैं। जगह, समय या देखने वाला बदल जाए, तो जिसे कमज़ोरी कहा गया था वह मज़बूती बन सकती है, और मज़बूती कमज़ोरी में बदल सकती है।</p>
     </div>
   </div>
 </section>
@@ -6092,6 +6088,7 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
     <div class="world-map">
       <h3>المدن التي زرتها</h3>
       <p class="wm-note">انقر على نقطة زرقاء لفتح قائمة تشغيل ذلك المكان.</p>
+      <div class="wm-actions"><button type="button" class="wm-expand" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/><path d="M10.5 7.8v5.4M7.8 10.5h5.4"/></svg>تكبير الخريطة</button></div>
       <svg viewBox="0 10 1000 415" role="img" aria-label="World map">
         <use href="#wm-land"></use>
         <a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="فيتنام · هانوي"><circle class="wm-hit" cx="794.0" cy="191.6" r="13"/><circle class="wm-dot" cx="794.0" cy="191.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLftQnUfrQDGo" target="_blank" rel="noopener" data-tip="فيتنام · دا نانغ"><circle class="wm-hit" cx="796.6" cy="201.4" r="13"/><circle class="wm-dot" cx="796.6" cy="201.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="فيتنام · هوي آن"><circle class="wm-hit" cx="804.9" cy="209.9" r="13"/><circle class="wm-dot" cx="804.9" cy="209.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXrptAnM517RLBpGa5vwsROP" target="_blank" rel="noopener" data-tip="فيتنام · مدينة هو تشي منه"><circle class="wm-hit" cx="799.2" cy="222.9" r="13"/><circle class="wm-dot" cx="799.2" cy="222.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="فيتنام · دا لات"><circle class="wm-hit" cx="805.2" cy="217.8" r="13"/><circle class="wm-dot" cx="805.2" cy="217.8" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLOCIy67_sjv4" target="_blank" rel="noopener" data-tip="فيتنام · فونغ تاو"><circle class="wm-hit" cx="805.4" cy="227.2" r="13"/><circle class="wm-dot" cx="805.4" cy="227.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ماليزيا · كوالالمبور"><circle class="wm-hit" cx="780.5" cy="244.3" r="13"/><circle class="wm-dot" cx="780.5" cy="244.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ماليزيا · كوالا ترينغانو"><circle class="wm-hit" cx="790.5" cy="234.2" r="13"/><circle class="wm-dot" cx="790.5" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ماليزيا · إيبوه"><circle class="wm-hit" cx="781.8" cy="234.2" r="13"/><circle class="wm-dot" cx="781.8" cy="234.2" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ماليزيا · بينانغ"><circle class="wm-hit" cx="774.7" cy="237.0" r="13"/><circle class="wm-dot" cx="774.7" cy="237.0" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ماليزيا · لانكاوي"><circle class="wm-hit" cx="772.2" cy="228.4" r="13"/><circle class="wm-dot" cx="772.2" cy="228.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXqLbkYDELUmI_rrD9SOAS-p" target="_blank" rel="noopener" data-tip="ماليزيا · كوتا كينابالو"><circle class="wm-hit" cx="822.4" cy="233.4" r="13"/><circle class="wm-dot" cx="822.4" cy="233.4" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="الفلبين · مدينة سيبو"><circle class="wm-hit" cx="840.2" cy="218.3" r="13"/><circle class="wm-dot" cx="840.2" cy="218.3" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="الفلبين · مينغلانيلا"><circle class="wm-hit" cx="847.9" cy="225.5" r="13"/><circle class="wm-dot" cx="847.9" cy="225.5" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PLYAgueprUEMU" target="_blank" rel="noopener" data-tip="الفلبين · أوسلوب"><circle class="wm-hit" cx="839.9" cy="225.6" r="13"/><circle class="wm-dot" cx="839.9" cy="225.6" r="4.4"/></a><g class="wm-pin" data-tip="تايلاند · بانكوك" tabindex="0"><circle class="wm-hit" cx="775.2" cy="214.8" r="13"/><circle class="wm-dot" cx="775.2" cy="214.8" r="4.4"/></g><g class="wm-pin" data-tip="تايلاند · أيوتايا" tabindex="0"><circle class="wm-hit" cx="784.4" cy="205.1" r="13"/><circle class="wm-dot" cx="784.4" cy="205.1" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLUAEe9C1lY80" target="_blank" rel="noopener" data-tip="إندونيسيا · يوغياكارتا"><circle class="wm-hit" cx="806.6" cy="271.6" r="13"/><circle class="wm-dot" cx="806.6" cy="271.6" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXr0CX55h4plc935xIys597d" target="_blank" rel="noopener" data-tip="إندونيسيا · بالي"><circle class="wm-hit" cx="820.0" cy="274.1" r="13"/><circle class="wm-dot" cx="820.0" cy="274.1" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="كمبوديا · بنوم بنه"><circle class="wm-hit" cx="790.5" cy="221.9" r="13"/><circle class="wm-dot" cx="790.5" cy="221.9" r="4.4"/></a><a class="wm-link" href="https://www.youtube.com/playlist?list=PL0a3grFpJiXpAOT43Jrwq1SqHE-riT_r1" target="_blank" rel="noopener" data-tip="كمبوديا · سييم ريب"><circle class="wm-hit" cx="788.5" cy="212.9" r="13"/><circle class="wm-dot" cx="788.5" cy="212.9" r="4.4"/></a><g class="wm-pin" data-tip="الهند · نيودلهي" tabindex="0"><circle class="wm-hit" cx="712.5" cy="168.5" r="13"/><circle class="wm-dot" cx="712.5" cy="168.5" r="4.4"/></g><g class="wm-pin" data-tip="الهند · أغرا" tabindex="0"><circle class="wm-hit" cx="718.7" cy="176.5" r="13"/><circle class="wm-dot" cx="718.7" cy="176.5" r="4.4"/></g><g class="wm-pin" data-tip="الهند · جايبور" tabindex="0"><circle class="wm-hit" cx="710.5" cy="175.3" r="13"/><circle class="wm-dot" cx="710.5" cy="175.3" r="4.4"/></g><g class="wm-pin" data-tip="الهند · فاراناسي" tabindex="0"><circle class="wm-hit" cx="730.5" cy="179.7" r="13"/><circle class="wm-dot" cx="730.5" cy="179.7" r="4.4"/></g><g class="wm-pin" data-tip="كوريا الجنوبية · سيول" tabindex="0"><circle class="wm-hit" cx="852.7" cy="145.6" r="13"/><circle class="wm-dot" cx="852.7" cy="145.6" r="4.4"/></g><g class="wm-pin" data-tip="الصين · سوتشو" tabindex="0"><circle class="wm-hit" cx="834.9" cy="163.1" r="13"/><circle class="wm-dot" cx="834.9" cy="163.1" r="4.4"/></g><g class="wm-pin" data-tip="تايوان · كاوشيونغ" tabindex="0"><circle class="wm-hit" cx="834.2" cy="187.2" r="13"/><circle class="wm-dot" cx="834.2" cy="187.2" r="4.4"/></g><g class="wm-pin" data-tip="السويد · ستوكهولم" tabindex="0"><circle class="wm-hit" cx="550.2" cy="85.2" r="13"/><circle class="wm-dot" cx="550.2" cy="85.2" r="4.4"/></g><g class="wm-pin" data-tip="سنغافورة · سنغافورة" tabindex="0"><circle class="wm-hit" cx="788.4" cy="246.3" r="13"/><circle class="wm-dot" cx="788.4" cy="246.3" r="4.4"/></g><g class="wm-pin" data-tip="الولايات المتحدة · هونولولو" tabindex="0"><circle class="wm-hit" cx="61.5" cy="190.8" r="13"/><circle class="wm-dot" cx="61.5" cy="190.8" r="4.4"/></g><g class="wm-pin" data-tip="الولايات المتحدة · غوام" tabindex="0"><circle class="wm-hit" cx="902.2" cy="212.7" r="13"/><circle class="wm-dot" cx="902.2" cy="212.7" r="4.4"/></g><a class="wm-link" href="https://www.youtube.com/playlist?list=PLABNkLv99jM4" target="_blank" rel="noopener" data-tip="اليابان · ناها، أوكيناوا"><circle class="wm-hit" cx="854.7" cy="177.2" r="13"/><circle class="wm-dot" cx="854.7" cy="177.2" r="4.4"/></a>
@@ -6108,11 +6105,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">→</span>
         <div class="l-name">TikTok | @molly_japanese</div>
         <div class="l-desc">بث مباشر من وجهات السفر</div>
-      </a>
-      <a class="link-card" href="https://www.instagram.com/molly_.yu" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Instagram | @molly_.yu</div>
-        <div class="l-desc">صور ومقاطع من الرحلات</div>
       </a>
       <a class="link-card" href="https://yuichiro-morimoto.github.io/world-alarm/" target="_blank" rel="noopener">
         <span class="l-arrow">←</span>
@@ -6145,6 +6137,11 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <div class="l-name">YouTube｜HOBISAYA by Molly</div>
         <div class="l-desc">القناة الرئيسية للبودكاست والسفر</div>
       </a>
+      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
+        <span class="l-arrow">→</span>
+        <div class="l-name">Spotify | HOBISAYA</div>
+        <div class="l-desc">HOBISAYA متاح أيضًا على Spotify</div>
+      </a>
       <a class="link-card" href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener">
         <span class="l-arrow">←</span>
         <div class="l-name">note｜Molly</div>
@@ -6154,11 +6151,6 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
         <span class="l-arrow">←</span>
         <div class="l-name">النشرة البريدية｜HOBISAYA Letter</div>
         <div class="l-desc">مرة أسبوعيًا، إشارات للحياة مستخلصة من منشورات الأسبوع</div>
-      </a>
-      <a class="link-card" href="https://open.spotify.com/show/2Oml261e22eWThP2hbKcse" target="_blank" rel="noopener">
-        <span class="l-arrow">→</span>
-        <div class="l-name">Spotify | HOBISAYA</div>
-        <div class="l-desc">HOBISAYA متاح أيضًا على Spotify</div>
       </a>
     </div>
   </div>
@@ -6171,6 +6163,8 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
       <div class="l-kicker">MOLLY'S LAW</div>
       <h3>قاعدة ترك الـ20%</h3>
       <p>«الـ20% التي لا تريد فعلها» في العمل ليست شيئًا يجب إزالته، بل شيئًا تختار تركه بنفسك عمدًا. حتى لو أزلت العمل الذي تكرهه، ستظهر 20% جديدة «غير محببة». ولهذا بالضبط، الزمام في أن تختار بنفسك أيّ 20% تترك.</p>
+      <h3 class="law-more">نقاط القوة والضعف مجرد وهم</h3>
+      <p>نقاط القوة ونقاط الضعف ليستا شيئين منفصلين، بل هما 'السمة' نفسها. فإذا تغيّر المكان أو العصر أو من ينظر، يمكن أن يتحول ما سُمّي ضعفًا إلى قوة، وأن تتحول القوة إلى ضعف.</p>
     </div>
   </div>
 </section>
@@ -6449,6 +6443,21 @@ footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
   <option value="ar">العربية</option>
 </select>
 
+<div class="wmz" id="wm-zoom" hidden role="dialog" aria-modal="true" aria-label="World map">
+  <div class="wmz-backdrop"></div>
+  <div class="wmz-panel">
+    <div class="wmz-bar">
+      <button type="button" class="wmz-btn" data-wmz="out" aria-label="Zoom out">&#8722;</button>
+      <button type="button" class="wmz-btn" data-wmz="in" aria-label="Zoom in">+</button>
+      <button type="button" class="wmz-btn" data-wmz="close" aria-label="Close">&times;</button>
+    </div>
+    <div class="wmz-viewport">
+      <div class="wmz-stage"></div>
+    </div>
+    <div class="wm-tip wmz-tip" hidden></div>
+  </div>
+</div>
+
 <script>
 var META = {"ja": {"title": "もりー / Molly｜もりー公式ホームページ", "desc": "もりーの公式ホームページ。世界のありのままを配信するYOBIMIZUと、既存の価値観に疑問を呈するHOBISAYAという活動をしています。話せるテーマ、著書、出演・登壇のご依頼はこちら。"}, "en": {"title": "もりー / Molly — Official Website", "desc": "Molly's official website. Molly runs two projects: YOBIMIZU, sharing the world as it is, and HOBISAYA, a podcast that questions conventional values. Speaking topics, books, and inquiries for appearances and talks are here."}, "ko": {"title": "もりー / Molly｜Molly 공식 홈페이지", "desc": "Molly의 공식 홈페이지입니다. 세상의 모습을 있는 그대로 전하는 YOBIMIZU와, 기존의 가치관에 의문을 제기하는 HOBISAYA 활동을 하고 있습니다. 강연 주제, 저서, 출연·강연 의뢰는 이곳에서 확인하세요."}, "id": {"title": "もりー / Molly｜Situs Resmi Molly", "desc": "Situs resmi Molly. Molly menjalankan dua kegiatan: YOBIMIZU, yang membagikan dunia apa adanya, dan HOBISAYA, yang mempertanyakan nilai-nilai yang sudah mapan. Tema pembicaraan, buku, serta permintaan tampil dan berbicara ada di sini."}, "ms": {"title": "もりー / Molly | Laman Web Rasmi Molly", "desc": "Laman web rasmi Molly. Molly menjalankan dua kegiatan: YOBIMIZU, yang berkongsi dunia sebagaimana adanya, dan HOBISAYA, yang mempersoalkan nilai-nilai sedia ada. Tema perbincangan, buku, serta permohonan jemputan penampilan dan syarahan ada di sini."}, "vi": {"title": "もりー / Molly｜Trang chủ chính thức của Molly", "desc": "Trang chủ chính thức của Molly. Molly có hai hoạt động: YOBIMIZU — chia sẻ thế giới đúng như nó vốn có, và HOBISAYA — đặt câu hỏi về những giá trị quen thuộc. Các chủ đề có thể chia sẻ, sách và liên hệ mời tham gia chương trình / diễn thuyết đều có tại đây."}, "km": {"title": "もりー / Molly | គេហទំព័រផ្លូវការរបស់ Molly", "desc": "គេហទំព័រផ្លូវការរបស់ Molly។ Molly មានសកម្មភាពពីរ៖ YOBIMIZU ដែលចែករំលែកពិភពលោកតាមភាពពិតប្រាកដ និង HOBISAYA ដែលចោទសួរអំពីតម្លៃដែលមានស្រាប់។ ប្រធានបទដែលអាចនិយាយបាន សៀវភៅ និងការស្នើសុំចូលរួម/ឡើងឆាក សូមទាក់ទងនៅទីនេះ។"}, "es": {"title": "もりー / Molly — Sitio web oficial", "desc": "Sitio web oficial de Molly. Molly desarrolla dos actividades: YOBIMIZU, que comparte el mundo tal como es, y HOBISAYA, que cuestiona los valores establecidos. Los temas de sus charlas, sus libros y las solicitudes de participación y conferencias están aquí."}, "pt": {"title": "もりー / Molly — Site oficial", "desc": "Site oficial de Molly. Molly desenvolve duas atividades: YOBIMIZU, que compartilha o mundo como ele é, e HOBISAYA, que questiona os valores estabelecidos. Os temas das suas palestras, os seus livros e os pedidos de participação e palestras estão aqui."}, "fr": {"title": "もりー / Molly — Site officiel", "desc": "Site officiel de Molly. Molly mène deux activités : YOBIMIZU, qui partage le monde tel qu'il est, et HOBISAYA, qui interroge les valeurs établies. Les thèmes de ses interventions, ses livres et les demandes d'invitation et de conférence sont ici."}, "de": {"title": "もりー / Molly — Offizielle Website", "desc": "Die offizielle Website von Molly. Molly betreibt zwei Projekte: YOBIMIZU, das die Welt so zeigt, wie sie ist, und HOBISAYA, das gängige Werte hinterfragt. Vortragsthemen, Bücher und Anfragen für Auftritte und Vorträge finden Sie hier."}, "zh": {"title": "もりー / Molly｜Molly 官方網站", "desc": "Molly 的官方網站。Molly 有兩個活動：YOBIMIZU，把世界原原本本的樣子分享給大家；HOBISAYA，質疑既有的價值觀。可演講的主題、著作，以及節目邀約與演講邀請都在這裡。"}, "hi": {"title": "もりー / Molly — आधिकारिक वेबसाइट", "desc": "Molly की आधिकारिक वेबसाइट। Molly दो गतिविधियाँ चलाते हैं: YOBIMIZU, जो दुनिया को जैसी है वैसी साझा करता है, और HOBISAYA, जो स्थापित मूल्यों पर सवाल उठाता है। बोलने के विषय, किताबें और मेहमान उपस्थिति व व्याख्यान के अनुरोध यहाँ हैं।"}, "ar": {"title": "もりー / Molly — الموقع الرسمي", "desc": "الموقع الرسمي لـ Molly. يدير Molly نشاطين: YOBIMIZU، الذي يشارك العالم كما هو، و HOBISAYA، الذي يتساءل عن القيم السائدة. مواضيع الحديث والكتب وطلبات الظهور كضيف والمحاضرات موجودة هنا."}};
 var LANGS = ['ja','en','ko','id','ms','vi','km','es','pt','fr','de','zh','hi','ar'];
@@ -6565,6 +6574,210 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     }, {passive: false});
     window.addEventListener('scroll', function(){ if(current) hide(); }, {passive: true});
   });
+})();
+
+/* ---------- world map zoom modal ---------- */
+(function(){
+  var modal = document.getElementById('wm-zoom');
+  if(!modal) return;
+  var stage = modal.querySelector('.wmz-stage');
+  var viewport = modal.querySelector('.wmz-viewport');
+  var tip = modal.querySelector('.wmz-tip');
+  var BASE = {x:0, y:10, w:1000, h:415};
+  var MINW = 120;
+  var vb = {x:BASE.x, y:BASE.y, w:BASE.w, h:BASE.h};
+  var svg = null, pins = [], current = null;
+  var pointers = new Map();
+  var dragMoved = false, lastPinch = 0, downX = 0, downY = 0, lastX = 0, lastY = 0;
+
+  function apply(){
+    if(!svg) return;
+    if(vb.w > BASE.w) vb.w = BASE.w;
+    if(vb.w < MINW) vb.w = MINW;
+    vb.h = vb.w * BASE.h / BASE.w;
+    var maxX = BASE.x + BASE.w - vb.w, maxY = BASE.y + BASE.h - vb.h;
+    if(vb.x < BASE.x) vb.x = BASE.x;
+    if(vb.x > maxX) vb.x = maxX;
+    if(vb.y < BASE.y) vb.y = BASE.y;
+    if(vb.y > maxY) vb.y = maxY;
+    svg.setAttribute('viewBox', vb.x + ' ' + vb.y + ' ' + vb.w + ' ' + vb.h);
+  }
+  function zoomAt(cx, cy, factor){
+    if(!svg) return;
+    var r = svg.getBoundingClientRect();
+    var px = vb.x + (cx - r.left) / r.width * vb.w;
+    var py = vb.y + (cy - r.top) / r.height * vb.h;
+    var nw = vb.w / factor;
+    if(nw > BASE.w) nw = BASE.w;
+    if(nw < MINW) nw = MINW;
+    var ratio = nw / vb.w;
+    vb.x = px - (px - vb.x) * ratio;
+    vb.y = py - (py - vb.y) * ratio;
+    vb.w = nw;
+    apply();
+    hideTip();
+  }
+  function centerOf(el){
+    var dot = el.querySelector('.wm-dot') || el;
+    var r = dot.getBoundingClientRect();
+    return {x: r.left + r.width / 2, y: r.top + r.height / 2};
+  }
+  function nearest(x, y, maxDist){
+    var best = null, bestD = maxDist;
+    pins.forEach(function(el){
+      var c = centerOf(el);
+      var dx = c.x - x, dy = c.y - y;
+      var d = Math.sqrt(dx * dx + dy * dy);
+      if(d < bestD){ bestD = d; best = el; }
+    });
+    return best;
+  }
+  function showTip(el){
+    if(current && current !== el) current.classList.remove('wm-hover');
+    current = el;
+    el.classList.add('wm-hover');
+    tip.textContent = el.getAttribute('data-tip');
+    tip.hidden = false;
+    var c = centerOf(el);
+    var tw = tip.offsetWidth, th = tip.offsetHeight;
+    var x = c.x - tw / 2, y = c.y - th - 12;
+    if(x < 6) x = 6;
+    if(x + tw > window.innerWidth - 6) x = window.innerWidth - tw - 6;
+    if(y < 6) y = c.y + 16;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+  function hideTip(){
+    if(current) current.classList.remove('wm-hover');
+    tip.hidden = true;
+    current = null;
+  }
+  function openModal(sourceSvg){
+    stage.innerHTML = '';
+    svg = sourceSvg.cloneNode(true);
+    svg.removeAttribute('id');
+    stage.appendChild(svg);
+    pins = Array.prototype.slice.call(svg.querySelectorAll('[data-tip]'));
+    vb = {x:BASE.x, y:BASE.y, w:BASE.w, h:BASE.h};
+    apply();
+    hideTip();
+    pointers.clear();
+    modal.hidden = false;
+    document.body.classList.add('wmz-open');
+  }
+  function closeModal(){
+    modal.hidden = true;
+    document.body.classList.remove('wmz-open');
+    hideTip();
+    stage.innerHTML = '';
+    svg = null;
+    pins = [];
+    pointers.clear();
+  }
+  document.querySelectorAll('.wm-expand').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var map = btn.closest ? btn.closest('.world-map') : null;
+      var src = null;
+      if(map){
+        var svgs = map.querySelectorAll('svg');
+        for(var i = 0; i < svgs.length; i++){
+          if(svgs[i].querySelector('[data-tip]')){ src = svgs[i]; break; }
+        }
+      }
+      if(src) openModal(src);
+    });
+  });
+  modal.querySelector('[data-wmz="in"]').addEventListener('click', function(){
+    var r = viewport.getBoundingClientRect();
+    zoomAt(r.left + r.width / 2, r.top + r.height / 2, 1.45);
+  });
+  modal.querySelector('[data-wmz="out"]').addEventListener('click', function(){
+    var r = viewport.getBoundingClientRect();
+    zoomAt(r.left + r.width / 2, r.top + r.height / 2, 1 / 1.45);
+  });
+  modal.querySelector('[data-wmz="close"]').addEventListener('click', closeModal);
+  modal.querySelector('.wmz-backdrop').addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+  viewport.addEventListener('wheel', function(e){
+    e.preventDefault();
+    zoomAt(e.clientX, e.clientY, e.deltaY < 0 ? 1.18 : 1 / 1.18);
+  }, {passive: false});
+  viewport.addEventListener('pointerdown', function(e){
+    pointers.set(e.pointerId, {x: e.clientX, y: e.clientY});
+    if(pointers.size === 1){
+      dragMoved = false;
+      downX = lastX = e.clientX;
+      downY = lastY = e.clientY;
+    } else if(pointers.size === 2){
+      var pts = Array.from(pointers.values());
+      lastPinch = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      dragMoved = true;
+    }
+    try{ viewport.setPointerCapture(e.pointerId); }catch(err){}
+    viewport.classList.add('wmz-drag');
+  });
+  viewport.addEventListener('pointermove', function(e){
+    if(!pointers.has(e.pointerId)){
+      if(e.pointerType === 'mouse' && svg){
+        var el = nearest(e.clientX, e.clientY, 30);
+        if(el){ if(el !== current) showTip(el); }
+        else if(current) hideTip();
+      }
+      return;
+    }
+    pointers.set(e.pointerId, {x: e.clientX, y: e.clientY});
+    if(pointers.size === 1){
+      var dx = e.clientX - lastX, dy = e.clientY - lastY;
+      lastX = e.clientX;
+      lastY = e.clientY;
+      if(Math.abs(e.clientX - downX) + Math.abs(e.clientY - downY) > 6) dragMoved = true;
+      if(dragMoved && svg){
+        var r = svg.getBoundingClientRect();
+        vb.x -= dx / r.width * vb.w;
+        vb.y -= dy / r.height * vb.h;
+        apply();
+        hideTip();
+      }
+    } else if(pointers.size === 2){
+      var pts = Array.from(pointers.values());
+      var d = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      var mx = (pts[0].x + pts[1].x) / 2, my = (pts[0].y + pts[1].y) / 2;
+      if(lastPinch > 0 && d > 0) zoomAt(mx, my, d / lastPinch);
+      lastPinch = d;
+    }
+  });
+  function handleTap(x, y){
+    var el = nearest(x, y, 36);
+    if(!el){ hideTip(); return; }
+    if(el.tagName.toLowerCase() === 'a'){
+      if(current !== el){ showTip(el); }
+      else { hideTip(); window.open(el.getAttribute('href'), '_blank'); }
+    } else {
+      if(current === el) hideTip(); else showTip(el);
+    }
+  }
+  function endPointer(e){
+    var wasTap = (pointers.size === 1 && !dragMoved && e.type === 'pointerup');
+    var cx = e.clientX, cy = e.clientY;
+    pointers.delete(e.pointerId);
+    if(pointers.size === 0) viewport.classList.remove('wmz-drag');
+    if(pointers.size === 1){
+      var p = Array.from(pointers.values())[0];
+      lastX = downX = p.x;
+      lastY = downY = p.y;
+      dragMoved = true;
+    }
+    if(pointers.size < 2) lastPinch = 0;
+    if(wasTap && svg) handleTap(cx, cy);
+  }
+  viewport.addEventListener('pointerup', endPointer);
+  viewport.addEventListener('pointercancel', endPointer);
+  stage.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a.wm-link') : null;
+    if(a) e.preventDefault();
+  }, true);
 })();
 </script>
 
