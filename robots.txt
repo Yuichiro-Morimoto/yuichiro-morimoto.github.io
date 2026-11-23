@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yuichiro-morimoto.github.io/sitemap.xml
