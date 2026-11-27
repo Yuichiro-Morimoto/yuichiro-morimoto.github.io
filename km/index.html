@@ -222,9 +222,10 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+.hero-media{margin-top:56px}
+.hero-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;background:#eef3f8}
+.profile-photo{display:block;width:200px;height:200px;object-fit:cover;border-radius:20px;margin:26px 0 30px}
+@media(max-width:640px){.profile-photo{width:150px;height:150px}.hero-media{margin-top:40px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -463,7 +464,9 @@ footer small{font-size:13.5px}
       <a class="btn btn-primary" href="#contact">ស្នើសុំការចូលរួម និងឡើងឆាក</a>
       <a class="btn btn-ghost" href="#themes">មើលប្រធានបទដែលអាចនិយាយបាន</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="Molly ឈរនៅកន្លែងបុរាណ">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/videos/hero-01-poster.jpg" src="/videos/hero-01.mp4" aria-label="HOBISAYA diagram animation"></video>
+    </div>
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -478,6 +481,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">ប្រវត្តិរូប</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="Molly ឈរនៅកន្លែងបុរាណ">
     <div class="profile-grid">
       <p><span class="hl">Molly</span> ជាអ្នកធ្វើផតខាស់ធ្វើដំណើរ ហើយដំណើរការសកម្មភាពពីរគឺ «HOBISAYA» និង «RANTAU»។</p>
       <p>«HOBISAYA» គឺជាសកម្មភាពដែលចោទសួរអំពីតម្លៃដែលមានស្រាប់ ហើយតាមរយៈការបង្ហាញទស្សនៈខុសប្លែកលើរឿងរ៉ាវផ្សេងៗ ស្វែងរកវិធីគិតដើម្បីចុះពីមាត្រដ្ឋានរបស់អ្នកដទៃ និងរស់នៅតាមជម្រើសរបស់ខ្លួនឯង។</p>
@@ -676,6 +680,8 @@ footer small{font-size:13.5px}
       <p>សន្តិភាពមិនមែនជាភាពស្ងប់ស្ងាត់នៃពិភពលោកដែលឈប់នោះទេ។ ពិភពលោកเคลื่อนไหวជានិច្ច ហើយបើវាឈប់ វានឹងបញ្ចប់។ សន្តិភាពគឺជាតុល្យភាពនៃកម្លាំងជាច្រើនដែលកំពុងเคลื่อนไหว និងទប់គ្នាទៅវិញទៅមក។</p>
 <h3 class="law-more">មានកន្លែងដែលមិនមែន A ហើយក៏មិនមែន B</h3>
       <p>ពិភពលោកចូលចិត្តបែងចែកអ្វីៗជា "បើមិនមែន A គឺ B"។ ប៉ុន្តែការបែងចែកដូចជា ផ្នែកសង្គម/ផ្នែកវិទ្យាសាស្ត្រ គ្រាន់តែជាភាពងាយស្រួលសម្រាប់ដំណើរការសង្គមប៉ុណ្ណោះ មិនមែនជាខ្លឹមសារពិតទេ។</p>
+      <h3 class="law-more">អ្វីដែលយើងផ្ទុកមិនមែនជាអត្ថន័យទេ គឺជាឥទ្ធិពល</h3>
+      <p>អ្វីដែលមនុស្សផ្ទុកពិតប្រាកដមិនមែនជា «អត្ថន័យនៃជីវិត» ទេ គឺជា «ឥទ្ធិពល» ដែលខ្លួនផ្តល់ទៅអ្នកនៅជុំវិញ។ ទោះមានចេតនាឬអត់ ពាក្យសម្តីនិងទង្វើរបស់យើងនៅតែចម្លងទៅអ្នកនៅជិតបំផុត ហើយ 99% នៃជីវិតរបស់យើងត្រូវបានផលិតឡើងវិញទៅក្នុងពិភពលោក។ សំណួរដែលត្រូវសួរមិនមែន «តើវាមានអត្ថន័យទេ?» ទេ គឺ «តើយើងកំពុងបញ្ជូនឥទ្ធិពលបែបណា?»។</p>
       <h3 class="law-more">ច្បាប់ទុក 20%</h3>
       <p>«20% នៃការងារដែលមិនចង់ធ្វើ» មិនមែនជាអ្វីដែលត្រូវលុបបំបាត់ទេ ប៉ុន្តែជាអ្វីដែលយើងជ្រើសរើសដោយខ្លួនឯងដើម្បីទុកវាដោយចេតនា។ ទោះបីលុបការងារដែលស្អប់ចេញក៏ដោយ ក៏នឹងមាន 20% ថ្មីក្លាយជា «មិនចូលចិត្ត» ដដែល។ ដូច្នេះហើយ អំណាចគ្រប់គ្រងស្ថិតនៅត្រង់ការជ្រើសរើសដោយខ្លួនឯងនូវ 20% ដែលត្រូវទុកនោះឯង។</p>
       <h3 class="law-more">អត្ថន័យនៃជីវិតមានបួនប្រភេទ</h3>
@@ -1402,6 +1408,24 @@ function wmFitDots(svg, scale){
   });
 })();
 
+</script>
+
+<script>
+// ヒーロー動画: 下の配列にファイル名を1行足すだけで、複数動画の巡回ループ再生になります
+const HERO_VIDEOS = ['/videos/hero-01.mp4'];
+(function(){
+  var v = document.querySelector('.hero-video');
+  if(!v) return;
+  if(HERO_VIDEOS.length <= 1){ v.loop = true; return; }
+  var i = 0;
+  v.loop = false;
+  v.removeAttribute('loop');
+  v.addEventListener('ended', function(){
+    i = (i + 1) % HERO_VIDEOS.length;
+    v.src = HERO_VIDEOS[i];
+    v.play();
+  });
+})();
 </script>
 
 </body>
