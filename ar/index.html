@@ -222,9 +222,10 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+.hero-media{margin-top:56px}
+.hero-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;background:#eef3f8}
+.profile-photo{display:block;width:200px;height:200px;object-fit:cover;border-radius:20px;margin:26px 0 30px}
+@media(max-width:640px){.profile-photo{width:150px;height:150px}.hero-media{margin-top:40px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -463,7 +464,9 @@ footer small{font-size:13.5px}
       <a class="btn btn-primary" href="#contact">طلبات الظهور والمحاضرات</a>
       <a class="btn btn-ghost" href="#themes">عرض مواضيع الحديث</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="Molly واقفًا بين الأطلال">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/videos/hero-01-poster.jpg" src="/videos/hero-01.mp4" aria-label="HOBISAYA diagram animation"></video>
+    </div>
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -478,6 +481,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">الملف الشخصي</div>
     <h2 class="sec-title">الملف الشخصي</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="Molly واقفًا بين الأطلال">
     <div class="profile-grid">
       <p>أنا <span class="hl">Molly</span>. أنا صانع بودكاست مسافر، وأدير نشاطين: «HOBISAYA» و«RANTAU».</p>
       <p>«HOBISAYA» نشاط يطرح التساؤلات حول القيم القائمة، ويستكشف — عبر تقديم نظرة مختلفة إلى الأمور — طرق تفكير للنزول عن مقاييس الآخرين والعيش وفق اختياراتك الخاصة.</p>
@@ -676,6 +680,8 @@ footer small{font-size:13.5px}
       <p>السلام ليس سكون عالم توقف عن الحركة. العالم يواصل التحرك، ولو توقف لانتهى. السلام هو توازن قوى كثيرة في حركة تكبح بعضها بعضًا.</p>
 <h3 class="law-more">هناك مكان ليس A ولا B</h3>
       <p>يحب العالم تقسيم كل شيء إلى "إن لم يكن A فهو B". لكن تقسيمات مثل الأدبي/العلمي ليست سوى وسيلة لتسيير المجتمع، وليست الجوهر.</p>
+      <h3 class="law-more">ما نحمله ليس المعنى، بل التأثير</h3>
+      <p>ما يحمله الناس حقًا ليس «معنى الحياة»، بل «التأثير» الذي يتركونه في من حولهم. شئنا أم أبينا، تنتقل كلماتنا وأفعالنا إلى المقربين منا، ويُعاد إنتاج 99% من حياتنا في العالم. السؤال ليس «هل لهذا معنى؟»، بل «ما التأثير الذي أنقله؟».</p>
       <h3 class="law-more">قاعدة ترك الـ20%</h3>
       <p>«الـ20% التي لا تريد فعلها» في العمل ليست شيئًا يجب إزالته، بل شيئًا تختار تركه بنفسك عمدًا. حتى لو أزلت العمل الذي تكرهه، ستظهر 20% جديدة «غير محببة». ولهذا بالضبط، الزمام في أن تختار بنفسك أيّ 20% تترك.</p>
       <h3 class="law-more">لمعنى الحياة أربعة أنواع</h3>
@@ -1402,6 +1408,24 @@ function wmFitDots(svg, scale){
   });
 })();
 
+</script>
+
+<script>
+// ヒーロー動画: 下の配列にファイル名を1行足すだけで、複数動画の巡回ループ再生になります
+const HERO_VIDEOS = ['/videos/hero-01.mp4'];
+(function(){
+  var v = document.querySelector('.hero-video');
+  if(!v) return;
+  if(HERO_VIDEOS.length <= 1){ v.loop = true; return; }
+  var i = 0;
+  v.loop = false;
+  v.removeAttribute('loop');
+  v.addEventListener('ended', function(){
+    i = (i + 1) % HERO_VIDEOS.length;
+    v.src = HERO_VIDEOS[i];
+    v.play();
+  });
+})();
 </script>
 
 </body>
