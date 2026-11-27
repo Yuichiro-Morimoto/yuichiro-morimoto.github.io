@@ -222,10 +222,9 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-media{margin-top:56px}
-.hero-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;background:#eef3f8}
-.profile-photo{display:block;width:200px;height:200px;object-fit:cover;border-radius:20px;margin:26px 0 30px}
-@media(max-width:640px){.profile-photo{width:150px;height:150px}.hero-media{margin-top:40px}}
+.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
+@media(min-width:901px){.hero .wrap{padding-right:290px}}
+@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -415,9 +414,9 @@ footer small{font-size:13.5px}
 .world-map{position:relative}
 .world-map .wm-tip{position:absolute}}
 .wm-city-list{margin-top:12px;font-size:13.5px;line-height:2.1}
-.wm-countries{margin-top:14px;border-top:1px solid #e3e9ef}
-.wm-country{border-bottom:1px solid #e3e9ef}
-.wm-country summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 2px;font-size:15px;font-weight:700;letter-spacing:.08em}
+.wm-countries{margin-top:14px;border-top:1px solid #e3e9ef;display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));column-gap:30px}
+.wm-country{border-bottom:1px solid #e3e9ef}.wm-country[open]{grid-column:1/-1}
+.wm-country summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;padding:8px 2px;font-size:14px;font-weight:700;letter-spacing:.08em}
 .wm-country summary::-webkit-details-marker{display:none}
 .wm-country summary::after{content:"";width:8px;height:8px;border-right:2px solid #01A1DD;border-bottom:2px solid #01A1DD;transform:rotate(45deg);margin-left:auto;transition:transform .2s ease}
 .wm-country[open ]>summary::after{transform:rotate(225deg)}
@@ -464,9 +463,7 @@ footer small{font-size:13.5px}
       <a class="btn btn-primary" href="#contact">節目邀約・演講邀請</a>
       <a class="btn btn-ghost" href="#themes">查看演講主題</a>
     </div>
-    <div class="hero-media">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/videos/hero-01-poster.jpg" src="/videos/hero-01.mp4" aria-label="HOBISAYA diagram animation"></video>
-    </div>
+    <img class="hero-photo" src="/profile.jpg" alt="站在遺跡上的 Molly">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -481,7 +478,6 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">個人簡介</h2>
-    <img class="profile-photo" src="/profile.jpg" alt="站在遺跡上的 Molly">
     <div class="profile-grid">
       <p>我是 <span class="hl">Molly</span>。我是一名旅行播客主持人，進行著「HOBISAYA」與「RANTAU」兩項活動。</p>
       <p>「HOBISAYA」是一項活動，它對既有的價值觀提出疑問，並透過呈現看待事物的不同方式，探尋從他人的尺度上下來、以自己的選擇生活的思考方式。</p>
@@ -1408,24 +1404,6 @@ function wmFitDots(svg, scale){
   });
 })();
 
-</script>
-
-<script>
-// ヒーロー動画: 下の配列にファイル名を1行足すだけで、複数動画の巡回ループ再生になります
-const HERO_VIDEOS = ['/videos/hero-01.mp4'];
-(function(){
-  var v = document.querySelector('.hero-video');
-  if(!v) return;
-  if(HERO_VIDEOS.length <= 1){ v.loop = true; return; }
-  var i = 0;
-  v.loop = false;
-  v.removeAttribute('loop');
-  v.addEventListener('ended', function(){
-    i = (i + 1) % HERO_VIDEOS.length;
-    v.src = HERO_VIDEOS[i];
-    v.play();
-  });
-})();
 </script>
 
 </body>
