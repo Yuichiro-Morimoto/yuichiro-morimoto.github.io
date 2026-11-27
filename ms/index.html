@@ -222,9 +222,10 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+.hero-media{margin-top:56px}
+.hero-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;background:#eef3f8}
+.profile-photo{display:block;width:200px;height:200px;object-fit:cover;border-radius:20px;margin:26px 0 30px}
+@media(max-width:640px){.profile-photo{width:150px;height:150px}.hero-media{margin-top:40px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -463,7 +464,9 @@ footer small{font-size:13.5px}
       <a class="btn btn-primary" href="#contact">Permohonan Jemputan &amp; Syarahan</a>
       <a class="btn btn-ghost" href="#themes">Lihat Tema Perbincangan</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="Molly berdiri di sebuah tapak runtuhan bersejarah">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/videos/hero-01-poster.jpg" src="/videos/hero-01.mp4" aria-label="HOBISAYA diagram animation"></video>
+    </div>
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -478,6 +481,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">Profil</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="Molly berdiri di sebuah tapak runtuhan bersejarah">
     <div class="profile-grid">
       <p>Saya <span class="hl">Molly</span>. Sebagai podcaster pengembara, saya menjalankan dua kegiatan: “HOBISAYA” dan “RANTAU”.</p>
       <p>“HOBISAYA” ialah kegiatan yang mempersoalkan nilai-nilai sedia ada dan, dengan mengemukakan cara pandang yang berbeza terhadap sesuatu, meneroka cara berfikir untuk turun daripada tolok ukur orang lain dan hidup mengikut pilihan sendiri.</p>
@@ -676,6 +680,8 @@ footer small{font-size:13.5px}
       <p>Keamanan bukanlah keheningan dunia yang terhenti. Dunia terus bergerak, dan jika ia berhenti, ia akan berakhir. Keamanan ialah keseimbangan banyak kuasa yang bergerak dan saling menahan.</p>
 <h3 class="law-more">Ada Tempat yang Bukan A mahupun B</h3>
       <p>Dunia suka membahagikan sesuatu kepada "jika bukan A, maka B." Sedangkan pembahagian seperti sastera/sains hanyalah kemudahan untuk menggerakkan masyarakat, bukan hakikatnya.</p>
+      <h3 class="law-more">Yang Kita Pikul Bukanlah Makna, Tetapi Pengaruh</h3>
+      <p>Apa yang sebenarnya dipikul manusia bukanlah "makna hidup", tetapi "pengaruh" yang diberikannya kepada orang di sekeliling. Sama ada disengajakan atau tidak, kata-kata dan tindakan kita berjangkit kepada orang terdekat, dan 99% kehidupan kita dihasilkan semula ke dunia. Soalnya bukan "adakah ini bermakna?", tetapi "pengaruh apa yang sedang saya sampaikan?".</p>
       <h3 class="law-more">Peraturan Kekalkan 20%</h3>
       <p>“20% kerja yang tidak mahu dilakukan” bukanlah sesuatu untuk dihapuskan, tetapi sesuatu yang kita pilih sendiri untuk dikekalkan dengan sengaja. Walaupun kerja yang dibenci dihapuskan, 20% yang baharu akan muncul sebagai “tidak disukai”. Oleh sebab itu, kendali terletak pada tindakan memilih sendiri 20% yang hendak dikekalkan.</p>
       <h3 class="law-more">Makna hidup ada empat jenis</h3>
@@ -1402,6 +1408,24 @@ function wmFitDots(svg, scale){
   });
 })();
 
+</script>
+
+<script>
+// ヒーロー動画: 下の配列にファイル名を1行足すだけで、複数動画の巡回ループ再生になります
+const HERO_VIDEOS = ['/videos/hero-01.mp4'];
+(function(){
+  var v = document.querySelector('.hero-video');
+  if(!v) return;
+  if(HERO_VIDEOS.length <= 1){ v.loop = true; return; }
+  var i = 0;
+  v.loop = false;
+  v.removeAttribute('loop');
+  v.addEventListener('ended', function(){
+    i = (i + 1) % HERO_VIDEOS.length;
+    v.src = HERO_VIDEOS[i];
+    v.play();
+  });
+})();
 </script>
 
 </body>
