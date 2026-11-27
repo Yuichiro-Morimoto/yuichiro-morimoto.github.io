@@ -222,9 +222,10 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+.hero-media{margin-top:56px}
+.hero-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;background:#eef3f8}
+.profile-photo{display:block;width:200px;height:200px;object-fit:cover;border-radius:20px;margin:26px 0 30px}
+@media(max-width:640px){.profile-photo{width:150px;height:150px}.hero-media{margin-top:40px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -463,7 +464,9 @@ footer small{font-size:13.5px}
       <a class="btn btn-primary" href="#contact">출연·강연 의뢰</a>
       <a class="btn btn-ghost" href="#themes">강연 주제 보기</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="유적에 선 Molly">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/videos/hero-01-poster.jpg" src="/videos/hero-01.mp4" aria-label="HOBISAYA diagram animation"></video>
+    </div>
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -478,6 +481,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">프로필</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="유적에 선 Molly">
     <div class="profile-grid">
       <p><span class="hl">Molly</span>입니다. 여행하는 팟캐스터로서 'HOBISAYA'와 'RANTAU', 두 가지 활동을 하고 있습니다.</p>
       <p>'HOBISAYA'는 기존의 가치관에 의문을 제기하고, 그와는 다른 사물을 보는 방식을 제시함으로써, 타인의 잣대에서 내려와 자신의 선택으로 살아가기 위한 사고방식을 탐구하는 활동입니다.</p>
@@ -676,6 +680,8 @@ footer small{font-size:13.5px}
       <p>평화는 모든 것이 멈춘 고요한 상태가 아닙니다. 세계는 끊임없이 움직이고, 멈추면 끝나버립니다. 여러 힘이 움직이면서 균형을 이루는 상태, 그것이 평화의 모습입니다.</p>
 <h3 class="law-more">A도 B도 아닌 장소가 있다</h3>
       <p>세상은 "A가 아니면 B"라고 둘로 나누려 하지만, 문과/이과 같은 구분은 사회를 굴리기 위한 편의일 뿐 본질은 아닙니다.</p>
+      <h3 class="law-more">안고 있는 것은 의미가 아니라 영향이다</h3>
+      <p>사람이 안고 있는 것은 '삶의 의미'가 아니라, 자신이 주변에 미치고 있는 '영향'입니다. 의도하지 않아도 말과 행동은 가까운 사람에게 전해지고, 내 생활의 99%는 세상으로 재생산되어 갑니다. 물어야 할 것은 '의미가 있는가'가 아니라 '어떤 영향을 건네고 있는가'입니다.</p>
       <h3 class="law-more">20% 남기기의 법칙</h3>
       <p>일 속의 '하기 싫은 20%'는 없애야 할 대상이 아니라, 일부러 남기는 것으로 스스로 선택하는 것입니다. 싫은 일을 없애도 새롭게 20%가 '싫은 일'이 됩니다. 그렇기에 남길 20%를 스스로 선택하는 데에 주도권이 있습니다.</p>
       <h3 class="law-more">삶의 의미에는 네 종류가 있다</h3>
@@ -1402,6 +1408,24 @@ function wmFitDots(svg, scale){
   });
 })();
 
+</script>
+
+<script>
+// ヒーロー動画: 下の配列にファイル名を1行足すだけで、複数動画の巡回ループ再生になります
+const HERO_VIDEOS = ['/videos/hero-01.mp4'];
+(function(){
+  var v = document.querySelector('.hero-video');
+  if(!v) return;
+  if(HERO_VIDEOS.length <= 1){ v.loop = true; return; }
+  var i = 0;
+  v.loop = false;
+  v.removeAttribute('loop');
+  v.addEventListener('ended', function(){
+    i = (i + 1) % HERO_VIDEOS.length;
+    v.src = HERO_VIDEOS[i];
+    v.play();
+  });
+})();
 </script>
 
 </body>
