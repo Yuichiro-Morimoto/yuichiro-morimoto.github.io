@@ -222,9 +222,10 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+.hero-media{margin-top:56px}
+.hero-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;background:#eef3f8}
+.profile-photo{display:block;width:200px;height:200px;object-fit:cover;border-radius:20px;margin:26px 0 30px}
+@media(max-width:640px){.profile-photo{width:150px;height:150px}.hero-media{margin-top:40px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -463,7 +464,9 @@ footer small{font-size:13.5px}
       <a class="btn btn-primary" href="#contact">Demandes d'invitation et de conférence</a>
       <a class="btn btn-ghost" href="#themes">Voir les thèmes</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="Molly debout au milieu de ruines">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/videos/hero-01-poster.jpg" src="/videos/hero-01.mp4" aria-label="HOBISAYA diagram animation"></video>
+    </div>
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -478,6 +481,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">Profil</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="Molly debout au milieu de ruines">
     <div class="profile-grid">
       <p>Je suis <span class="hl">Molly</span>. Je suis podcasteur voyageur et je mène deux activités : « HOBISAYA » et « RANTAU ».</p>
       <p>« HOBISAYA » est une activité qui remet en question les valeurs établies et qui, en présentant une autre façon de voir les choses, explore des manières de penser pour descendre de l'échelle des autres et vivre selon ses propres choix.</p>
@@ -676,6 +680,8 @@ footer small{font-size:13.5px}
       <p>La paix n’est pas l’immobilité d’un monde arrêté. Le monde continue de bouger, et s’il s’arrêtait, il finirait. La paix est l’équilibre de nombreuses forces en mouvement qui se contiennent mutuellement.</p>
 <h3 class="law-more">Il existe un lieu qui n'est ni A ni B</h3>
       <p>Le monde aime tout diviser en « si ce n'est pas A, c'est B ». Mais des divisions comme lettres/sciences ne sont qu'une commodité pour faire fonctionner la société, pas l'essence des choses.</p>
+      <h3 class="law-more">Ce que nous portons n'est pas le sens, mais l'influence</h3>
+      <p>Ce que les gens portent réellement, ce n'est pas un « sens de la vie », mais l'« influence » qu'ils exercent sur leur entourage. Que nous le voulions ou non, nos paroles et nos actes se transmettent aux personnes proches, et 99 % de notre vie se reproduit dans le monde. La question n'est pas « est-ce que cela a un sens ? », mais « quelle influence est-ce que je transmets ? ».</p>
       <h3 class="law-more">La règle des 20 % à laisser</h3>
       <p>Les « 20 % que tu ne veux pas faire » du travail ne sont pas quelque chose à éliminer, mais quelque chose que tu choisis de laisser, délibérément. Même si tu élimines le travail que tu détestes, un nouveau 20 % « désagréable » apparaîtra. C'est pour cela que les rênes sont dans le fait de choisir toi-même quels 20 % laisser.</p>
       <h3 class="law-more">Le sens de la vie a quatre formes</h3>
@@ -1402,6 +1408,24 @@ function wmFitDots(svg, scale){
   });
 })();
 
+</script>
+
+<script>
+// ヒーロー動画: 下の配列にファイル名を1行足すだけで、複数動画の巡回ループ再生になります
+const HERO_VIDEOS = ['/videos/hero-01.mp4'];
+(function(){
+  var v = document.querySelector('.hero-video');
+  if(!v) return;
+  if(HERO_VIDEOS.length <= 1){ v.loop = true; return; }
+  var i = 0;
+  v.loop = false;
+  v.removeAttribute('loop');
+  v.addEventListener('ended', function(){
+    i = (i + 1) % HERO_VIDEOS.length;
+    v.src = HERO_VIDEOS[i];
+    v.play();
+  });
+})();
 </script>
 
 </body>
