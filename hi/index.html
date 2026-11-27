@@ -222,9 +222,10 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+.hero-media{margin-top:56px}
+.hero-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;background:#eef3f8}
+.profile-photo{display:block;width:200px;height:200px;object-fit:cover;border-radius:20px;margin:26px 0 30px}
+@media(max-width:640px){.profile-photo{width:150px;height:150px}.hero-media{margin-top:40px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -463,7 +464,9 @@ footer small{font-size:13.5px}
       <a class="btn btn-primary" href="#contact">उपस्थिति व व्याख्यान के अनुरोध</a>
       <a class="btn btn-ghost" href="#themes">बोलने के विषय देखें</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="खंडहरों में खड़े Molly">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/videos/hero-01-poster.jpg" src="/videos/hero-01.mp4" aria-label="HOBISAYA diagram animation"></video>
+    </div>
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -478,6 +481,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">परिचय</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="खंडहरों में खड़े Molly">
     <div class="profile-grid">
       <p>मैं <span class="hl">Molly</span> हूँ। मैं एक यात्री पॉडकास्टर हूँ और दो गतिविधियाँ चलाता हूँ: «HOBISAYA» और «RANTAU»।</p>
       <p>«HOBISAYA» एक ऐसी गतिविधि है, जो मौजूदा मूल्यों पर सवाल उठाती है और चीज़ों को देखने का एक अलग नज़रिया पेश करके, दूसरों के पैमानों से उतरकर अपने चुनावों से जीने की सोच को तलाशती है।</p>
@@ -676,6 +680,8 @@ footer small{font-size:13.5px}
       <p>शांति किसी रुकी हुई दुनिया की ख़ामोशी नहीं है। दुनिया चलती रहती है, और अगर वह रुक जाए तो ख़त्म हो जाएगी। शांति गति में मौजूद कई शक्तियों का संतुलन है जो एक-दूसरे को रोके रखती हैं।</p>
 <h3 class="law-more">एक जगह ऐसी भी है जो न A है न B</h3>
       <p>दुनिया हर चीज़ को "A नहीं तो B" में बाँटना पसंद करती है। लेकिन मानविकी/विज्ञान जैसे विभाजन समाज को चलाने की सुविधा मात्र हैं, सार नहीं।</p>
+      <h3 class="law-more">हम जो ढोते हैं वह अर्थ नहीं, प्रभाव है</h3>
+      <p>लोग असल में जो ढोते हैं वह 'जीवन का अर्थ' नहीं है, बल्कि वह 'प्रभाव' है जो वे अपने आसपास के लोगों पर डालते हैं। चाहें या न चाहें, हमारे शब्द और काम करीबी लोगों तक पहुँचते हैं, और हमारे जीवन का 99% दुनिया में पुनः उत्पादित होता रहता है। सवाल यह नहीं है कि 'क्या इसका कोई अर्थ है?', सवाल यह है कि 'मैं कैसा प्रभाव आगे बढ़ा रहा हूँ?'।</p>
       <h3 class="law-more">20% छोड़ने का नियम</h3>
       <p>काम में «जो 20% आप नहीं करना चाहते», वह हटाने की चीज़ नहीं है, बल्कि खुद चुनकर छोड़ने की चीज़ है। नापसंद काम हटा भी दें तो नए 20% «नापसंद» बन जाते हैं। इसीलिए बागडोर इसमें है कि कौन-से 20% छोड़ने हैं, यह आप खुद चुनें।</p>
       <h3 class="law-more">जीवन के अर्थ के चार प्रकार हैं</h3>
@@ -1402,6 +1408,24 @@ function wmFitDots(svg, scale){
   });
 })();
 
+</script>
+
+<script>
+// ヒーロー動画: 下の配列にファイル名を1行足すだけで、複数動画の巡回ループ再生になります
+const HERO_VIDEOS = ['/videos/hero-01.mp4'];
+(function(){
+  var v = document.querySelector('.hero-video');
+  if(!v) return;
+  if(HERO_VIDEOS.length <= 1){ v.loop = true; return; }
+  var i = 0;
+  v.loop = false;
+  v.removeAttribute('loop');
+  v.addEventListener('ended', function(){
+    i = (i + 1) % HERO_VIDEOS.length;
+    v.src = HERO_VIDEOS[i];
+    v.play();
+  });
+})();
 </script>
 
 </body>
