@@ -415,9 +415,9 @@ footer small{font-size:13.5px}
 .world-map{position:relative}
 .world-map .wm-tip{position:absolute}}
 .wm-city-list{margin-top:12px;font-size:13.5px;line-height:2.1}
-.wm-countries{margin-top:14px;border-top:1px solid #e3e9ef}
-.wm-country{border-bottom:1px solid #e3e9ef}
-.wm-country summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 2px;font-size:15px;font-weight:700;letter-spacing:.08em}
+.wm-countries{margin-top:14px;border-top:1px solid #e3e9ef;display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));column-gap:30px}
+.wm-country{border-bottom:1px solid #e3e9ef}.wm-country[open]{grid-column:1/-1}
+.wm-country summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;padding:8px 2px;font-size:14px;font-weight:700;letter-spacing:.08em}
 .wm-country summary::-webkit-details-marker{display:none}
 .wm-country summary::after{content:"";width:8px;height:8px;border-right:2px solid #01A1DD;border-bottom:2px solid #01A1DD;transform:rotate(45deg);margin-left:auto;transition:transform .2s ease}
 .wm-country[open ]>summary::after{transform:rotate(225deg)}
