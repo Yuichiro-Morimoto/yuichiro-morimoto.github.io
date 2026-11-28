@@ -224,9 +224,9 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+
+
+@media(max-width:900px){.profile-photo{width:140px;height:140px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -249,6 +249,7 @@ nav a:hover{color:var(--ink);text-decoration:none}
 
 /* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.profile-photo{width:190px;height:190px;object-fit:cover;border-radius:20px;display:block;margin:0 0 26px}
 .book-cover{width:170px;height:auto;display:block;margin-bottom:18px}
 .art-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;margin-bottom:18px}.art-duo a{display:block;text-decoration:none;color:inherit}.art-duo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.art-duo span{display:block;margin-top:8px;font-size:13px;color:#6b7280}
 .profile-grid p{margin-bottom:22px;max-width:680px}
@@ -363,11 +364,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 footer .f-logo{font-weight:700;letter-spacing:.06em}
 footer .f-logo span{color:var(--ink)}
 footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
-footer .f-sns{display:flex;gap:14px;align-items:center}
-footer .f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .2s,border-color .2s,color .2s}
-footer .f-sns a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-footer .f-sns svg{width:17px;height:17px;fill:currentColor}
-footer .f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-sns{display:flex;gap:14px;align-items:center}
+.f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--ink);transition:opacity .2s}
+.f-sns a:hover{opacity:.55}
+.f-sns svg{width:17px;height:17px;fill:currentColor}
+.f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){header .f-sns{display:none}}
 
 [hidden]{display:none!important}
 .lang-toggle{
@@ -454,10 +456,15 @@ footer small{font-size:13.5px}
       <a href="#profile">Profil</a>
       <a href="#yobimizu">RANTAU</a>
       <a href="#hobisaya">HOBISAYA</a>
-      <a href="#themes">Tema</a>
       <a href="#books">Buku</a>
-      <a href="#achievements">Prestasi</a>
       <a href="#contact">Permintaan Tampil</a>
+    </nav>
+    <nav class="f-sns" dir="ltr" aria-label="SNS">
+      <a href="https://www.youtube.com/@molly_travel1994" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@molly_japanese" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://x.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+      <a href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
+      <a href="https://stand.fm/channels/687f93ed2d8270496ec18d41" target="_blank" rel="noopener" aria-label="stand.fm"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></a>
     </nav>
   </div>
 </header>
@@ -471,9 +478,7 @@ footer small{font-size:13.5px}
     <div class="role">Filsuf Pelancong</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">Permintaan Tampil &amp; Berbicara</a>
-      <a class="btn btn-ghost" href="#themes">Lihat Tema yang Bisa Dibawakan</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="Molly berdiri di sebuah situs reruntuhan">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -488,6 +493,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">Profil</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="Molly berdiri di sebuah situs reruntuhan">
     <div class="profile-grid">
       <p>Halo, saya <span class="hl">Molly</span>. Sebagai podcaster pelancong, saya menjalankan dua kegiatan: "HOBISAYA" dan "RANTAU".</p>
       <p>"HOBISAYA" adalah kegiatan yang mempertanyakan nilai-nilai yang sudah mapan dan, dengan menghadirkan cara pandang yang berbeda terhadap berbagai hal, menjelajahi cara berpikir untuk turun dari tolok ukur orang lain dan hidup dengan pilihan sendiri.</p>
@@ -696,210 +702,7 @@ footer small{font-size:13.5px}
 </section>
 
 <!-- ============ BOOKS ============ -->
-<section id="themes">
-  <div class="wrap">
-    <div class="sec-label">Themes</div>
-    <h2 class="sec-title">Tema yang Bisa Dibawakan</h2>
-    <p class="sec-lead">Untuk keperluan talk show, tampil sebagai tamu di podcast, ceramah, serta konsultasi penulisan bersama dan kontribusi tulisan, saya merangkum tema-tema yang bisa saya bawakan. Setiap tema disertai catatan siaran nyata dari podcast "HOBISAYA" (inventarisasi dari lebih dari 500 episode).</p>
-    <div class="theme-grid">
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">01</span><h3>Pola Pikir &amp; Mindset (Cara Berpikir)</h3></div>
-        <div class="record">Sekitar 129 episode, total 44 jam siaran (tema terbesar di HOBISAYA)</div>
-        <ul>
-          <li><b>Jangan memaksakan hitam-putih, berpikirlah dalam nuansa abu-abu</b> — Tanpa provokasi, tanpa kesimpulan yang tergesa. Cara berpikir seorang komentator.</li>
-          <li><b>"Pintar" itu ilusi</b> — Jika "kepintaran" diurai, yang tersisa hanyalah kebiasaan dan pola berpikir</li>
-          <li><b>Pilihan untuk tidak memutuskan sekarang</b> — Menilai situasi di mana keputusan yang cepat dan instan belum tentu merupakan jawaban yang tepat</li>
-        </ul>
-        <div class="rep">Episode representatif: <a href="https://www.youtube.com/watch?v=BpPvzhzJU9E" target="_blank" rel="noopener">"Ketika ada hal 'A' dan 'B', orang cenderung ingin menentukan mana yang lebih unggul"</a>, dan lainnya</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">02</span><h3>"Kendali" atas Cara Hidup &amp; Karier</h3></div>
-        <div class="record">Sekitar 127 episode siaran (76 episode tips kerja + 51 episode cara hidup)</div>
-        <ul>
-          <li><b>Cara mengambil kembali kendali atas hidup</b> — Cara berpikir untuk turun dari ukuran orang lain dan hidup dengan pilihan sendiri (inti dari buku saya)</li>
-          <li><b>"Suka" atau "menghasilkan uang" — tak perlu dipusingkan</b> — Empat kuadran pekerjaan itu selalu bergerak. Alasan mengapa dengan sengaja menyisakan "20 persen yang tidak disukai" justru membuat keseluruhan berjalan dengan baik</li>
-          <li><b>Freelance atau kerja kantoran? Kalau masih ragu, artinya sebaiknya ambil pekerjaan kantoran</b> — Realitas dunia freelance serta cocok-tidaknya, dibawakan oleh orang yang telah menjalaninya sendiri</li>
-          <li><b>Semakin sedikit pilihan, semakin bahagia</b> — Tentang hidup minimalis dan pengambilan keputusan</li>
-        </ul>
-        <div class="rep">Episode representatif: <a href="https://www.youtube.com/watch?v=n-tJbzAukS0" target="_blank" rel="noopener">"Kunci Kepuasan Hidup adalah 'Kendali'"</a>, <a href="https://www.youtube.com/watch?v=PuV6_POZexY" target="_blank" rel="noopener">"Lebih Baik Menyisakan 20 Persen 'Hal yang Tidak Disukai' dalam Hidup"</a>, <a href="https://www.youtube.com/watch?v=KQWZK5oG9O4" target="_blank" rel="noopener">"Sisi Buruk Menjadi Freelancer"</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">03</span><h3>Hubungan Antarmanusia &amp; Komunikasi</h3></div>
-        <div class="record">Sekitar 53 episode, total 16,5 jam siaran</div>
-        <ul>
-          <li><b>Galau karena hubungan, atau reset saja?</b> — Menata ulang hubungan dan cara menjaga jarak</li>
-          <li><b>Gaya komunikasi</b> — Kriteria berkomunikasi berbeda-beda pada setiap orang</li>
-          <li><b>Jangan menyudahi dengan "dia memang tidak peka"</b> — Cara berbicara dan mendengarkan yang tidak menyalahkan pihak lain ketika pesan tidak tersampaikan</li>
-        </ul>
-        <div class="rep">Episode representatif: siaran yang menjadi cikal bakal <a href="https://www.youtube.com/watch?v=lbICHiRXeOE" target="_blank" rel="noopener">Bab 2</a> dan <a href="https://www.youtube.com/watch?v=N5mmSP41nuY" target="_blank" rel="noopener">Bab 4</a> buku "HOBISAYA", dan lainnya</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">04</span><h3>Filsafat &amp; Spiritualitas × Logika</h3></div>
-        <div class="record">Sekitar 41 episode, total 13,5 jam siaran</div>
-        <ul>
-          <li><b>Spiritualitas dan logika sebenarnya mengatakan hal yang sama</b> — Titik temu yang dituju oleh dua hal yang tampak bertolak belakang ini</li>
-          <li><b>Menggunakan intuisi dan analisis sesuai situasi</b> — Bukan memilih salah satu, melainkan praktik berganti mode tergantung keadaan</li>
-        </ul>
-        <div class="rep">Episode representatif: siaran yang menjadi cikal bakal <a href="https://www.youtube.com/watch?v=2glvf0fozdM" target="_blank" rel="noopener">Bab 7</a> buku "HOBISAYA", dan lainnya</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">05</span><h3>AI &amp; Bisnis Solo</h3></div>
-        <div class="record">Sekitar 20 episode, tema yang akhir-akhir ini meningkat pesat</div>
-        <ul>
-          <li><b>Kunci di era AI adalah "keberanian menyerahkan semuanya"</b> — Waktu yang lahir dari menyerahkan pekerjaan sepenuhnya kepada AI, dan pekerjaan yang tetap tersisa di tangan pihak yang menyerahkan</li>
-          <li><b>Praktik bisnis solo × operasional AI</b> — Kisah nyata dari lapangan: mengelola tiga kanal YouTube, membuat buku, hingga mengembangkan aplikasi, semuanya dijalankan bersama AI</li>
-          <li><b>Cara kerja individu yang "memiliki pabrik di dalam komputer"</b> — Sejauh mana seorang individu bisa berkarya di era ketika biaya untuk mencoba telah turun drastis</li>
-        </ul>
-        <div class="rep">Episode representatif: <a href="https://www.youtube.com/watch?v=0-tGLYxpKH8" target="_blank" rel="noopener">"Orang-orang yang Tidak Bisa 'Menyerahkan Semuanya' kepada AI"</a>, <a href="https://www.youtube.com/watch?v=zOxFAgi1h5k" target="_blank" rel="noopener">"Kisah Aplikasi yang Jadi dalam 3 Menit setelah Saya Menceritakan Idenya kepada AI"</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">06</span><h3>Perjalanan &amp; Dunia</h3></div>
-        <div class="record">Lebih dari 340 episode narasi dan liputan perjalanan; sekitar 56 episode yang khusus membicarakan perjalanan</div>
-        <ul>
-          <li><b>Pengalaman solo traveling ke 12 negara, terutama Asia Tenggara</b> — Teknik bepergian dengan murah, aman, dan akrab dengan warga lokal</li>
-          <li><b>Perjalanan menginap di rumah warga lokal</b> — Gaya perjalanan untuk melihat "kehidupan sehari-hari", bukan sekadar tempat wisata</li>
-          <li><b>Bekerja &amp; menghasilkan uang sambil bepergian</b> — Cara seorang podcaster pelancong merekam siaran dan mekanisme pendapatannya</li>
-        </ul>
-        <div class="rep">Episode representatif: <a href="https://www.youtube.com/watch?v=gpC7_FkikY0" target="_blank" rel="noopener">"Ingin Kembali ke Asia Tenggara! Merenungi Hari-hari Pengembaraan ke Luar Negeri"</a>, <a href="https://www.youtube.com/watch?v=kOpwRDQ5KxI" target="_blank" rel="noopener">"Menjawab Pertanyaan 'Bagaimana Sih Naik LCC?'"</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">07</span><h3>Belajar Bahasa (Metode YellowPen)</h3></div>
-        <div class="record">Sekitar 55 episode podcast, didukung pula oleh kanal bahasa dan buku-buku saya</div>
-        <ul>
-          <li><b>Cara konsisten belajar bahasa secara otodidak</b> — Memulai dari "cara membaca" suatu bahasa membuat kita tidak mudah menyerah</li>
-          <li><b>Membaca Hangul dengan menggantinya ke alfabet / membaca aksara Thai lewat sistemnya</b> — Penjelasan metode YellowPen (ada bukunya)</li>
-          <li><b>Bahasa bukan "alat cari uang", melainkan "hobi yang memperluas dunia"</b> — Tips untuk terus bertahan, dari seorang pencinta bahasa</li>
-        </ul>
-        <div class="rep">Episode representatif: <a href="https://www.youtube.com/watch?v=Hls7rM5vKsI" target="_blank" rel="noopener">"Membuktikan bahwa dalam Belajar Bahasa Tidak Ada yang Namanya 'Menyerah'"</a>, <a href="https://www.youtube.com/watch?v=0XudIloiz4k" target="_blank" rel="noopener">"'Zombi Belajar' yang Menjebak 80 Persen Pembelajar Bahasa Inggris"</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">08</span><h3>Konten &amp; Monetisasi</h3></div>
-        <div class="record">Didukung oleh praktik mengelola tiga kanal dan menerbitkan buku</div>
-        <ul>
-          <li><b>Mengelola YouTube menuju 100 ribu subscriber</b> — Cara bertumbuh dengan berpusat pada Shorts dan cara menjalankan tiga kanal (YellowPen Bahasa Korea telah melampaui 80 ribu subscriber)</li>
-          <li><b>Penerbitan Kindle, sumber penghasilan lainnya</b> — Seluruh proses yang dilalui seorang individu untuk menerbitkan dan menjual buku</li>
-          <li><b>Jalan menuju penghasilan pasif 180 ribu yen per bulan</b> — Rancangan menggabungkan podcast, YouTube, dan buku</li>
-        </ul>
-        <div class="rep">Episode representatif: <a href="https://www.youtube.com/watch?v=06Qp66n4wmc" target="_blank" rel="noopener">"YouTuber Tanpa Pekerjaan Tetap, Laporan Penghasilan Bulan Lalu"</a>, <a href="https://www.youtube.com/watch?v=8ubBxpkfk_8" target="_blank" rel="noopener">"Tentang Arah YouTube ke Depan"</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">09</span><h3>Umur Sehat &amp; Kesejahteraan</h3></div>
-        <div class="record">Sekitar 16 episode siaran (terus bertambah sambil praktiknya dijalani)</div>
-        <ul>
-          <li><b>Kebiasaan agar tetap menjadi "paman yang masih bisa bergerak aktif"</b> — Cara menjalani yoga, meditasi, dan latihan beban tubuh tanpa memaksakan diri</li>
-          <li><b>Bangun dengan suara pagi dari berbagai penjuru dunia</b> — Tentang aplikasi alarm buatan sendiri dan suara-suara yang dikumpulkan di tempat-tempat perjalanan</li>
-        </ul>
-        <div class="rep">Episode representatif: <a href="https://www.youtube.com/watch?v=_jwVoOPt4-s" target="_blank" rel="noopener">"Kisah Pertama Kali Mencoba Yoga"</a>, <a href="https://www.youtube.com/watch?v=tS6vsVveAGI" target="_blank" rel="noopener">"Kisah Dunia yang Tampak Berwarna Sepia setelah Pertama Kali Meditasi 15 Menit"</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ ART ============ -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sec-label">Achievements</div>
-    <h2 class="sec-title">Prestasi</h2>
-    <ul class="ach-list">
-      <li class="ach">
-        <div class="year">2025</div>
-        <div class="body">
-          <h3>Menerbitkan buku HOBISAYA</h3>
-          <p>Menerbitkan buku pertama saya, HOBISAYA, yang merangkum teori-teori dari podcast — pertama dalam bahasa Jepang, lalu edisi bahasa Inggris “HOBISAYA — How to Take Back the Reins of Your Life”.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2024</div>
-        <div class="body">
-          <h3>Memulai perjalanan keliling dunia</h3>
-          <p>Memulai hidup berkelana mengelilingi dunia, terutama di Asia Tenggara. Jumlah negara yang telah dikunjungi mencapai 12.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Tampil sebagai tamu di acara kickoff Senden Kaigi Award ke-61 (salah satu penghargaan copywriting terbesar di Jepang)</h3>
-          <p>Sebagai pemenang Grand Prix ke-60 pada tahun sebelumnya, saya tampil sebagai tamu online dan mengikuti sesi berbagi pengalaman meraih Grand Prix pada kesempatan pertama mengikuti ajang ini. <a href="https://www.advertimes.com/20230929/article435336/" target="_blank" rel="noopener">Laporan acara di AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Wawancara pemenang Grand Prix Senden Kaigi Award</h3>
-          <p>Wawancara Grand Prix dari majalah bulanan Senden Kaigi (majalah perdagangan periklanan Jepang) — “Agar sepuluh tahun lagi saya bisa mengatakan bahwa itu adalah titik balik hidup saya” — yang dimuat ulang di web (AdverTimes / Senden Kaigi online). <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">Artikel wawancara di AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Meraih Grand Prix pada Senden Kaigi Award ke-60 (penghargaan periklanan bergengsi di Jepang)</h3>
-          <p>Meraih Grand Prix pada kesempatan pertama mengikuti ajang ini. Karya untuk Miura Kogyo (produsen peralatan pemanas air) berbunyi: "'Kenapa air panasnya tidak keluar?' 'Kenapa kamu kira air panasnya akan keluar?'" Wawancara Grand Prix dimuat di majalah bulanan Senden Kaigi edisi Juni 2023. <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">Artikel wawancara di AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Karya Dimuat di Majalah "Fast Company" Amerika Serikat</h3>
-          <p>Lampu <a href="https://morimotoyuic.base.shop/items/67289621" target="_blank" rel="noopener">"NISSHOKU (gerhana matahari)"</a> yang menyala dengan cahaya matahari tanpa menggunakan listrik diperkenalkan dalam artikel di majalah desain Amerika, Fast Company. Lampu ini dirancang pada tahun 2018, tepat setelah saya lulus dari sekolah seni. Berawal dari designboom, karya ini juga dimuat di media berbagai negara seperti Brasil, Rusia, India, Tiongkok, Kanada, dan Inggris, serta dikutip sebagai studi kasus dalam sebuah makalah akademik di jurnal ilmiah Italia (terkonfirmasi 15 publikasi). <a href="https://www.fastcompany.com/90844343/this-unusual-lamp-glows-like-a-solar-eclipse" target="_blank" rel="noopener">Artikel di Fast Company</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>"Mari Bicara tentang AI Dulu" — obrolan di kolom "Watashino"</h3>
-          <p>Percakapan bertema AI dan kesejahteraan sosial di kolom blog Homecare Tsuchiya, penyedia layanan perawatan kunjungan rumah. Saya berbagi tentang pemanfaatan AI dalam pekerjaan. <a href="https://homecare-tsuchiya.com/blog/column/13517/" target="_blank" rel="noopener">Artikel wawancara (dalam bahasa Jepang)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2022</div>
-        <div class="body">
-          <h3>Meraih Penghargaan Emas di MBC Radio CM Grand Prix ke-33 (kontes iklan radio dari sebuah stasiun penyiaran di Kagoshima, Jepang)</h3>
-          <p>Meraih Penghargaan Emas pada grand prix iklan radio ini.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2021–2022</div>
-        <div class="body">
-          <h3>Tampil dalam seri wawancara “Kiara x Design” bersama Kiara Inc.</h3>
-          <p>Saya tampil sebagai desainer dalam seri wawancara dengan CEO Kiara Inc. (sebuah perusahaan Jepang). Kami membahas gaya kerja, desain Data Driven, riset desain di Mercari, blockchain, basic income, Web3, dan lainnya. <a href="https://www.youtube.com/playlist?list=PLPQCtXNqXQgmcmhrh1J-ALXb5xVnrxiyw" target="_blank" rel="noopener">Halaman seri wawancara (dalam bahasa Jepang)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>Meraih Penghargaan Keunggulan (Outstanding Performance) di ADF Milano Salone Design Award</h3>
-          <p>Diselenggarakan oleh Aoyama Design Forum dengan tema "Portable Space". Lampu lipat dan kursi syal (terbuat dari vinil lembut, berangkat dari gagasan origami) meraih penghargaan ini dan diperkenalkan di The Japan Times (28 April 2019). <a href="https://www.japantimes.co.jp/life/2019/04/28/style/design-winners-favorites/" target="_blank" rel="noopener">Artikel di The Japan Times</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>Berpameran di “Greenhouse”, Stockholm Furniture & Light Fair</h3>
-          <p>Memamerkan karya lampu “Jellyfish light” di “Greenhouse”, bagian desainer muda dari Stockholm Furniture &amp; Light Fair (Februari 2019), pameran furnitur dan pencahayaan di Stockholm, Swedia.<a href="https://www.musabi.ac.jp/topics/20181127_03_01/" target="_blank" rel="noopener">Topik Musashino Art University (dalam bahasa Jepang)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2017</div>
-        <div class="body">
-          <h3>Terpilih sebagai Karya Unggulan Tugas Akhir, Jurusan Desain Dasar, Musashino Art University (salah satu universitas seni terkemuka di Jepang)</h3>
-          <p>Karya "SCARF CHAIR" (vinil; sebuah kursi yang berubah dari bidang datar menjadi bentuk tiga dimensi). Dosen pembimbing: Profesor Fumie Shibata. <a href="https://selected.musabi.ac.jp/y2017/scd/s06" target="_blank" rel="noopener">Halaman karya terpilih di situs universitas</a></p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
 <!-- ============ LINKS ============ -->
 
 <!-- ============ ACHIEVEMENTS ============ -->
