@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AIもりー｜白猫に相談する</title>
+<style>
+  :root{
+    --accent:#01A1DD;
+    --accent-dark:#0183b5;
+    --ink:#2b3440;
+    --muted:#7c8794;
+    --bg:#eef3f6;
+    --bubble-cat:#ffffff;
+    --line:#dde6ec;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",-apple-system,"Segoe UI",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    height:100dvh;
+  }
+  /* ===== Header ===== */
+  header{
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    padding:14px 16px 12px;
+    text-align:center;
+    flex:0 0 auto;
+    position:relative;
+    z-index:5;
+  }
+  header .avatar{
+    width:64px;height:64px;border-radius:50%;
+    object-fit:cover;object-position:top center;
+    border:2px solid var(--accent);
+    background:#fff;
+    display:block;margin:0 auto 6px;
+  }
+  header h1{font-size:19px;font-weight:700;letter-spacing:.04em}
+  header h1 .beta{
+    font-size:10px;font-weight:600;color:#fff;background:var(--accent);
+    border-radius:8px;padding:2px 7px;margin-left:6px;vertical-align:2px;letter-spacing:.08em;
+  }
+  header p{font-size:11.5px;color:var(--muted);margin-top:3px}
+  /* ===== Chat ===== */
+  #chat{
+    flex:1 1 auto;
+    overflow-y:auto;
+    padding:20px 14px 12px;
+    width:100%;
+    max-width:760px;
+    margin:0 auto;
+    scroll-behavior:smooth;
+  }
+  .row{display:flex;margin-bottom:16px;animation:fadein .35s ease}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .row.cat{justify-content:flex-start;align-items:flex-start}
+  .row.user{justify-content:flex-end}
+  .row.cat .mini{
+    width:34px;height:34px;border-radius:50%;flex:0 0 auto;
+    object-fit:cover;object-position:top center;
+    border:1.5px solid var(--accent);background:#fff;margin-right:8px;margin-top:2px;
+  }
+  .bubble{
+    max-width:82%;
+    padding:11px 14px;
+    border-radius:16px;
+    font-size:14.5px;
+    line-height:1.75;
+    white-space:pre-wrap;
+    word-break:break-word;
+  }
+  .row.cat .bubble{
+    background:var(--bubble-cat);
+    border:1px solid var(--line);
+    border-top-left-radius:4px;
+    box-shadow:0 1px 2px rgba(43,52,64,.05);
+  }
+  .row.user .bubble{
+    background:var(--accent);
+    color:#fff;
+    border-top-right-radius:4px;
+  }
+  .bubble a{color:var(--accent-dark);word-break:break-all}
+  .row.user .bubble a{color:#dff3fc}
+  .bubble .law-name{font-weight:700}
+  .bubble .source{
+    display:block;margin-top:10px;padding-top:8px;
+    border-top:1px dashed var(--line);
+    font-size:12px;color:var(--muted);line-height:1.6;
+  }
+  .bubble .cta{
+    display:block;margin-top:8px;
+    font-size:12.5px;color:var(--muted);line-height:1.6;
+  }
+  .bubble .cta a{color:var(--accent-dark);text-decoration:none;border-bottom:1px solid var(--line)}
+  .bubble .bookline{
+    display:block;margin-top:5px;
+    font-size:11.5px;color:var(--muted);line-height:1.6;
+  }
+  .bubble .bookline a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--line)}
+  /* セッション区切りの静かな導線カード（ポップアップではない） */
+  .links-card{
+    margin:4px 0 18px 42px;
+    max-width:82%;
+    background:#f7fafc;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:12.5px;
+    line-height:2;
+    color:var(--muted);
+    animation:fadein .35s ease;
+  }
+  .links-card .lc-title{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+  .links-card a{color:var(--accent-dark);text-decoration:none;border-bottom:1px solid var(--line)}
+  /* typing dots */
+  .typing{display:inline-flex;gap:5px;padding:4px 2px}
+  .typing span{
+    width:7px;height:7px;border-radius:50%;background:#b9c8d2;display:block;
+    animation:blink 1.2s infinite;
+  }
+  .typing span:nth-child(2){animation-delay:.2s}
+  .typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-2px)}}
+  /* ===== Chips ===== */
+  #chips{
+    flex:0 0 auto;
+    width:100%;max-width:760px;margin:0 auto;
+    padding:6px 14px 8px;
+    display:flex;gap:8px;flex-wrap:wrap;
+  }
+  .chip{
+    flex:0 0 auto;
+    border:1.5px solid var(--accent);
+    color:var(--accent-dark);
+    background:#fff;
+    border-radius:999px;
+    padding:7px 14px;
+    font-size:13px;
+    cursor:pointer;
+    transition:background .15s,color .15s;
+    font-family:inherit;
+  }
+  .chip:hover,.chip:active{background:var(--accent);color:#fff}
+  /* ===== Input ===== */
+  #composer{
+    flex:0 0 auto;
+    background:#fff;
+    border-top:1px solid var(--line);
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  }
+  #composer .inner{
+    max-width:760px;margin:0 auto;
+    display:flex;gap:8px;align-items:flex-end;
+  }
+  #input{
+    flex:1;
+    border:1.5px solid var(--line);
+    border-radius:20px;
+    padding:10px 14px;
+    font-size:14.5px;
+    font-family:inherit;
+    line-height:1.5;
+    resize:none;
+    max-height:110px;
+    outline:none;
+    color:var(--ink);
+    background:#fbfcfd;
+  }
+  #input:focus{border-color:var(--accent)}
+  #send{
+    flex:0 0 auto;
+    width:44px;height:44px;border-radius:50%;
+    border:none;background:var(--accent);color:#fff;
+    font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .15s;
+  }
+  #send:hover{background:var(--accent-dark)}
+  #send:disabled{background:#c3d5de;cursor:default}
+  footer{
+    flex:0 0 auto;
+    text-align:center;
+    font-size:10.5px;color:var(--muted);
+    padding:0 16px 8px;
+    background:#fff;
+    line-height:1.6;
+  }
+  @media (max-width:480px){
+    .bubble{max-width:86%;font-size:14px}
+    header .avatar{width:54px;height:54px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="avatar" src="cat.png" alt="AIもりーの白猫">
+  <h1>AIもりー</h1>
+  <p>もりーの「物事の見方」で答える、疑似相談チャット（無料・登録不要）</p>
+</header>
+
+<main id="chat" aria-live="polite"></main>
+
+<div id="chips" role="group" aria-label="相談例"></div>
+
+<div id="composer">
+  <div class="inner">
+    <textarea id="input" rows="1" placeholder="いまのモヤモヤを書いてみてください" aria-label="相談内容"></textarea>
+    <button id="send" aria-label="送信">➤</button>
+  </div>
+</div>
+
+<footer>
+  AIによる疑似相談です。ホビサヤの見方をもとに自動生成しています。医療・法律・投資の助言は行いません。<br>
+  相談内容は、サービスの改善のために記録されます（個人情報は収集しません）。
+</footer>
+
+<script>
+/* ============================================================
+   知識ベース：公式サイト (yuichiro-morimoto.github.io) の
+   #law セクション「MOLLY'S LAW」の文面を正として取り込み。
+   name / def はサイト原文のまま。
+   ============================================================ */
+const LAWS = [
+  {
+    id: "strength",
+    name: "長所・短所は幻想",
+    def: "長所と短所は、別々のものではなく同じ「特徴」です。場所や時代、見る側が変われば、短所と呼ばれたものが長所に、長所が短所に入れ替わります。",
+    keywords: ["短所","長所","コンプレックス","欠点","苦手","比べて","比較","劣等感","自信がない","自信ない","ダメな自分","自分が嫌い","落ちこぼれ","自分だけ","周りはすごい","他人が羨ましい","うらやましい","SNSを見ると","取り残され"],
+    accept: "人と比べてしまうと、自分の中の「足りない部分」ばかりが大きく見えてきますよね。その感覚は、たぶん多くの人が持っているものだと思います。",
+    reframe: "いま短所だと思っているそれは、場所が変われば長所の顔を見せるかもしれません。特徴そのものは、悪くないのかもしれません。"
+  },
+  {
+    id: "thinking",
+    name: "「考える」には2種類ある",
+    def: "「考える」には、決まったルールの中で強くなる「考えるA」と、ルールそのものを疑い、新しく作る「考えるB」があります。「頭がいい」という一言で混ぜてしまうと、話が噛み合わなくなります。まずAとBに分けてみることで、議論の解像度が上がります。",
+    keywords: ["考えすぎ","悩みすぎ","噛み合わない","かみ合わない","話が通じない","議論","モヤモヤ","考えがまとまらない","堂々巡り","頭の中がいっぱい","考えが止まらない","頭から離れない","ぐるぐる","思考が止まらない"],
+    accept: "考えがぐるぐる回ってしまうときって、出口が見えなくて疲れますよね。いったん、頭の中を分けてみると楽になるかもしれません。",
+    reframe: "その悩みは、決まった答えを出す「考えるA」の話か、そもそもの前提を疑う「考えるB」の話か。分けてみるだけで、少し静かになるかもしれません。"
+  },
+  {
+    id: "force",
+    name: "コミュ力はフォース",
+    def: "コミュ力は「フォース」のような力です。他人を容易に操作できる故、時にダークにもなりうる力です。",
+    keywords: ["コミュ力","コミュニケーション","人付き合い","人間関係","会話","雑談","話すのが苦手","伝わらない","空気が読めない","聞き上手","話し方","飲み会","職場の人間関係","苦手な人","距離感","断れない","人と話すと疲れる"],
+    accept: "人間関係に疲れてしまう日、ありますよね。うまく話せない自分を責めてしまうこともあるかもしれません。",
+    reframe: "コミュ力は、明るさや話のうまさという一つの物差しでは測れません。静かに聞くことも、立派な力の使い方の一つだと思います。"
+  },
+  {
+    id: "omamagoto",
+    name: "世界は「おままごと」",
+    def: "「社長」も「部長」も、みんなが引き受けた役割にすぎない。世界は、役割を演じ合う「おままごと」の層で成り立っている。役割の向こう側にいる、ただの人間として向き合えば、肩書きへの恐れはほどけていく。",
+    keywords: ["上司","部長","社長","肩書き","怖い人","職場","パワハラ","権威","目上","先輩","偉い","圧が強い","課長","役職","店長","先生が怖い","萎縮し"],
+    accept: "肩書きのある人の前で、身がすくんでしまう感覚。あれは、相手の「役割」の大きさに圧倒されているのかもしれません。",
+    reframe: "相手も、役割を演じている一人の人間です。役割を少し外して見てみると、恐れはほどけていくかもしれません。"
+  },
+  {
+    id: "no-iq",
+    name: "「頭が良い」という概念はない",
+    def: "「頭が良い」を一つの物差しで測ることはできない。覚える力、応用する力、読み取る力。能力はバラバラに存在し、物差しが変われば評価も変わる。「頭が良い」という概念自体が幻想である。",
+    keywords: ["頭が悪い","頭がいい","頭が良い","勉強","成績","学歴","テスト","点数","賢い","バカ","馬鹿","物覚え","覚えられない","記憶力","暗記","受験","資格試験","学校の勉強"],
+    accept: "「自分は頭が悪いから」と思ってしまうとき、その一言で全部を片付けてしまいがちですよね。",
+    reframe: "覚える力、応用する力、読み取る力は、それぞれ別の力です。一つの物差しで測れないものを、一つの言葉で裁たなくてもいいのかもしれません。"
+  },
+  {
+    id: "balance",
+    name: "平和とは凪ではなく均衡",
+    def: "平和は、すべてが止まった静かな「凪」ではない。世界は常に動き続け、止まれば終わってしまう。いろいろな力が動きながら釣り合っている「均衡」こそが、平和の姿である。",
+    keywords: ["イライラ","ストレス","喧嘩","ケンカ","争い","対立","落ち着かない","揉め","もめ","平和","心がざわざわ","ざわつく","家族と喧嘩","パートナーと喧嘩","口論","仲直り","ギクシャク"],
+    accept: "心がざわついて、静かな状態に戻りたいと思うこと、ありますよね。",
+    reframe: "平和は、何も起きない「凪」ではなく、揺れながら釣り合う「均衡」なのかもしれません。揺れていること自体は、悪いことではないのかもしれません。"
+  },
+  {
+    id: "neither",
+    name: "AでもBでもない場所がある",
+    def: "世の中は「AでなければB」と２つに分けたがりますが、文系／理系のような区分は社会を回すための便宜にすぎず、本質ではありません。",
+    keywords: ["白黒","二択","どっち","正解","間違い","決められない","決められない","決断","はっきりさせたい","曖昧","グレー","選べない","迷って","転職するか","続けるか","やめるか迷","進むか"],
+    accept: "「どっちかに決めなきゃ」と思うほど、苦しくなることがありますよね。",
+    reframe: "AでもBでもない場所に立つ、という選択肢もあります。今は決めないことも、一つの決め方なのかもしれません。"
+  },
+  {
+    id: "influence",
+    name: "抱えているのは、意味じゃなくて影響",
+    def: "人が抱えているのは『生きる意味』ではなく、自分が周囲に与えてしまう『影響』のほうです。意図しなくても言動は身近な人へ伝わり、自分の生活の99%は世の中に再生産されていきます。問うべきは『意味があるか』ではなく、『どんな影響を渡しているか』です。",
+    keywords: ["生きる意味","意味がない","意味って何","影響","存在価値","何のために","虚しい","むなしい","再生産","自分なんて","自分の存在","役に立ってない","必要とされてない","いてもいなくても"],
+    accept: "「自分の生きる意味って何だろう」と考え込むと、答えが出ないまま重くなってしまうことがありますよね。",
+    reframe: "僕たちが実際に抱えているのは『意味』より『影響』のほうかもしれません。意図しなくても、あなたの言動は身近な人に伝わっています。意味を探すより、どんな影響を渡しているかを見てみる、という向き合い方もあります。"
+  },
+  {
+    id: "two-tenths",
+    name: "2割残しの法則",
+    def: "仕事の中の「やりたくない2割」は、消す対象ではなく、あえて残すものとして自分で選ぶ。嫌な仕事を消しても、新たに2割が「嫌」になる。だからこそ、残す2割を自分で選ぶことに主導権があります。",
+    keywords: ["仕事がつらい","仕事つらい","仕事が辛い","仕事辞めたい","仕事やめたい","辞めたい","やめたい","やりたくない","残業","転職","働くのが","会社がつらい","会社辞めたい","嫌な仕事","残業が多い","休日出勤","仕事に行きたくない","月曜日が憂鬱","仕事の2割","嫌な業務"],
+    accept: "仕事がつらいと感じる日々が続くと、全部を投げ出したくなりますよね。その気持ちは、自然なものだと思います。",
+    reframe: "つらさの全部を消そうとしなくてもいいのかもしれません。「残す2割を自分で選ぶ」と思えたら、主導権は少し手元に戻ってくるかもしれません。"
+  },
+  {
+    id: "meaning",
+    name: "生きる意味は4種類",
+    def: "「生きる意味」は、由来の軸（生まれる前から決まっていた／後天的に抱き始めた）と対象の軸（私個人として／人類の一員として）を掛け合わせた4象限で整理できる。「生きる意味」の話が噛み合わないのは、相手と違う象限の話をしているから。自分がどの象限の話をしているのかを自覚するだけで、議論のすれ違いは大きく減る。",
+    keywords: ["生きる意味","人生の意味","何のために","目的がない","虚しい","むなしい","意味がない","生きがい","生きてる意味","人生の目的","死ぬのが怖い"],
+    accept: "「生きる意味」みたいな大きな問いが頭に浮かぶときは、心が少し疲れているのかもしれません。",
+    reframe: "その問いは、生まれつき決まっていた意味を探しているのか、あとから抱き始めた意味の話なのか。自分がどの象限の話をしているか分かるだけで、問いの輪郭は少し見えてくるかもしれません。"
+  }
+];
+
+/* ============================================================
+   概念データ（LAWS以外の、もりーの名前のついた見方）
+   ============================================================ */
+const CONCEPTS = [
+  {
+    id: "out-principle",
+    src: "concept",
+    name: "言ったらアウトの原則",
+    def: "文化や価値観の違いに「驚く」こと自体は、止められない自然な反応です（驚くまでが「50」）。差別かどうかは、驚いたかどうかではなく、それを口に出して侮辱したかどうか——アウトプットで決まります。",
+    keywords: ["差別","偏見","悪口","陰口","侮辱","バカにした","見下し","キモいって","悪く言って","人の悪口","嫌いな人","ムカつく人","言ってしまった"],
+    accept: "誰かのことを悪く言ってしまったあとに、自己嫌悪になること、ありますよね。",
+    reframe: "驚くこと自体は、悪ではありません。問題になるのは口に出すかどうかで、そこは自分で選べます。言わなかった分だけ、あなたはもう実践できているのかもしれません。"
+  },
+  {
+    id: "oriru",
+    src: "concept",
+    name: "他人の物差しから降りる",
+    def: "ホビサヤは「他人の物差しから降りるための、考え方の番組」です。「頑張れ」と押すのでも、「どうせ無理」と突き放すのでもなく、「降りていい」と言う場所。他人の物差しで自分を測るのをやめると、焦りの正体が見えてきます。",
+    keywords: ["休めない","休むのが怖い","頑張らなきゃ","置いていかれる","焦り","焦る","SNS疲れ","比べて焦る","みんな頑張ってる","休みたい","サボってる気がする","休むと不安","止まれない"],
+    accept: "休んでいるはずなのに、心が休まらない。そういう時間、ありますよね。",
+    reframe: "「何かしなきゃ」という焦りは、他人の物差しで自分を測っているサインかもしれません。その物差しからは、降りていいんです。"
+  },
+  {
+    id: "shudoken",
+    src: "concept",
+    name: "人生の主導権",
+    def: "ホビサヤの軸は「人生の主導権」です。お金・時間・人間関係を、他人や組織の都合ではなく、自分の手に取り戻すこと。不安の多くは、主導権が自分の手から離れている感覚から来ています。",
+    keywords: ["お金が不安","将来が不安","自由になりたい","縛られてる","主導権","会社に依存","このままでいいのか","お金の不安","将来が見えない","不安で"],
+    accept: "将来のことを考えると、漠然と不安になる。その感覚は、おかしなものではないと思います。",
+    reframe: "不安を消すより先に、「主導権が今どこにあるか」を見てみる、という向き合い方があります。小さな一部でも自分の手に戻せると、景色は少し変わるかもしれません。"
+  }
+];
+
+/* ============================================================
+   FAQデータ（もりー本人・番組・活動についての質問への直接回答）
+   ============================================================ */
+const STAND_URL = "https://stand.fm/channels/687f93ed2d8270496ec18d41";
+const TIKTOK_URL = "https://www.tiktok.com/@molly_japanese";
+const FAQ = [
+  {
+    keywords: ["もりーって誰","あなたは誰","誰ですか","自己紹介","プロフィール","哲学屋って"],
+    html: "僕は「もりー」。肩書きは「旅する哲学屋」です。\nポッドキャスト「ホビサヤ」で、人間関係や社会に蔓延る価値観に疑問を呈しながら、「物事の見方」を言葉にしてきました。旅の活動は「RANTAU」という名前で、世界のありのままを配信しています。\nこのチャットは、その見方をもとに答えるAI版の僕です。"
+  },
+  {
+    keywords: ["ホビサヤって何","ホビサヤとは","番組について","どこで聞ける","ポッドキャストって何"],
+    html: "「ホビサヤ」は、もりーのポッドキャスト番組です。\n紹介の一言は、「他人の物差しから降りるための、考え方の番組」。人間関係や社会の「あたりまえ」に疑問を呈して、物事の見方を言葉にしています。\n<a href=\"" + "https://stand.fm/channels/687f93ed2d8270496ec18d41" + "\" target=\"_blank\" rel=\"noopener\">stand.fmで聞く</a>ほか、YouTubeやSpotifyでも配信しています。"
+  },
+  {
+    keywords: ["RANTAU","ランタウ","旅の活動","旅行の配信"],
+    html: "「RANTAU」は、もりーの旅の活動の名前です。インドネシア語で「故郷を離れて放浪すること」という意味の言葉から取りました。\n色眼鏡を介さず、世界のありのままの姿を飾らずに届けることで、人々の「あたりまえ」に揺らぎを持ち込む——それがRANTAUのやり方です。旅の様子は <a href=\"" + "https://www.tiktok.com/@molly_japanese" + "\" target=\"_blank\" rel=\"noopener\">TikTok（@molly_japanese）</a> やYouTubeで配信しています。"
+  },
+  {
+    keywords: ["本を書いて","本について","著書","Kindle","キンドル","本はある"],
+    html: "書籍『ホビサヤ』を出しています。ポッドキャストで言葉にしてきた「物事の見方」を、章ごとに整理した本です。\n<a href=\"" + "https://www.amazon.co.jp/dp/B0HS7X8HHV?tag=newplain01-22" + "\" target=\"_blank\" rel=\"noopener\">Amazonで見る（Kindle版／ペーパーバック）</a>\n語学の本（韓国語・タイ語）も YellowPen 名義で出しています。"
+  }
+];
+
+const SOURCE_URL = "https://note.com/yuichiro_morimo/n/nea50c65b34f3";
+const LETTER_URL = "https://stand.fm/channels/687f93ed2d8270496ec18d41/letter";
+const BOOK_URL = "https://www.amazon.co.jp/dp/B0HS7X8HHV?tag=newplain01-22";
+const MEMBERSHIP_URL = "https://note.com/yuichiro_morimo/membership";
+const CHIPS = ["仕事がつらい","人と比べてしまう","決められない","人間関係に疲れた","頭が悪い気がする","生きる意味って何だろう","休むのが怖い","将来が不安","人の悪口を言ってしまった","もりーって誰？"];
+
+/* キーワード辞書の補強（チップ文言など、LAWS側に無い表現の受け口） */
+const EXTRA_MATCH = [
+  { words: ["比べてしまう","比べる","比較してしまう"], law: "strength" },
+  { words: ["人間関係に疲れた","人間関係がつらい","人に疲れた"], law: "force" },
+  { words: ["頭が悪い気がする","頭悪い"], law: "no-iq" }
+];
+
+const SAFETY_WORDS = ["死にたい","消えたい","自殺","死のう","いなくなりたい"];
+const SAFETY_REPLY =
+  "話してくれて、ありがとうございます。\n" +
+  "いま、とてもつらいところにいるのかもしれません。このチャットは疑似相談で、専門的な支援の代わりにはなれません。\n" +
+  "もし気持ちが追いつかないときは、「よりそいホットライン（0120-279-338）」など、専門の相談窓口に話してみてください。あなたの話を、否定せずに聞いてくれる場所があります。";
+
+const FALLBACK_ACCEPT =
+  "話してくれて、ありがとうございます。そのモヤモヤは、言葉にするだけでも少し輪郭が見えてくるものかもしれません。";
+const FALLBACK_REFRAME =
+  "ホビサヤは「他人の物差しから降りるための、考え方の番組」です。他人の物差しで測るのを一度やめてみると、その悩みは少し違って見えるかもしれません。";
+
+const chat = document.getElementById("chat");
+const input = document.getElementById("input");
+const sendBtn = document.getElementById("send");
+const chipsBox = document.getElementById("chips");
+let busy = false;
+
+function scrollBottom(){ chat.scrollTop = chat.scrollHeight; }
+
+function addUserMsg(text){
+  const row = document.createElement("div");
+  row.className = "row user";
+  const b = document.createElement("div");
+  b.className = "bubble";
+  b.textContent = text;
+  row.appendChild(b);
+  chat.appendChild(row);
+  scrollBottom();
+}
+
+function addCatMsg(html){
+  const row = document.createElement("div");
+  row.className = "row cat";
+  const img = document.createElement("img");
+  img.className = "mini";
+  img.src = "cat.png";
+  img.alt = "";
+  const b = document.createElement("div");
+  b.className = "bubble";
+  b.innerHTML = html;
+  row.appendChild(img);
+  row.appendChild(b);
+  chat.appendChild(row);
+  scrollBottom();
+  return b;
+}
+
+function showTyping(){
+  const row = document.createElement("div");
+  row.className = "row cat";
+  row.id = "typing-row";
+  const img = document.createElement("img");
+  img.className = "mini";
+  img.src = "cat.png";
+  img.alt = "";
+  const b = document.createElement("div");
+  b.className = "bubble";
+  b.innerHTML = '<span class="typing"><span></span><span></span><span></span></span>';
+  row.appendChild(img);
+  row.appendChild(b);
+  chat.appendChild(row);
+  scrollBottom();
+}
+function hideTyping(){
+  const t = document.getElementById("typing-row");
+  if (t) t.remove();
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function scoreLaw(text, law){
+  let score = 0;
+  for (const kw of law.keywords){
+    if (text.includes(kw)) score += kw.length >= 3 ? 3 : 2;
+  }
+  for (const ex of EXTRA_MATCH){
+    if (ex.law === law.id){
+      for (const w of ex.words){ if (text.includes(w)) score += 3; }
+    }
+  }
+  return score;
+}
+
+function sourceBlock(){
+  return '<span class="source">出典：ホビサヤの「物事の見方」｜LAWS 定義集<br><a href="' + SOURCE_URL + '" target="_blank" rel="noopener">' + SOURCE_URL + "</a></span>";
+}
+function conceptSourceBlock(){
+  return '<span class="source">出典：ポッドキャスト「ホビサヤ」で話してきた「物事の見方」</span>';
+}
+/* 導線1（最優先・毎回答）：レターへの控えめな1行 */
+function letterCta(){
+  return '<span class="cta">もりー本人に聞いてみる → <a href="' + LETTER_URL + '" target="_blank" rel="noopener">レターを送る</a></span>';
+}
+/* 導線3（LAWマッチ時のみ・小さく）：書籍への1行 */
+function bookLine(){
+  return '<span class="bookline">この見方は、書籍『<a href="' + BOOK_URL + '" target="_blank" rel="noopener">ホビサヤ</a>』でもう少し深く扱っています。</span>';
+}
+
+function buildLawAnswer(law){
+  return escapeHtml(law.accept) + "\n\n" +
+    "ホビサヤの見方に、こんなものがあります。\n" +
+    "『<span class='law-name'>" + escapeHtml(law.name) + "</span>』\n" +
+    escapeHtml(law.def) + "\n\n" +
+    escapeHtml(law.reframe) +
+    (law.src === "concept" ? conceptSourceBlock() : sourceBlock()) + letterCta() + bookLine();
+}
+
+function buildFallbackAnswer(suggested){
+  return escapeHtml(FALLBACK_ACCEPT) + "\n\n" +
+    escapeHtml(FALLBACK_REFRAME) + "\n\n" +
+    "近いかもしれない見方を、一つだけ置いておきます。\n" +
+    "『<span class='law-name'>" + escapeHtml(suggested.name) + "</span>』\n" +
+    escapeHtml(suggested.def) +
+    sourceBlock() + letterCta();
+}
+
+function answer(text){
+  if (SAFETY_WORDS.some(w => text.includes(w))){
+    return { html: escapeHtml(SAFETY_REPLY), safety: true, logType: "safety", logMatch: "" };
+  }
+  /* FAQ（本人・番組についての質問）は直接回答を優先 */
+  for (const f of FAQ){
+    if (f.keywords.some(w => text.includes(w))){
+      return { html: f.html + letterCta(), logType: "faq", logMatch: f.keywords[0] };
+    }
+  }
+  let best = null, bestScore = 0, bestLaw = null, bestLawScore = 0;
+  for (const law of LAWS.concat(CONCEPTS)){
+    const s = scoreLaw(text, law);
+    if (s > bestScore){ bestScore = s; best = law; }
+    if (!law.src && s > bestLawScore){ bestLawScore = s; bestLaw = law; }
+  }
+  if (best && bestScore >= 2){
+    return { html: buildLawAnswer(best), logType: best.src === "concept" ? "concept" : "law", logMatch: best.name };
+  }
+  /* フォールバック：最も近そうなLAW（スコア最大、同点は先頭）を提案 */
+  const suggested = bestLaw || LAWS[0];
+  return { html: buildFallbackAnswer(suggested), logType: "fallback", logMatch: suggested.name };
+}
+
+/* 質問ログ：改善のために「質問文・日時・マッチ結果」だけを記録する（個人情報は送らない）。
+   安全分岐（希死念慮など）のときは質問文を記録しない。 */
+const LOG_URL = "https://script.google.com/macros/s/AKfycbwhh_hRnMqqrlwfmnt2TexJXguPWsLHpDFvQwzi5RH3xtv7-PylF8vUPa3PxFPpQXwLpg/exec";
+function logQuestion(q, result){
+  if (!LOG_URL) return;
+  try{
+    const ts = new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
+    fetch(LOG_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ ts: ts, q: result.safety ? "" : q, type: result.logType || "", matched: result.logMatch || "" }) }).catch(() => {});
+  }catch(err){}
+}
+
+/* 導線2（セッションの区切り・1回だけ）：3往復を超えたところで静かに出す */
+let answerCount = 0;
+let linksCardShown = false;
+function maybeShowLinksCard(){
+  if (linksCardShown || answerCount < 3) return;
+  linksCardShown = true;
+  const card = document.createElement("div");
+  card.className = "links-card";
+  card.innerHTML =
+    '<div class="lc-title">— もし、もう少しだけ —</div>' +
+    '<span class="lc-note">僕は哲学屋です。論破でも、正論でも、医療でも、根性論でもなく、物事の"見方"を変えることで、あなたの課題に寄り添います。</span><br>' +
+    'もりー本人に聞いてみる → <a href="' + LETTER_URL + '" target="_blank" rel="noopener">レターで相談する</a><br>' +
+    '見方をもっと深く → <a href="' + BOOK_URL + '" target="_blank" rel="noopener">書籍『ホビサヤ』</a><br>' +
+    '活動を応援する → <a href="' + MEMBERSHIP_URL + '" target="_blank" rel="noopener">noteメンバーシップ</a>';
+  chat.appendChild(card);
+  scrollBottom();
+}
+
+function send(text){
+  const t = (text || "").trim();
+  if (!t || busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  addUserMsg(t);
+  input.value = "";
+  input.style.height = "auto";
+  showTyping();
+  const result = answer(t);
+  logQuestion(t, result);
+  const delay = result.safety ? 700 : 900 + Math.random() * 500;
+  setTimeout(() => {
+    hideTyping();
+    addCatMsg(result.html);
+    if (!result.safety){
+      answerCount++;
+      if (answerCount === 3) setTimeout(maybeShowLinksCard, 700);
+    }
+    busy = false;
+    sendBtn.disabled = false;
+    input.focus();
+  }, delay);
+}
+
+sendBtn.addEventListener("click", () => send(input.value));
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter" && !e.shiftKey && !e.isComposing){
+    e.preventDefault();
+    send(input.value);
+  }
+});
+input.addEventListener("input", () => {
+  input.style.height = "auto";
+  input.style.height = Math.min(input.scrollHeight, 110) + "px";
+});
+
+/* クイックチップ（並びは開くたびにランダム） */
+const shuffledChips = CHIPS.slice();
+for (let i = shuffledChips.length - 1; i > 0; i--){
+  const j = Math.floor(Math.random() * (i + 1));
+  const tmp = shuffledChips[i];
+  shuffledChips[i] = shuffledChips[j];
+  shuffledChips[j] = tmp;
+}
+for (const c of shuffledChips){
+  const btn = document.createElement("button");
+  btn.className = "chip";
+  btn.type = "button";
+  btn.textContent = c;
+  btn.addEventListener("click", () => send(c));
+  chipsBox.appendChild(btn);
+}
+
+/* 挨拶 */
+window.addEventListener("load", () => {
+  showTyping();
+  setTimeout(() => {
+    hideTyping();
+    addCatMsg(
+      "こんにちは。AIもりーです。\n" +
+      "ポッドキャスト「ホビサヤ」の見方をもとに、いまのモヤモヤを一緒に眺めてみる疑似相談チャットです。答えを押し付けることはしません。\n\n" +
+      "下のボタンから選んでもいいし、自分の言葉で書いてくれても大丈夫です。どんなことが引っかかっていますか？"
+    );
+  }, 800);
+});
+</script>
+</body>
+</html>
