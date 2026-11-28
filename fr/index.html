@@ -224,9 +224,9 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+
+
+@media(max-width:900px){.profile-photo{width:140px;height:140px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -249,6 +249,7 @@ nav a:hover{color:var(--ink);text-decoration:none}
 
 /* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.profile-photo{width:190px;height:190px;object-fit:cover;border-radius:20px;display:block;margin:0 0 26px}
 .book-cover{width:170px;height:auto;display:block;margin-bottom:18px}
 .art-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;margin-bottom:18px}.art-duo a{display:block;text-decoration:none;color:inherit}.art-duo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.art-duo span{display:block;margin-top:8px;font-size:13px;color:#6b7280}
 .profile-grid p{margin-bottom:22px;max-width:680px}
@@ -363,11 +364,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 footer .f-logo{font-weight:700;letter-spacing:.06em}
 footer .f-logo span{color:var(--ink)}
 footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
-footer .f-sns{display:flex;gap:14px;align-items:center}
-footer .f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .2s,border-color .2s,color .2s}
-footer .f-sns a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-footer .f-sns svg{width:17px;height:17px;fill:currentColor}
-footer .f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-sns{display:flex;gap:14px;align-items:center}
+.f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--ink);transition:opacity .2s}
+.f-sns a:hover{opacity:.55}
+.f-sns svg{width:17px;height:17px;fill:currentColor}
+.f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){header .f-sns{display:none}}
 
 [hidden]{display:none!important}
 .lang-toggle{
@@ -454,10 +456,15 @@ footer small{font-size:13.5px}
       <a href="#profile">Profil</a>
       <a href="#yobimizu">RANTAU</a>
       <a href="#hobisaya">HOBISAYA</a>
-      <a href="#themes">Thèmes</a>
       <a href="#books">Livres</a>
-      <a href="#achievements">Réalisations</a>
       <a href="#contact">Contact</a>
+    </nav>
+    <nav class="f-sns" dir="ltr" aria-label="SNS">
+      <a href="https://www.youtube.com/@molly_travel1994" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@molly_japanese" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://x.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+      <a href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
+      <a href="https://stand.fm/channels/687f93ed2d8270496ec18d41" target="_blank" rel="noopener" aria-label="stand.fm"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></a>
     </nav>
   </div>
 </header>
@@ -471,9 +478,7 @@ footer small{font-size:13.5px}
     <div class="role">Philosophe voyageur</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">Demandes d'invitation et de conférence</a>
-      <a class="btn btn-ghost" href="#themes">Voir les thèmes</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="Molly debout au milieu de ruines">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -488,6 +493,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">Profil</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="Molly debout au milieu de ruines">
     <div class="profile-grid">
       <p>Je suis <span class="hl">Molly</span>. Je suis podcasteur voyageur et je mène deux activités : « HOBISAYA » et « RANTAU ».</p>
       <p>« HOBISAYA » est une activité qui remet en question les valeurs établies et qui, en présentant une autre façon de voir les choses, explore des manières de penser pour descendre de l'échelle des autres et vivre selon ses propres choix.</p>
@@ -696,210 +702,7 @@ footer small{font-size:13.5px}
 </section>
 
 <!-- ============ BOOKS ============ -->
-<section id="themes">
-  <div class="wrap">
-    <div class="sec-label">Themes</div>
-    <h2 class="sec-title">Thèmes que je peux aborder</h2>
-    <p class="sec-lead">J'ai réuni les thèmes que je peux aborder, pour les demandes de talk-shows, d'invitations dans des podcasts, de conférences et de coécritures ou contributions. Chaque thème est accompagné de son historique réel d'émissions dans le podcast « HOBISAYA » (un inventaire de plus de 500 épisodes).</p>
-    <div class="theme-grid">
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">01</span><h3>Façons de penser et état d'esprit (méthode de pensée)</h3></div>
-        <div class="record">Environ 129 émissions / 44 heures d'enregistrement (le plus grand thème de HOBISAYA)</div>
-        <ul>
-          <li><b>Ne réduis pas tout au noir ou blanc : pense en nuances de gris</b> — Sans exciter, sans trancher. Une façon de penser en commentateur</li>
-          <li><b>Être « intelligent » est une illusion</b> — Quand on décompose l'intelligence, il reste des habitudes et des façons de penser</li>
-          <li><b>Le choix de ne pas décider tout de suite</b> — Comment reconnaître les situations où décider sur-le-champ n'est pas la réponse</li>
-        </ul>
-        <div class="rep">Épisode représentatif : <a href="https://www.youtube.com/watch?v=BpPvzhzJU9E" target="_blank" rel="noopener">« Quand il y a une option A et une option B, les gens veulent mettre l'une au-dessus de l'autre »</a>, entre autres</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">02</span><h3>« Reprendre les rênes » de sa vie et de sa carrière</h3></div>
-        <div class="record">Environ 127 émissions (76 sur le travail + 51 sur la vie)</div>
-        <ul>
-          <li><b>Comment reprendre les rênes de sa vie</b> — Descendre de la toise des autres et vivre selon ses propres choix (le cœur du livre)</li>
-          <li><b>Pas besoin de choisir entre « ce que tu aimes » et « ce qui rapporte »</b> — Les quatre quadrants du travail sont fluides. Pourquoi laisser volontairement un « 20 % désagréable » fait mieux tourner l'ensemble</li>
-          <li><b>Si tu hésites entre freelance et salariat, choisis le salariat</b> — La réalité du freelance et à qui il convient (ou non), racontée par quelqu'un qui s'est mis à son compte</li>
-          <li><b>Moins d'options, plus de bonheur</b> — Vie minimaliste et décisions</li>
-        </ul>
-        <div class="rep">Épisodes représentatifs : <a href="https://www.youtube.com/watch?v=n-tJbzAukS0" target="_blank" rel="noopener">« La clé de la satisfaction dans la vie, ce sont les rênes »</a>, <a href="https://www.youtube.com/watch?v=PuV6_POZexY" target="_blank" rel="noopener">« Il vaut mieux laisser 20 % de choses “désagréables” dans sa vie »</a>, <a href="https://www.youtube.com/watch?v=KQWZK5oG9O4" target="_blank" rel="noopener">« Les inconvénients du freelance »</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">03</span><h3>Relations humaines et communication</h3></div>
-        <div class="record">Environ 53 émissions / 16,5 heures d'enregistrement</div>
-        <ul>
-          <li><b>Souffrir d'une relation ou la réinitialiser ?</b> — Faire l'inventaire de ses relations et prendre ses distances</li>
-          <li><b>Les styles de communication</b> — Les critères pour se comprendre diffèrent d'une personne à l'autre</li>
-          <li><b>Ne balaie pas le problème d'un « il ne sait pas lire entre les lignes »</b> — Comment parler et écouter sans rejeter la faute sur l'autre quand quelque chose ne passe pas</li>
-        </ul>
-        <div class="rep">Épisodes représentatifs : les émissions à l'origine des <a href="https://www.youtube.com/watch?v=lbICHiRXeOE" target="_blank" rel="noopener">chapitres 2</a> et <a href="https://www.youtube.com/watch?v=N5mmSP41nuY" target="_blank" rel="noopener">Chapitre 4</a> du livre « HOBISAYA », entre autres</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">04</span><h3>Philosophie et spiritualité × logique</h3></div>
-        <div class="record">Environ 41 émissions / 13,5 heures d'enregistrement</div>
-        <ul>
-          <li><b>La spiritualité et la logique disent la même chose</b> — Le point commun visé par deux pôles en apparence opposés</li>
-          <li><b>Quand utiliser l'intuition, quand utiliser l'analyse</b> — Ce n'est pas l'un ou l'autre : c'est alterner selon la situation</li>
-        </ul>
-        <div class="rep">Épisode représentatif : l'émission à l'origine du <a href="https://www.youtube.com/watch?v=2glvf0fozdM" target="_blank" rel="noopener">chapitre 7</a> du livre « HOBISAYA », entre autres</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">05</span><h3>L'IA et l'entreprise en solo</h3></div>
-        <div class="record">Environ 20 émissions ; un thème en forte croissance</div>
-        <ul>
-          <li><b>La clé à l'ère de l'IA : « avoir le cran de tout déléguer »</b> — Le temps qui naît quand on délègue le travail à l'IA, et le travail qui reste à celui qui délègue</li>
-          <li><b>Entreprise en solo × exploitation par l'IA, en pratique</b> — Comment je gère avec l'IA trois chaînes YouTube, la production de livres et le développement d'applications</li>
-          <li><b>Une façon de travailler où une personne « possède une usine dans son ordinateur »</b> — À une époque où essayer des choses coûte beaucoup moins cher, jusqu'où une seule personne peut-elle créer ?</li>
-        </ul>
-        <div class="rep">Épisodes représentatifs : <a href="https://www.youtube.com/watch?v=0-tGLYxpKH8" target="_blank" rel="noopener">« Ces gens qui n'arrivent pas à “tout déléguer” à l'IA »</a>, <a href="https://www.youtube.com/watch?v=zOxFAgi1h5k" target="_blank" rel="noopener">« Comment une idée racontée à l'IA est devenue une application en 3 minutes »</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">06</span><h3>Voyages et le monde</h3></div>
-        <div class="record">Plus de 340 récits et reportages de voyage ; environ 56 émissions consacrées au voyage</div>
-        <ul>
-          <li><b>Expériences de voyage en solo dans 12 pays, surtout en Asie du Sud-Est</b> — Des techniques pour voyager pas cher, en sécurité, et se lier d'amitié avec les habitants</li>
-          <li><b>Voyager en dormant chez l'habitant</b> — Un style qui va voir la « vie quotidienne », pas les sites touristiques</li>
-          <li><b>Travailler et gagner de l'argent en voyageant</b> — Comment un podcasteur voyageur enregistre et gagne sa vie</li>
-        </ul>
-        <div class="rep">Épisodes représentatifs : <a href="https://www.youtube.com/watch?v=gpC7_FkikY0" target="_blank" rel="noopener">« Je veux retourner en Asie du Sud-Est ! Retour sur mes jours d'errance »</a>, <a href="https://www.youtube.com/watch?v=kOpwRDQ5KxI" target="_blank" rel="noopener">« Je réponds à la question : “Les compagnies low cost, ça vaut quoi ?” »</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">07</span><h3>Apprentissage des langues (méthode YellowPen)</h3></div>
-        <div class="record">Environ 55 émissions du podcast, appuyées par les chaînes de langues et les livres</div>
-        <ul>
-          <li><b>Comment continuer à apprendre une langue en autodidacte</b> — Si l'on commence par « comment ça se lit », on n'abandonne pas</li>
-          <li><b>Le hangeul se lit en le remplaçant par l'alphabet / le thaï se lit par son système</b> — Explication de la méthode YellowPen (avec livre)</li>
-          <li><b>Les langues ne sont pas un « outil pour gagner de l'argent », mais un loisir qui élargit le monde</b> — Les conseils d'un passionné de langues pour tenir dans la durée</li>
-        </ul>
-        <div class="rep">Épisodes représentatifs : <a href="https://www.youtube.com/watch?v=Hls7rM5vKsI" target="_blank" rel="noopener">« Je prouve que dans les langues, “l'échec” n'existe pas »</a>, <a href="https://www.youtube.com/watch?v=0XudIloiz4k" target="_blank" rel="noopener">« Le “zombie de l'apprentissage” dans lequel tombent 80 % des apprenants d'anglais »</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">08</span><h3>Création de contenu et monétisation</h3></div>
-        <div class="record">Appuyé par la pratique de trois chaînes et de l'édition de livres</div>
-        <ul>
-          <li><b>Gérer YouTube avec l'objectif des 100 000 abonnés</b> — Comment grandir en se centrant sur les Shorts, et comment faire tourner 3 chaînes (YellowPen Coréen dépasse les 80 000 abonnés)</li>
-          <li><b>Publier sur Kindle, une autre source de revenus</b> — Tout le processus pour qu'une personne publie et vende un livre</li>
-          <li><b>La route vers 180 000 yens mensuels de revenus passifs</b> — Le plan pour combiner podcast, YouTube et livres</li>
-        </ul>
-        <div class="rep">Épisodes représentatifs : <a href="https://www.youtube.com/watch?v=06Qp66n4wmc" target="_blank" rel="noopener">« YouTubeur sans emploi : le bilan des revenus du mois dernier »</a>, <a href="https://www.youtube.com/watch?v=8ubBxpkfk_8" target="_blank" rel="noopener">« Sur l'orientation future de YouTube »</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">09</span><h3>Longévité en bonne santé et bien-être</h3></div>
-        <div class="record">Environ 16 émissions (et la série continue avec la pratique)</div>
-        <ul>
-          <li><b>Des habitudes pour rester « un monsieur qui bouge »</b> — Comment garder sans forcer le yoga, la méditation et la musculation au poids du corps</li>
-          <li><b>Se réveiller avec les sons des matins du monde</b> — Mon application de réveil faite maison, et les sons enregistrés en voyage</li>
-        </ul>
-        <div class="rep">Épisodes représentatifs : <a href="https://www.youtube.com/watch?v=_jwVoOPt4-s" target="_blank" rel="noopener">« La première fois que j'ai fait du yoga »</a>, <a href="https://www.youtube.com/watch?v=tS6vsVveAGI" target="_blank" rel="noopener">« Comment, après avoir médité 15 minutes pour la première fois, le monde m'est apparu couleur sépia »</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ ART ============ -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sec-label">Achievements</div>
-    <h2 class="sec-title">Réalisations</h2>
-    <ul class="ach-list">
-      <li class="ach">
-        <div class="year">2025</div>
-        <div class="body">
-          <h3>Publication du livre HOBISAYA</h3>
-          <p>J’ai publié mon premier livre, HOBISAYA, qui rassemble les théories du podcast : d’abord en japonais, puis en anglais sous le titre “HOBISAYA — How to Take Back the Reins of Your Life”.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2024</div>
-        <div class="body">
-          <h3>Début d’une vie de voyage autour du monde</h3>
-          <p>J’ai commencé une vie de voyage continu autour du monde, surtout en Asie du Sud-Est. Le nombre de pays visités atteint désormais 12.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Invité de l'événement de lancement de la 61e édition des Prix Senden Kaigi (l'un des plus grands prix de copywriting du Japon)</h3>
-          <p>En tant que lauréat du Grand Prix de la 60e édition l'année précédente, j'ai participé en ligne, en tant qu'invité, à une session pour raconter mon expérience : un Grand Prix dès sa première participation. <a href="https://www.advertimes.com/20230929/article435336/" target="_blank" rel="noopener">Compte rendu de l'événement sur AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Interview du lauréat du Grand Prix des Prix Senden Kaigi</h3>
-          <p>L'interview du lauréat du Grand Prix parue dans le magazine mensuel Senden Kaigi (magazine professionnel japonais de la publicité) — « Pour pouvoir dire dans dix ans que ce fut un tournant de ma vie » —, republiée sur le web (AdverTimes / Senden Kaigi en ligne). <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">Article d'interview sur AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Grand Prix de la 60e édition des Prix Senden Kaigi</h3>
-          <p>Grand Prix dès sa première participation. Œuvre réalisée pour le défi de Miura Kogyo : « “Pourquoi il n'y a pas d'eau chaude ?” “Pourquoi tu crois qu'il y en aurait ?” ». L'interview du lauréat a été publiée dans le numéro de juin 2023 du magazine mensuel Senden Kaigi. <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">Article d'interview sur AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>Œuvre publiée dans le magazine américain Fast Company</h3>
-          <p>La lampe <a href="https://morimotoyuic.base.shop/items/67289621" target="_blank" rel="noopener">« NISSHOKU (éclipse solaire) »</a>, qui brille à la lumière du soleil sans électricité, a fait l'objet d'un article dans le magazine américain de design Fast Company. Je l'ai conçue en 2018, juste après mon diplôme d'école d'art. À partir de designboom, elle a aussi été présentée dans des médias du Brésil, de Russie, d'Inde, de Chine, du Canada et du Royaume-Uni, entre autres pays, et une revue académique italienne l'a citée comme étude de cas dans un article scientifique (15 parutions confirmées). <a href="https://www.fastcompany.com/90844343/this-unusual-lamp-glows-like-a-solar-eclipse" target="_blank" rel="noopener">Article de Fast Company</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>« Parlons d'abord de l'IA (intelligence artificielle) » — entretien dans la chronique « Watashino »</h3>
-          <p>Une conversation sur l'IA et l'aide sociale dans la chronique du blog de Homecare Tsuchiya, un prestataire de soins à domicile. J'y ai parlé de mon usage de l'IA au travail. <a href="https://homecare-tsuchiya.com/blog/column/13517/" target="_blank" rel="noopener">L'entretien (en japonais)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2022</div>
-        <div class="body">
-          <h3>Prix d'or au 33e Grand Prix de la publicité radio de MBC (concours de publicité radio d'une station de Kagoshima, au Japon)</h3>
-          <p>J'ai remporté le Prix d'or de ce grand prix des spots radio.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2021–2022</div>
-        <div class="body">
-          <h3>Participation à la série d'entretiens « Kiara x Design » avec Kiara Inc.</h3>
-          <p>J'ai participé en tant que designer à cette série d'entretiens avec le PDG de Kiara Inc. (une entreprise japonaise). Nous avons parlé des styles de travail, du design Data Driven, de la recherche en design chez Mercari, de la blockchain, du revenu de base, du Web3, et bien plus. <a href="https://www.youtube.com/playlist?list=PLPQCtXNqXQgmcmhrh1J-ALXb5xVnrxiyw" target="_blank" rel="noopener">Page de la série d'entretiens (en japonais)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>Prix d'excellence (Outstanding Performance) aux ADF Milano Salone Design Award</h3>
-          <p>Organisé par l'Aoyama Design Forum, sur le thème « Portable Space ». Une lampe pliable et la Scarf Chair (en vinyle souple, d'une idée venue de l'origami) ont été primées et présentées dans The Japan Times (28 avril 2019). <a href="https://www.japantimes.co.jp/life/2019/04/28/style/design-winners-favorites/" target="_blank" rel="noopener">Article de The Japan Times</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>Exposition à « Greenhouse », Stockholm Furniture & Light Fair</h3>
-          <p>J'ai exposé la lampe « Jellyfish light » à « Greenhouse », la section jeunes designers de la Stockholm Furniture &amp; Light Fair (février 2019), le salon du meuble et de l’éclairage de Stockholm, en Suède.<a href="https://www.musabi.ac.jp/topics/20181127_03_01/" target="_blank" rel="noopener">Page Topics de l’université d’art de Musashino (en japonais)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2017</div>
-        <div class="body">
-          <h3>Sélectionné parmi les œuvres de fin d'études remarquables du département de design fondamental de l'université d'art de Musashino (l'une des principales universités d'art du Japon)</h3>
-          <p>Œuvre : « SCARF CHAIR » (vinyle ; une chaise où une surface plane devient un volume). Enseignante responsable : la professeure Fumie Shibata. <a href="https://selected.musabi.ac.jp/y2017/scd/s06" target="_blank" rel="noopener">Page des œuvres sélectionnées de l'université</a></p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
 <!-- ============ LINKS ============ -->
 
 <!-- ============ ACHIEVEMENTS ============ -->
