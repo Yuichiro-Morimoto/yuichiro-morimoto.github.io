@@ -224,9 +224,9 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+
+
+@media(max-width:900px){.profile-photo{width:140px;height:140px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -249,6 +249,7 @@ nav a:hover{color:var(--ink);text-decoration:none}
 
 /* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.profile-photo{width:190px;height:190px;object-fit:cover;border-radius:20px;display:block;margin:0 0 26px}
 .book-cover{width:170px;height:auto;display:block;margin-bottom:18px}
 .art-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;margin-bottom:18px}.art-duo a{display:block;text-decoration:none;color:inherit}.art-duo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.art-duo span{display:block;margin-top:8px;font-size:13px;color:#6b7280}
 .profile-grid p{margin-bottom:22px;max-width:680px}
@@ -363,11 +364,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 footer .f-logo{font-weight:700;letter-spacing:.06em}
 footer .f-logo span{color:var(--ink)}
 footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
-footer .f-sns{display:flex;gap:14px;align-items:center}
-footer .f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .2s,border-color .2s,color .2s}
-footer .f-sns a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-footer .f-sns svg{width:17px;height:17px;fill:currentColor}
-footer .f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-sns{display:flex;gap:14px;align-items:center}
+.f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--ink);transition:opacity .2s}
+.f-sns a:hover{opacity:.55}
+.f-sns svg{width:17px;height:17px;fill:currentColor}
+.f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){header .f-sns{display:none}}
 
 [hidden]{display:none!important}
 .lang-toggle{
@@ -454,10 +456,15 @@ footer small{font-size:13.5px}
       <a href="#profile">الملف الشخصي</a>
       <a href="#yobimizu">RANTAU</a>
       <a href="#hobisaya">HOBISAYA</a>
-      <a href="#themes">المواضيع</a>
       <a href="#books">الكتب</a>
-      <a href="#achievements">الإنجازات</a>
       <a href="#contact">الطلبات</a>
+    </nav>
+    <nav class="f-sns" dir="ltr" aria-label="SNS">
+      <a href="https://www.youtube.com/@molly_travel1994" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@molly_japanese" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://x.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+      <a href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
+      <a href="https://stand.fm/channels/687f93ed2d8270496ec18d41" target="_blank" rel="noopener" aria-label="stand.fm"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></a>
     </nav>
   </div>
 </header>
@@ -471,9 +478,7 @@ footer small{font-size:13.5px}
     <div class="role">فيلسوف مسافر</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">طلبات الظهور والمحاضرات</a>
-      <a class="btn btn-ghost" href="#themes">عرض مواضيع الحديث</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="Molly واقفًا بين الأطلال">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -488,6 +493,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">الملف الشخصي</div>
     <h2 class="sec-title">الملف الشخصي</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="Molly واقفًا بين الأطلال">
     <div class="profile-grid">
       <p>أنا <span class="hl">Molly</span>. أنا فيلسوف مسافر، وأدير نشاطين: «HOBISAYA» و«RANTAU».</p>
       <p>«HOBISAYA» نشاط يطرح التساؤلات حول القيم القائمة، ويستكشف — عبر تقديم نظرة مختلفة إلى الأمور — طرق تفكير للنزول عن مقاييس الآخرين والعيش وفق اختياراتك الخاصة.</p>
@@ -696,210 +702,7 @@ footer small{font-size:13.5px}
 </section>
 
 <!-- ============ BOOKS ============ -->
-<section id="themes">
-  <div class="wrap">
-    <div class="sec-label">المواضيع</div>
-    <h2 class="sec-title">مواضيع يمكنني الحديث عنها</h2>
-    <p class="sec-lead">جمعت هنا المواضيع التي يمكنني الحديث عنها، لطلبات البرامج الحوارية والظهور ضيفًا في البودكاست والمحاضرات والمشاركة في التأليف أو الكتابة. يُرفق بكل موضوع سجلّ بثّه الفعلي في بودكاست «HOBISAYA» (جردٌ لأكثر من 500 حلقة).</p>
-    <div class="theme-grid">
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">01</span><h3>طرق التفكير والعقلية (أسلوب التفكير)</h3></div>
-        <div class="record">نحو 129 حلقة / 44 ساعة من البث (أكبر مواضيع HOBISAYA)</div>
-        <ul>
-          <li><b>لا تحصر الأمر في أبيض وأسود، فكّر بالرمادي</b> — دون تحريض ودون إصدار أحكام. طريقة تفكير بوصفي معلّقًا</li>
-          <li><b>كونك «ذكيًا» وهم</b> — عندما نفكك الذكاء، لا يبقى سوى العادات وطرق التفكير</li>
-          <li><b>خيار «ألا تقرر الآن»</b> — كيف تميّز المواقف التي لا يكون فيها القرار الفوري هو الجواب</li>
-        </ul>
-        <div class="rep">حلقة ممثلة: <a href="https://www.youtube.com/watch?v=BpPvzhzJU9E" target="_blank" rel="noopener">«عندما يكون هناك خيار A وخيار B، يريد الناس وضع أحدهما فوق الآخر»</a> وغيرها</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">02</span><h3>«زمام» الحياة والمسار المهني</h3></div>
-        <div class="record">نحو 127 حلقة (76 عن العمل + 51 عن الحياة)</div>
-        <ul>
-          <li><b>كيف تستعيد زمام حياتك</b> — النزول عن مقياس الآخرين والعيش بخياراتك الخاصة (جوهر الكتاب)</li>
-          <li><b>لا حاجة للاختيار بين «ما تحب» و«ما يدرّ المال»</b> — مربعات العمل الأربعة متحركة. لماذا يجعل ترك «20% غير محببة» عمدًا كلَّ شيء يعمل بشكل أفضل</li>
-          <li><b>إذا ترددت بين العمل الحر والوظيفة، فاختر الوظيفة</b> — واقع العمل الحر ولمن يناسب، يرويه من جرّب الاستقلال</li>
-          <li><b>عندما تقلّ الخيارات تزداد السعادة</b> — الحياة البسيطة والقرارات</li>
-        </ul>
-        <div class="rep">حلقات ممثلة: <a href="https://www.youtube.com/watch?v=n-tJbzAukS0" target="_blank" rel="noopener">«مفتاح الرضا في الحياة هو الزمام»</a>، <a href="https://www.youtube.com/watch?v=PuV6_POZexY" target="_blank" rel="noopener">«من الأفضل ترك 20% من “الأشياء غير المحببة” في حياتك»</a>، <a href="https://www.youtube.com/watch?v=KQWZK5oG9O4" target="_blank" rel="noopener">«عيوب العمل الحر»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">03</span><h3>العلاقات الإنسانية والتواصل</h3></div>
-        <div class="record">نحو 53 حلقة / 16.5 ساعة من البث</div>
-        <ul>
-          <li><b>أن تعاني من علاقة أم تعيد ضبطها</b> — جرد العلاقات وأخذ المسافة</li>
-          <li><b>أنماط التواصل</b> — معايير التفاهم تختلف من شخص لآخر</li>
-          <li><b>لا تُنهِ الأمر بـ«هو لا يجيد القراءة»</b> — كيف تتحدث وتستمع دون إلقاء اللوم على الطرف الآخر عندما لا تصل الرسالة</li>
-        </ul>
-        <div class="rep">حلقات ممثلة: الحلقات التي نشأ منها <a href="https://www.youtube.com/watch?v=lbICHiRXeOE" target="_blank" rel="noopener">الفصلان 2</a> و<a href="https://www.youtube.com/watch?v=N5mmSP41nuY" target="_blank" rel="noopener">الفصل 4</a> من كتاب «HOBISAYA» وغيرها</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">04</span><h3>الفلسفة والروحانية × المنطق</h3></div>
-        <div class="record">نحو 41 حلقة / 13.5 ساعة من البث</div>
-        <ul>
-          <li><b>الروحانية والمنطق يقولان الشيء نفسه</b> — النقطة المشتركة التي يشير إليها قطبان يبدوان متعاكسين</li>
-          <li><b>التمييز بين الحدس والتحليل</b> — ليس أحدهما دون الآخر، بل التبديل حسب الموقف</li>
-        </ul>
-        <div class="rep">حلقة ممثلة: الحلقة التي نشأ منها <a href="https://www.youtube.com/watch?v=2glvf0fozdM" target="_blank" rel="noopener">الفصل 7</a> من كتاب «HOBISAYA» وغيرها</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">05</span><h3>الذكاء الاصطناعي والعمل الفردي</h3></div>
-        <div class="record">نحو 20 حلقة، موضوع يتزايد بسرعة في الآونة الأخيرة</div>
-        <ul>
-          <li><b>مفتاح عصر الذكاء الاصطناعي هو «العزم على تفويض كل شيء»</b> — الوقت الذي يولد عندما تفوّض العمل بالكامل إلى الذكاء الاصطناعي، والعمل الذي يبقى لمن يفوّض</li>
-          <li><b>العمل الفردي × التشغيل بالذكاء الاصطناعي عمليًا</b> — كيف أدير مع الذكاء الاصطناعي ثلاث قنوات YouTube وإنتاج الكتب وتطوير التطبيقات</li>
-          <li><b>أسلوب عمل «يمتلك فيه الفرد مصنعًا داخل الحاسوب»</b> — في عصر انخفضت فيه كلفة التجربة بشدة، إلى أي حد يستطيع فرد واحد أن يصنع؟</li>
-        </ul>
-        <div class="rep">حلقات ممثلة: <a href="https://www.youtube.com/watch?v=0-tGLYxpKH8" target="_blank" rel="noopener">«الناس الذين لا يستطيعون “تفويض كل شيء” إلى الذكاء الاصطناعي»</a>، <a href="https://www.youtube.com/watch?v=zOxFAgi1h5k" target="_blank" rel="noopener">«حكيت فكرة للذكاء الاصطناعي فصارت تطبيقًا في 3 دقائق»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">06</span><h3>السفر والعالم</h3></div>
-        <div class="record">أكثر من 340 حديثًا وتقريرًا عن السفر؛ نحو 56 حلقة تتحدث عن السفر نفسه</div>
-        <ul>
-          <li><b>تجارب السفر منفردًا في 12 دولة، خاصة في جنوب شرق آسيا</b> — تقنيات للسفر رخيصًا وبأمان ومصادقة السكان المحليين</li>
-          <li><b>السفر مع الإقامة في بيوت السكان المحليين</b> — أسلوب يذهب لرؤية «الحياة اليومية» لا المعالم السياحية</li>
-          <li><b>العمل وكسب المال أثناء السفر</b> — آلية التسجيل والدخل لدى صانع بودكاست مسافر</li>
-        </ul>
-        <div class="rep">حلقات ممثلة: <a href="https://www.youtube.com/watch?v=gpC7_FkikY0" target="_blank" rel="noopener">«أريد العودة إلى جنوب شرق آسيا! استرجاع أيام التجوال في الخارج»</a>، <a href="https://www.youtube.com/watch?v=kOpwRDQ5KxI" target="_blank" rel="noopener">«أجيب عن سؤال: ما رأيك في شركات الطيران منخفضة التكلفة؟»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">07</span><h3>تعلّم اللغات (طريقة YellowPen)</h3></div>
-        <div class="record">نحو 55 حلقة من البودكاست، تدعمها قنوات اللغات والكتب</div>
-        <ul>
-          <li><b>كيف تستمر في تعلّم لغة بنفسك</b> — إذا بدأت من «طريقة قراءة» اللغة، فلن تُحبط</li>
-          <li><b>تُقرأ الهانغول باستبدالها بالأبجدية / وتُقرأ التايلاندية بنظامها</b> — شرح طريقة YellowPen (يوجد كتاب)</li>
-          <li><b>اللغات ليست «أداة لكسب المال» بل «هواية توسّع العالم»</b> — نصائح محبّ للغات للاستمرار</li>
-        </ul>
-        <div class="rep">حلقات ممثلة: <a href="https://www.youtube.com/watch?v=Hls7rM5vKsI" target="_blank" rel="noopener">«أثبت أن لا وجود لـ“الفشل” في تعلّم اللغات»</a>، <a href="https://www.youtube.com/watch?v=0XudIloiz4k" target="_blank" rel="noopener">«“زومبي التعلّم” الذي يقع فيه 80% من متعلمي الإنجليزية»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">08</span><h3>النشر وتحقيق الدخل</h3></div>
-        <div class="record">تدعمه ممارسة إدارة 3 قنوات ونشر الكتب</div>
-        <ul>
-          <li><b>إدارة YouTube بهدف 100,000 مشترك</b> — طريقة النمو بالتركيز على Shorts وكيفية إدارة 3 قنوات (YellowPen الكورية تتجاوز 80,000 مشترك)</li>
-          <li><b>النشر على Kindle، مصدر دخل آخر</b> — العملية الكاملة ليُصدر فردٌ كتابًا ويبيعه</li>
-          <li><b>الطريق إلى 180,000 ين شهريًا من الدخل السلبي</b> — مخطط الجمع بين البودكاست وYouTube والكتب</li>
-        </ul>
-        <div class="rep">حلقات ممثلة: <a href="https://www.youtube.com/watch?v=06Qp66n4wmc" target="_blank" rel="noopener">«صانع YouTube عاطل: تقرير دخل الشهر الماضي»</a>، <a href="https://www.youtube.com/watch?v=8ubBxpkfk_8" target="_blank" rel="noopener">«حول اتجاه YouTube من الآن فصاعدًا»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">09</span><h3>العمر الصحي والرفاه</h3></div>
-        <div class="record">نحو 16 حلقة (تتراكم مع استمرار الممارسة)</div>
-        <ul>
-          <li><b>عادات للبقاء «رجلًا ما زال يتحرك»</b> — كيفية الاستمرار دون إجهاد في اليوغا والتأمل وتدريب وزن الجسم</li>
-          <li><b>الاستيقاظ على أصوات صباحات العالم</b> — تطبيق المنبّه الذي صنعته والأصوات التي جمعتها في السفر</li>
-        </ul>
-        <div class="rep">حلقات ممثلة: <a href="https://www.youtube.com/watch?v=_jwVoOPt4-s" target="_blank" rel="noopener">«حديث أول مرة أجرّب فيها اليوغا»</a>، <a href="https://www.youtube.com/watch?v=tS6vsVveAGI" target="_blank" rel="noopener">«عندما تأملت 15 دقيقة لأول مرة بدا العالم بلون بنيّ مصفرّ»</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ ART ============ -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sec-label">الإنجازات</div>
-    <h2 class="sec-title">الإنجازات</h2>
-    <ul class="ach-list">
-      <li class="ach">
-        <div class="year">2025</div>
-        <div class="body">
-          <h3>نشر كتاب HOBISAYA</h3>
-          <p>نشرت كتابي الأول HOBISAYA، الذي يجمع نظريات البودكاست — أولًا باليابانية، ثم بالإنجليزية بعنوان “HOBISAYA — How to Take Back the Reins of Your Life”.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2024</div>
-        <div class="body">
-          <h3>بداية حياة الترحال حول العالم</h3>
-          <p>بدأت حياة ترحال حول العالم، خاصة في جنوب شرق آسيا. وقد بلغ عدد البلدان التي زرتها 12 بلدًا.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>ضيف في فعالية انطلاق الدورة 61 من «جوائز سيندن كايغي» (إحدى أكبر جوائز كتابة الإعلانات في اليابان)</h3>
-          <p>بصفته الفائز بالجائزة الكبرى في الدورة 60 في العام السابق، ظهر كضيف عبر الإنترنت وشارك في جلسة تحدث فيها عن تجربة الفوز من أول مشاركة. <a href="https://www.advertimes.com/20230929/article435336/" target="_blank" rel="noopener">تقرير الفعالية في AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>مقابلة الفائز بالجائزة الكبرى في «جوائز سيندن كايغي»</h3>
-          <p>مقابلة الفائز بالجائزة الكبرى المنشورة في مجلة سيندن كايغي الشهرية (مجلة يابانية متخصصة في الإعلانات) — «حتى أستطيع أن أقول بعد عشر سنوات إنها كانت نقطة تحول في حياتي» — أُعيد نشرها على الويب (AdverTimes / سيندن كايغي أونلاين). <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">مقالة المقابلة في AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>الجائزة الكبرى في الدورة 60 من «جوائز سيندن كايغي»</h3>
-          <p>فاز بالجائزة الكبرى من أول مشاركة. عمل لمهمة شركة ميورا كوغيو: «“لماذا لا يخرج الماء الساخن؟” “ولماذا تظن أنه يجب أن يخرج؟”». نُشرت مقابلة الفائز في عدد يونيو 2023 من مجلة سيندن كايغي الشهرية. <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">مقالة المقابلة في AdverTimes</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>نُشر عمله في مجلة «Fast Company» الأمريكية</h3>
-          <p>ظهر المصباح <a href="https://morimotoyuic.base.shop/items/67289621" target="_blank" rel="noopener">«NISSHOKU (كسوف الشمس)»</a>، الذي يضيء بضوء الشمس دون كهرباء، في مقالة بمجلة التصميم الأمريكية Fast Company. صممته عام 2018 بعد تخرجي مباشرة من جامعة الفنون. وانطلاقًا من designboom، ظهر أيضًا في وسائل إعلام في البرازيل وروسيا والهند والصين وكندا وبريطانيا ودول أخرى، واستشهدت به مجلة أكاديمية إيطالية كدراسة حالة في ورقة علمية (تأكد 15 نشرًا). <a href="https://www.fastcompany.com/90844343/this-unusual-lamp-glows-like-a-solar-eclipse" target="_blank" rel="noopener">مقالة Fast Company</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>«دعونا نتحدث أولًا عن الذكاء الاصطناعي» — حوار في عمود "Watashino"</h3>
-          <p>حوار حول الذكاء الاصطناعي والرعاية الاجتماعية في عمود مدونة Homecare Tsuchiya، وهي جهة تقدم خدمات الرعاية المنزلية. تحدثت عن كيفية استخدامي للذكاء الاصطناعي في عملي. <a href="https://homecare-tsuchiya.com/blog/column/13517/" target="_blank" rel="noopener">المقابلة (باليابانية)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2022</div>
-        <div class="body">
-          <h3>الجائزة الذهبية في الدورة 33 من الجائزة الكبرى لإعلانات MBC الإذاعية (مسابقة إعلانات إذاعية من إذاعة في كاغوشيما باليابان)</h3>
-          <p>فاز بالجائزة الذهبية في هذه الجائزة الكبرى للإعلانات الإذاعية.</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2021–2022</div>
-        <div class="body">
-          <h3>المشاركة في سلسلة مقابلات “Kiara x Design” مع شركة Kiara</h3>
-          <p>شاركت بصفتي مصممًا في سلسلة المقابلات هذه مع الرئيس التنفيذي لشركة Kiara (شركة يابانية). تحدثنا عن أساليب العمل، والتصميم القائم على البيانات (Data Driven)، وأبحاث التصميم في Mercari، والبلوك تشين، والدخل الأساسي، وWeb3، وغيرها. <a href="https://www.youtube.com/playlist?list=PLPQCtXNqXQgmcmhrh1J-ALXb5xVnrxiyw" target="_blank" rel="noopener">صفحة سلسلة المقابلات (باليابانية)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>جائزة التميز (Outstanding Performance) في ADF Milano Salone Design Award</h3>
-          <p>نظّمه منتدى أوياما للتصميم، بموضوع «Portable Space». فاز مصباح قابل للطي وكرسي الوشاح (من الفينيل الناعم، بفكرة مستوحاة من الأوريغامي)، وقُدّما في صحيفة The Japan Times (28 أبريل 2019). <a href="https://www.japantimes.co.jp/life/2019/04/28/style/design-winners-favorites/" target="_blank" rel="noopener">مقالة The Japan Times</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>المشاركة في «Greenhouse» ضمن Stockholm Furniture & Light Fair</h3>
-          <p>عرض عمل الإضاءة «Jellyfish light» في «Greenhouse»، قسم المصممين الشباب في Stockholm Furniture &amp; Light Fair (فبراير 2019)، معرض الأثاث والإضاءة في ستوكهولم بالسويد.<a href="https://www.musabi.ac.jp/topics/20181127_03_01/" target="_blank" rel="noopener">صفحة مواضيع جامعة موساشينو للفنون (باليابانية)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2017</div>
-        <div class="body">
-          <h3>اختير ضمن الأعمال المتميزة لمشاريع التخرج في قسم التصميم الأساسي بجامعة موساشينو للفنون (إحدى أبرز جامعات الفنون في اليابان)</h3>
-          <p>العمل: «SCARF CHAIR» (فينيل؛ كرسي تتحول فيه المسطّحات إلى مجسّم). الأستاذة المشرفة: البروفيسورة فوميه شيباتا. <a href="https://selected.musabi.ac.jp/y2017/scd/s06" target="_blank" rel="noopener">صفحة الأعمال المختارة بالجامعة</a></p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
 <!-- ============ LINKS ============ -->
 
 <!-- ============ ACHIEVEMENTS ============ -->
