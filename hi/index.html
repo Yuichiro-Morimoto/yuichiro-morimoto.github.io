@@ -224,9 +224,9 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+
+
+@media(max-width:900px){.profile-photo{width:140px;height:140px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -249,6 +249,7 @@ nav a:hover{color:var(--ink);text-decoration:none}
 
 /* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.profile-photo{width:190px;height:190px;object-fit:cover;border-radius:20px;display:block;margin:0 0 26px}
 .book-cover{width:170px;height:auto;display:block;margin-bottom:18px}
 .art-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;margin-bottom:18px}.art-duo a{display:block;text-decoration:none;color:inherit}.art-duo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.art-duo span{display:block;margin-top:8px;font-size:13px;color:#6b7280}
 .profile-grid p{margin-bottom:22px;max-width:680px}
@@ -363,11 +364,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 footer .f-logo{font-weight:700;letter-spacing:.06em}
 footer .f-logo span{color:var(--ink)}
 footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
-footer .f-sns{display:flex;gap:14px;align-items:center}
-footer .f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .2s,border-color .2s,color .2s}
-footer .f-sns a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-footer .f-sns svg{width:17px;height:17px;fill:currentColor}
-footer .f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-sns{display:flex;gap:14px;align-items:center}
+.f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--ink);transition:opacity .2s}
+.f-sns a:hover{opacity:.55}
+.f-sns svg{width:17px;height:17px;fill:currentColor}
+.f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){header .f-sns{display:none}}
 
 [hidden]{display:none!important}
 .lang-toggle{
@@ -454,10 +456,15 @@ footer small{font-size:13.5px}
       <a href="#profile">परिचय</a>
       <a href="#yobimizu">RANTAU</a>
       <a href="#hobisaya">HOBISAYA</a>
-      <a href="#themes">विषय</a>
       <a href="#books">किताबें</a>
-      <a href="#achievements">उपलब्धियाँ</a>
       <a href="#contact">अनुरोध</a>
+    </nav>
+    <nav class="f-sns" dir="ltr" aria-label="SNS">
+      <a href="https://www.youtube.com/@molly_travel1994" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@molly_japanese" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://x.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+      <a href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
+      <a href="https://stand.fm/channels/687f93ed2d8270496ec18d41" target="_blank" rel="noopener" aria-label="stand.fm"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></a>
     </nav>
   </div>
 </header>
@@ -471,9 +478,7 @@ footer small{font-size:13.5px}
     <div class="role">यात्री दार्शनिक</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">उपस्थिति व व्याख्यान के अनुरोध</a>
-      <a class="btn btn-ghost" href="#themes">बोलने के विषय देखें</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="खंडहरों में खड़े Molly">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -488,6 +493,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">परिचय</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="खंडहरों में खड़े Molly">
     <div class="profile-grid">
       <p>मैं <span class="hl">Molly</span> हूँ। मैं एक यात्री दार्शनिक हूँ और दो गतिविधियाँ चलाता हूँ: «HOBISAYA» और «RANTAU»।</p>
       <p>«HOBISAYA» एक ऐसी गतिविधि है, जो मौजूदा मूल्यों पर सवाल उठाती है और चीज़ों को देखने का एक अलग नज़रिया पेश करके, दूसरों के पैमानों से उतरकर अपने चुनावों से जीने की सोच को तलाशती है।</p>
@@ -696,210 +702,7 @@ footer small{font-size:13.5px}
 </section>
 
 <!-- ============ BOOKS ============ -->
-<section id="themes">
-  <div class="wrap">
-    <div class="sec-label">Themes</div>
-    <h2 class="sec-title">विषय जिन पर मैं बोल सकता हूँ</h2>
-    <p class="sec-lead">मैंने वे विषय इकट्ठा किए हैं जिन पर मैं बोल सकता हूँ — टॉक शो, पॉडकास्ट में मेहमान उपस्थिति, व्याख्यान और सह-लेखन या योगदान के अनुरोधों के लिए। हर विषय के साथ पॉडकास्ट «HOBISAYA» का वास्तविक प्रसारण रिकॉर्ड दिया गया है (500 से अधिक एपिसोड की सूची से)।</p>
-    <div class="theme-grid">
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">01</span><h3>सोचने के तरीके और मानसिकता (सोचने की विधि)</h3></div>
-        <div class="record">लगभग 129 एपिसोड / 44 घंटे का प्रसारण रिकॉर्ड (HOBISAYA का सबसे बड़ा विषय)</div>
-        <ul>
-          <li><b>काला-सफ़ेद में मत बाँटो, धूसर (ग्रे) में सोचो</b> — न उकसाना, न फैसला सुनाना। एक टिप्पणीकार के रूप में सोचने का तरीका</li>
-          <li><b>«बुद्धिमान होना» एक भ्रम है</b> — बुद्धिमत्ता को खोलकर देखें तो बचती हैं आदतें और सोचने के ढंग</li>
-          <li><b>«अभी फैसला न करने» का विकल्प</b> — कैसे पहचानें कि कब तुरंत फैसला करना सही जवाब नहीं है</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: <a href="https://www.youtube.com/watch?v=BpPvzhzJU9E" target="_blank" rel="noopener">«जब ‘A’ और ‘B’ होते हैं, तो लोग एक को दूसरे से ऊपर रखना चाहते हैं»</a> आदि</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">02</span><h3>जीवन और करियर की «बागडोर»</h3></div>
-        <div class="record">लगभग 127 एपिसोड (काम की तकनीक 76 + जीवन 51) का प्रसारण रिकॉर्ड</div>
-        <ul>
-          <li><b>अपने जीवन की बागडोर वापस लेने का तरीका</b> — दूसरों के पैमाने से उतरकर अपनी पसंद से जीने के विचार (किताब का मूल)</li>
-          <li><b>«पसंद है» या «पैसा मिलता है» — इसकी चिंता करने की ज़रूरत नहीं</b> — काम के चार चतुर्थांश बहते रहते हैं। जानबूझकर «नापसंद 20%» छोड़ने से पूरा काम बेहतर क्यों चलता है</li>
-          <li><b>फ्रीलांस या नौकरी में दुविधा हो तो नौकरी ही करनी चाहिए</b> — स्वतंत्र हुए व्यक्ति के मुँह से फ्रीलांस की असलियत और यह किसके लिए ठीक है</li>
-          <li><b>विकल्प घटते हैं तो सुख बढ़ता है</b> — न्यूनतम जीवन और निर्णयों की बात</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: <a href="https://www.youtube.com/watch?v=n-tJbzAukS0" target="_blank" rel="noopener">«जीवन की संतुष्टि की कुंजी है ‘बागडोर’»</a>, <a href="https://www.youtube.com/watch?v=PuV6_POZexY" target="_blank" rel="noopener">«जीवन में 20% ‘नापसंद चीज़ें’ छोड़ रखना बेहतर है»</a>, <a href="https://www.youtube.com/watch?v=KQWZK5oG9O4" target="_blank" rel="noopener">«फ्रीलांस के नुकसान»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">03</span><h3>मानवीय संबंध और संवाद</h3></div>
-        <div class="record">लगभग 53 एपिसोड / 16.5 घंटे का प्रसारण रिकॉर्ड</div>
-        <ul>
-          <li><b>संबंधों से परेशान होना या उन्हें रीसेट करना</b> — संबंधों की सूची बनाना और दूरी बनाना</li>
-          <li><b>संवाद की शैलियाँ</b> — हर व्यक्ति के लिए संवाद के मापदंड अलग होते हैं</li>
-          <li><b>«उसमें समझने की क्षमता ही नहीं» कहकर बात खत्म मत करो</b> — बात न पहुँचे तो दोष दूसरे पर न डालकर बोलने और सुनने का तरीका</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: वे प्रसारण जिनसे किताब «HOBISAYA» के <a href="https://www.youtube.com/watch?v=lbICHiRXeOE" target="_blank" rel="noopener">अध्याय 2</a> और <a href="https://www.youtube.com/watch?v=N5mmSP41nuY" target="_blank" rel="noopener">अध्याय 4</a> बने, आदि</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">04</span><h3>दर्शन और आध्यात्मिकता × तर्क</h3></div>
-        <div class="record">लगभग 41 एपिसोड / 13.5 घंटे का प्रसारण रिकॉर्ड</div>
-        <ul>
-          <li><b>आध्यात्मिकता और तर्क एक ही बात कहते हैं</b> — दो प्रतीत होने वाले विपरीत ध्रुवों का साझा लक्ष्य</li>
-          <li><b>अंतर्ज्ञान और विश्लेषण का सही इस्तेमाल</b> — कोई एक नहीं, बल्कि स्थिति के अनुसार बदलने का व्यावहारिक तरीका</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: वह प्रसारण जिससे किताब «HOBISAYA» का <a href="https://www.youtube.com/watch?v=2glvf0fozdM" target="_blank" rel="noopener">अध्याय 7</a> बना, आदि</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">05</span><h3>AI और अकेला व्यवसाय</h3></div>
-        <div class="record">लगभग 20 एपिसोड, हाल में तेज़ी से बढ़ता विषय</div>
-        <ul>
-          <li><b>AI के युग की कुंजी है «सब कुछ सौंप देने का संकल्प»</b> — काम AI को पूरी तरह सौंपने से बनता समय, और सौंपने वाले के पास बचता काम</li>
-          <li><b>अकेला व्यवसाय × AI संचालन का अभ्यास</b> — YouTube के 3 चैनल, किताबों का निर्माण और ऐप विकास AI के साथ चलाने की जमीनी बातें</li>
-          <li><b>एक व्यक्ति का «कंप्यूटर के अंदर कारख़ाना रखने» वाला काम करने का तरीका</b> — जिस युग में आज़माने की लागत बहुत घट गई है, एक व्यक्ति कहाँ तक बना सकता है</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: <a href="https://www.youtube.com/watch?v=0-tGLYxpKH8" target="_blank" rel="noopener">«वे लोग जो AI को ‘सब कुछ सौंप’ नहीं पाते»</a>, <a href="https://www.youtube.com/watch?v=zOxFAgi1h5k" target="_blank" rel="noopener">«AI को एक आइडिया बताया तो 3 मिनट में ऐप बन गया»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">06</span><h3>यात्रा और दुनिया</h3></div>
-        <div class="record">यात्रा की बातें और लाइव रिपोर्ट 340 से अधिक; यात्रा पर बोलने वाले लगभग 56 एपिसोड</div>
-        <ul>
-          <li><b>मुख्यतः दक्षिण-पूर्व एशिया सहित 12 देशों की अकेले यात्रा के अनुभव</b> — सस्ते में, सुरक्षित और स्थानीय लोगों से दोस्ती करते हुए यात्रा करने की तकनीक</li>
-          <li><b>स्थानीय लोगों के घर ठहरने वाली यात्रा</b> — पर्यटन स्थल नहीं, «रोज़मर्रा की ज़िंदगी» देखने जाने की शैली</li>
-          <li><b>यात्रा करते हुए काम करना और कमाना</b> — एक यात्री पॉडकास्टर की रिकॉर्डिंग और कमाई का ढाँचा</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: <a href="https://www.youtube.com/watch?v=gpC7_FkikY0" target="_blank" rel="noopener">«दक्षिण-पूर्व एशिया लौटना चाहता हूँ! विदेश भटकने के दिनों को याद करते हुए»</a>, <a href="https://www.youtube.com/watch?v=kOpwRDQ5KxI" target="_blank" rel="noopener">«‘LCC कैसी होती है?’ का जवाब देते हुए»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">07</span><h3>भाषा सीखना (YellowPen विधि)</h3></div>
-        <div class="record">पॉडकास्ट के लगभग 55 एपिसोड, साथ में भाषा चैनलों और किताबों का समर्थन</div>
-        <ul>
-          <li><b>खुद भाषा सीखते रहने का तरीका</b> — भाषा की «पढ़ने की विधि» से शुरुआत करें तो हताशा नहीं होती</li>
-          <li><b>हांगुल को वर्णमाला से बदलकर पढ़ना / थाई अक्षरों को उनकी व्यवस्था से पढ़ना</b> — YellowPen विधि की व्याख्या (किताब उपलब्ध है)</li>
-          <li><b>भाषा «पैसा कमाने का साधन» नहीं, «दुनिया को फैलाने वाला शौक» है</b> — एक भाषा-प्रेमी से जारी रखने के नुस्खे</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: <a href="https://www.youtube.com/watch?v=Hls7rM5vKsI" target="_blank" rel="noopener">«साबित करता हूँ कि भाषा सीखने में ‘असफलता’ जैसी कोई चीज़ नहीं»</a>, <a href="https://www.youtube.com/watch?v=0XudIloiz4k" target="_blank" rel="noopener">«वह ‘सीखने वाला ज़ॉम्बी’ जिसमें 80% अंग्रेज़ी सीखने वाले फँस जाते हैं»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">08</span><h3>प्रकाशन और कमाई</h3></div>
-        <div class="record">3 चैनल चलाने और प्रकाशन के अभ्यास का समर्थन</div>
-        <ul>
-          <li><b>100,000 सब्सक्राइबर का लक्ष्य रखने वाला YouTube संचालन</b> — Shorts केंद्रित बढ़ाने का तरीका और 3 चैनल चलाने की विधि (YellowPen कोरियाई के 80,000 से अधिक सब्सक्राइबर)</li>
-          <li><b>Kindle प्रकाशन — आय का एक और स्रोत</b> — एक व्यक्ति के किताब निकालकर बेचने तक की पूरी प्रक्रिया</li>
-          <li><b>महीने के 180,000 येन निष्क्रिय आय का रास्ता</b> — पॉडकास्ट, YouTube और किताबों को जोड़ने की रूपरेखा</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: <a href="https://www.youtube.com/watch?v=06Qp66n4wmc" target="_blank" rel="noopener">«बेरोज़गार YouTuber: पिछले महीने की कमाई की रिपोर्ट»</a>, <a href="https://www.youtube.com/watch?v=8ubBxpkfk_8" target="_blank" rel="noopener">«YouTube की आगे की दिशा के बारे में»</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">09</span><h3>स्वास्थ्य-आयु और कल्याण</h3></div>
-        <div class="record">लगभग 16 एपिसोड का प्रसारण रिकॉर्ड (अभ्यास जारी रखते हुए बढ़ता हुआ)</div>
-        <ul>
-          <li><b>«चलते-फिरते अंकल» बने रहने की आदतें</b> — योग, ध्यान और शरीर के वज़न वाले प्रशिक्षण को बिना ज़बरदस्ती जारी रखने का तरीका</li>
-          <li><b>दुनिया की सुबह की आवाज़ों के साथ जागना</b> — मेरा खुद का बनाया अलार्म ऐप और यात्रा में इकट्ठा की गई आवाज़ों की बात</li>
-        </ul>
-        <div class="rep">प्रतिनिधि एपिसोड: <a href="https://www.youtube.com/watch?v=_jwVoOPt4-s" target="_blank" rel="noopener">«पहली बार योग करने की बात»</a>, <a href="https://www.youtube.com/watch?v=tS6vsVveAGI" target="_blank" rel="noopener">«पहली बार 15 मिनट ध्यान किया तो दुनिया सेपिया रंग की दिखी»</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ ART ============ -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sec-label">Achievements</div>
-    <h2 class="sec-title">उपलब्धियाँ</h2>
-    <ul class="ach-list">
-      <li class="ach">
-        <div class="year">2025</div>
-        <div class="body">
-          <h3>पुस्तक HOBISAYA का प्रकाशन</h3>
-          <p>मैंने अपनी पहली पुस्तक HOBISAYA प्रकाशित की, जिसमें पॉडकास्ट के सिद्धांत संकलित हैं — पहले जापानी में, फिर अंग्रेज़ी में “HOBISAYA — How to Take Back the Reins of Your Life” के रूप में।</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2024</div>
-        <div class="body">
-          <h3>विश्व भ्रमण की शुरुआत</h3>
-          <p>मैंने मुख्यतः दक्षिण-पूर्व एशिया में विश्व भ्रमण की जीवनशैली शुरू की। अब तक देखे गए देशों की संख्या 12 हो गई है।</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>61वें «Senden Kaigi Award» के किकऑफ़ इवेंट में अतिथि उपस्थिति (जापान के सबसे बड़े कॉपीराइटिंग पुरस्कारों में से एक)</h3>
-          <p>पिछले वर्ष के 60वें ग्रैंड प्रिक्स विजेता के रूप में मैं ऑनलाइन अतिथि के तौर पर शामिल हुआ और एक सत्र में पहली ही प्रविष्टि में जीत के अपने अनुभव साझा किए। <a href="https://www.advertimes.com/20230929/article435336/" target="_blank" rel="noopener">AdverTimes की इवेंट रिपोर्ट</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>«Senden Kaigi Award» ग्रैंड प्रिक्स विजेता का साक्षात्कार</h3>
-          <p>मासिक पत्रिका Senden Kaigi (जापानी विज्ञापन व्यापार पत्रिका) में छपा ग्रैंड प्रिक्स विजेता का साक्षात्कार — «ताकि दस साल बाद कह सकूँ कि वह मेरे जीवन का मोड़ था» — वेब पर पुनः प्रकाशित (AdverTimes / Senden Kaigi online)। <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">AdverTimes का साक्षात्कार लेख</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>60वें «Senden Kaigi Award» में ग्रैंड प्रिक्स</h3>
-          <p>पहली ही प्रविष्टि में ग्रैंड प्रिक्स। Miura Kogyo के विषय पर बनाई रचना: «“गरम पानी क्यों नहीं आ रहा” “तुम्हें क्यों लगता है कि आना चाहिए”»। विजेता का साक्षात्कार मासिक पत्रिका Senden Kaigi के जून 2023 अंक में छपा। <a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">AdverTimes का साक्षात्कार लेख</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>अमेरिकी «Fast Company» में रचना प्रकाशित</h3>
-          <p>बिजली के बिना सूरज की रोशनी से जलने वाला लैंप <a href="https://morimotoyuic.base.shop/items/67289621" target="_blank" rel="noopener">«NISSHOKU (सूर्य ग्रहण)»</a> अमेरिकी डिज़ाइन पत्रिका Fast Company के लेख में पेश किया गया। 2018 में कला विश्वविद्यालय से स्नातक होते ही डिज़ाइन किया। designboom से शुरू होकर ब्राज़ील, रूस, भारत, चीन, कनाडा, ब्रिटेन समेत दुनिया भर के मीडिया में छपा, और एक इतालवी अकादमिक पत्रिका ने इसे शोध पत्र के केस स्टडी के रूप में उद्धृत किया (15 प्रकाशन पुष्ट)। <a href="https://www.fastcompany.com/90844343/this-unusual-lamp-glows-like-a-solar-eclipse" target="_blank" rel="noopener">Fast Company का लेख</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>"पहले AI (कृत्रिम बुद्धिमत्ता) की बात करते हैं" — "Watashino" कॉलम में बातचीत</h3>
-          <p>होम-विज़िट केयर प्रदाता Homecare Tsuchiya के ब्लॉग कॉलम में AI और कल्याण पर बातचीत। एक मैंने अपने काम में AI के उपयोग के बारे में बात की। <a href="https://homecare-tsuchiya.com/blog/column/13517/" target="_blank" rel="noopener">साक्षात्कार (जापानी में)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2022</div>
-        <div class="body">
-          <h3>33वें MBC रेडियो CM ग्रैंड प्रिक्स में स्वर्ण पुरस्कार (जापान के कागोशिमा के एक प्रसारक का रेडियो विज्ञापन मुक़ाबला)</h3>
-          <p>रेडियो विज्ञापन के ग्रैंड प्रिक्स में स्वर्ण पुरस्कार।</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2021–2022</div>
-        <div class="body">
-          <h3>Kiara Inc. के साथ साक्षात्कार श्रृंखला “Kiara x Design” में उपस्थिति</h3>
-          <p>मैं Kiara Inc. (एक जापानी कंपनी) के CEO के साथ इस साक्षात्कार श्रृंखला में एक डिज़ाइनर के रूप में शामिल हुआ। हमने कार्य शैली, Data Driven डिज़ाइन, Mercari में डिज़ाइन अनुसंधान, ब्लॉकचेन, बेसिक इनकम, Web3 आदि विषयों पर चर्चा की। <a href="https://www.youtube.com/playlist?list=PLPQCtXNqXQgmcmhrh1J-ALXb5xVnrxiyw" target="_blank" rel="noopener">साक्षात्कार श्रृंखला का पेज (जापानी में)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>ADF Milano Salone Design Award में उत्कृष्टता पुरस्कार (Outstanding Performance)</h3>
-          <p>Aoyama Design Forum द्वारा आयोजित, विषय «Portable Space»। एक मुड़ने वाला लैंप और स्कार्फ़ चेयर (नरम विनाइल से बनी, ओरिगामी के विचार से) पुरस्कृत हुईं और The Japan Times (28 अप्रैल 2019) में पेश की गईं। <a href="https://www.japantimes.co.jp/life/2019/04/28/style/design-winners-favorites/" target="_blank" rel="noopener">The Japan Times का लेख</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>Stockholm Furniture & Light Fair की “Greenhouse” में प्रदर्शनी</h3>
-          <p>स्वीडन के स्टॉकहोम में होने वाले फ़र्नीचर और प्रकाश मेले Stockholm Furniture &amp; Light Fair (फ़रवरी 2019) के युवा डिज़ाइनर वर्ग “Greenhouse” में प्रकाश कृति “Jellyfish light” प्रदर्शित की।<a href="https://www.musabi.ac.jp/topics/20181127_03_01/" target="_blank" rel="noopener">Musashino Art University का Topics पेज (जापानी में)</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2017</div>
-        <div class="body">
-          <h3>Musashino Art University के बुनियादी डिज़ाइन विभाग की उत्कृष्ट स्नातक रचना के रूप में चयनित (जापान के प्रमुख कला विश्वविद्यालयों में से एक)</h3>
-          <p>रचना: «SCARF CHAIR» (विनाइल; एक कुर्सी जिसमें सपाट सतह त्रि-आयामी रूप लेती है)। मार्गदर्शक प्रोफ़ेसर: Fumie Shibata। <a href="https://selected.musabi.ac.jp/y2017/scd/s06" target="_blank" rel="noopener">विश्वविद्यालय का चयनित रचनाओं वाला पृष्ठ</a></p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
 <!-- ============ LINKS ============ -->
 
 <!-- ============ ACHIEVEMENTS ============ -->
