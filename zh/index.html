@@ -224,9 +224,9 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+
+
+@media(max-width:900px){.profile-photo{width:140px;height:140px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -249,6 +249,7 @@ nav a:hover{color:var(--ink);text-decoration:none}
 
 /* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.profile-photo{width:190px;height:190px;object-fit:cover;border-radius:20px;display:block;margin:0 0 26px}
 .book-cover{width:170px;height:auto;display:block;margin-bottom:18px}
 .art-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;margin-bottom:18px}.art-duo a{display:block;text-decoration:none;color:inherit}.art-duo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.art-duo span{display:block;margin-top:8px;font-size:13px;color:#6b7280}
 .profile-grid p{margin-bottom:22px;max-width:680px}
@@ -363,11 +364,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 footer .f-logo{font-weight:700;letter-spacing:.06em}
 footer .f-logo span{color:var(--ink)}
 footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
-footer .f-sns{display:flex;gap:14px;align-items:center}
-footer .f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .2s,border-color .2s,color .2s}
-footer .f-sns a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-footer .f-sns svg{width:17px;height:17px;fill:currentColor}
-footer .f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-sns{display:flex;gap:14px;align-items:center}
+.f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--ink);transition:opacity .2s}
+.f-sns a:hover{opacity:.55}
+.f-sns svg{width:17px;height:17px;fill:currentColor}
+.f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){header .f-sns{display:none}}
 
 [hidden]{display:none!important}
 .lang-toggle{
@@ -454,10 +456,15 @@ footer small{font-size:13.5px}
       <a href="#profile">個人簡介</a>
       <a href="#yobimizu">RANTAU</a>
       <a href="#hobisaya">HOBISAYA</a>
-      <a href="#themes">演講主題</a>
       <a href="#books">著作</a>
-      <a href="#achievements">實績</a>
       <a href="#contact">邀約</a>
+    </nav>
+    <nav class="f-sns" dir="ltr" aria-label="SNS">
+      <a href="https://www.youtube.com/@molly_travel1994" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@molly_japanese" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://x.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+      <a href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
+      <a href="https://stand.fm/channels/687f93ed2d8270496ec18d41" target="_blank" rel="noopener" aria-label="stand.fm"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></a>
     </nav>
   </div>
 </header>
@@ -471,9 +478,7 @@ footer small{font-size:13.5px}
     <div class="role">旅行哲学家</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">節目邀約・演講邀請</a>
-      <a class="btn btn-ghost" href="#themes">查看演講主題</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="站在遺跡上的 Molly">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -488,6 +493,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">個人簡介</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="站在遺跡上的 Molly">
     <div class="profile-grid">
       <p>我是 <span class="hl">Molly</span>。我是一名旅行哲学家，進行著「HOBISAYA」與「RANTAU」兩項活動。</p>
       <p>「HOBISAYA」是一項活動，它對既有的價值觀提出疑問，並透過呈現看待事物的不同方式，探尋從他人的尺度上下來、以自己的選擇生活的思考方式。</p>
@@ -696,210 +702,7 @@ footer small{font-size:13.5px}
 </section>
 
 <!-- ============ BOOKS ============ -->
-<section id="themes">
-  <div class="wrap">
-    <div class="sec-label">Themes</div>
-    <h2 class="sec-title">可以演講的主題</h2>
-    <p class="sec-lead">這裡整理了我能談的主題，供談話節目、播客來賓邀約、演講、合著與投稿等洽詢使用。每個主題都附上播客「HOBISAYA」的實際播出實績（從超過 500 集的內容中盤點）。</p>
-    <div class="theme-grid">
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">01</span><h3>思維方式與心態（思考法）</h3></div>
-        <div class="record">約 129 集・44 小時的播出實績（HOBISAYA 最大的主題）</div>
-        <ul>
-          <li><b>不要非黑即白，要用灰色思考</b> — 不煽動、不斷言。身為意見領袖的思考方式</li>
-          <li><b>「頭腦好」是一種幻想</b> — 把聰明拆開來看，剩下的只有習慣與思考的模式</li>
-          <li><b>「現在先不決定」也是一種選擇</b> — 如何分辨不該立刻下決定的場合</li>
-        </ul>
-        <div class="rep">代表集數：<a href="https://www.youtube.com/watch?v=BpPvzhzJU9E" target="_blank" rel="noopener">「人一遇到『A』和『B』，就想分出優劣」</a>等</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">02</span><h3>人生與職涯的「主導權」</h3></div>
-        <div class="record">約 127 集（工作術 76 集＋人生 51 集）的播出實績</div>
-        <ul>
-          <li><b>奪回人生主導權的方法</b> — 從別人的尺度下來，用自己的選擇活下去的想法（本書的核心）</li>
-          <li><b>「喜歡」還是「賺錢」，其實不用煩惱</b> — 工作的四象限是流動的。為什麼刻意留下「討厭的兩成」反而讓整體運轉得更好</li>
-          <li><b>在自由業與就業之間猶豫時，就應該去就業</b> — 由真正獨立過的人談自由工作者的現實與適合與否</li>
-          <li><b>選擇變少，幸福反而增加</b> — 極簡生活與決策的話題</li>
-        </ul>
-        <div class="rep">代表集數：<a href="https://www.youtube.com/watch?v=n-tJbzAukS0" target="_blank" rel="noopener">「人生滿足感的關鍵是『主導權』」</a><a href="https://www.youtube.com/watch?v=PuV6_POZexY" target="_blank" rel="noopener">「生活中刻意留下兩成『討厭的事』比較好」</a><a href="https://www.youtube.com/watch?v=KQWZK5oG9O4" target="_blank" rel="noopener">「自由工作者的缺點」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">03</span><h3>人際關係與溝通論</h3></div>
-        <div class="record">約 53 集・16.5 小時的播出實績</div>
-        <ul>
-          <li><b>為人際關係煩惱，還是重置它</b> — 關係的盤點與距離的拿捏</li>
-          <li><b>溝通的型</b> — 每個人的溝通基準都不同</li>
-          <li><b>不要用「那傢伙就是閱讀能力差」來打發</b> — 傳達不到時，不把原因推給對方的說話與聆聽方式</li>
-        </ul>
-        <div class="rep">代表集數：成為著作《HOBISAYA》<a href="https://www.youtube.com/watch?v=lbICHiRXeOE" target="_blank" rel="noopener">第 2 章</a>、<a href="https://www.youtube.com/watch?v=N5mmSP41nuY" target="_blank" rel="noopener">第 4 章</a>原型的集數等</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">04</span><h3>哲學・靈性 × 邏輯</h3></div>
-        <div class="record">約 41 集・13.5 小時的播出實績</div>
-        <ul>
-          <li><b>靈性與邏輯，說的是同一件事</b> — 看似對極的兩者，所指方向的共通點</li>
-          <li><b>直覺與分析的運用區分</b> — 不是二選一，而是依場合切換的實踐論</li>
-        </ul>
-        <div class="rep">代表集數：成為著作《HOBISAYA》<a href="https://www.youtube.com/watch?v=2glvf0fozdM" target="_blank" rel="noopener">第 7 章</a>原型的集數等</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">05</span><h3>AI 與一人事業</h3></div>
-        <div class="record">約 20 集，最近急速增加的主題</div>
-        <ul>
-          <li><b>AI 時代的關鍵是「全部交出去的覺悟」</b> — 把工作徹底交給 AI 後產生的時間，以及留給交付者的工作</li>
-          <li><b>一人事業 × AI 營運的實踐</b> — 用 AI 一起經營 YouTube 3 個頻道、書籍製作與 App 開發的現場故事</li>
-          <li><b>「在電腦裡擁有一座工廠」的個人工作方式</b> — 在嘗試成本大幅降低的時代，一個人能做到什麼地步</li>
-        </ul>
-        <div class="rep">代表集數：<a href="https://www.youtube.com/watch?v=0-tGLYxpKH8" target="_blank" rel="noopener">「無法把『全部交給 AI』的人們」</a><a href="https://www.youtube.com/watch?v=zOxFAgi1h5k" target="_blank" rel="noopener">「把點子告訴 AI，3 分鐘就做出 App 的故事」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">06</span><h3>旅行與世界</h3></div>
-        <div class="record">旅行談話與實況超過 340 次，專談旅行的集數約 56 集</div>
-        <ul>
-          <li><b>以東南亞為中心、12 國獨旅的經驗談</b> — 便宜、安全、又能和當地人打成一片的旅行技術</li>
-          <li><b>住在當地人家裡的旅行</b> — 不是去看觀光景點，而是去看「生活」的風格</li>
-          <li><b>一邊旅行一邊工作賺錢</b> — 旅行播客主持人的錄製與收益機制</li>
-        </ul>
-        <div class="rep">代表集數：<a href="https://www.youtube.com/watch?v=gpC7_FkikY0" target="_blank" rel="noopener">「好想回到東南亞！回顧海外流浪的日子」</a><a href="https://www.youtube.com/watch?v=kOpwRDQ5KxI" target="_blank" rel="noopener">「回答『LCC 到底怎麼樣？』」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">07</span><h3>語言學習（YellowPen 式）</h3></div>
-        <div class="record">播客約 55 集，並有語言頻道與著作為後盾</div>
-        <ul>
-          <li><b>自學語言並持續下去的方法</b> — 從語言的「讀法」入門，就不會挫折</li>
-          <li><b>韓文用字母替換來讀／泰文用結構來讀</b> — YellowPen 式方法的解說（有著作）</li>
-          <li><b>語言不是「賺錢的工具」，而是「擴展世界的興趣」</b> — 由愛好語言的人談持續的祕訣</li>
-        </ul>
-        <div class="rep">代表集數：<a href="https://www.youtube.com/watch?v=Hls7rM5vKsI" target="_blank" rel="noopener">「證明語言學習沒有『挫折』這回事」</a><a href="https://www.youtube.com/watch?v=0XudIloiz4k" target="_blank" rel="noopener">「八成英語學習者掉進的『學習殭屍』陷阱」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">08</span><h3>發聲與收益化</h3></div>
-        <div class="record">以 3 個頻道的經營與出版實踐為後盾</div>
-        <ul>
-          <li><b>以 10 萬訂閱為目標的 YouTube 經營</b> — 以 Shorts 為主的成長方式與 3 個頻道的經營法（YellowPen 韓語頻道訂閱超過 8 萬人）</li>
-          <li><b>Kindle 出版，另一條收入來源</b> — 個人出書並賣出去的完整流程</li>
-          <li><b>邁向每月 18 萬日圓被動收入之路</b> — 結合播客、YouTube 與書籍的設計圖</li>
-        </ul>
-        <div class="rep">代表集數：<a href="https://www.youtube.com/watch?v=06Qp66n4wmc" target="_blank" rel="noopener">「無職 YouTuber，上個月的收益報告」</a><a href="https://www.youtube.com/watch?v=8ubBxpkfk_8" target="_blank" rel="noopener">「關於今後 YouTube 的方針」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">09</span><h3>健康壽命與身心福祉</h3></div>
-        <div class="record">約 16 集的播出實績（在持續實踐中累積）</div>
-        <ul>
-          <li><b>為了當個「還能動的大叔」的習慣</b> — 不勉強地持續瑜伽、冥想與自重訓練的方法</li>
-          <li><b>用世界的早晨聲音醒來</b> — 自製鬧鐘 App 與在旅途中收集的聲音</li>
-        </ul>
-        <div class="rep">代表集數：<a href="https://www.youtube.com/watch?v=_jwVoOPt4-s" target="_blank" rel="noopener">「第一次做瑜伽的故事」</a><a href="https://www.youtube.com/watch?v=tS6vsVveAGI" target="_blank" rel="noopener">「第一次冥想 15 分鐘後，世界看起來變成褐色的故事」</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ ART ============ -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sec-label">Achievements</div>
-    <h2 class="sec-title">實績</h2>
-    <ul class="ach-list">
-      <li class="ach">
-        <div class="year">2025</div>
-        <div class="body">
-          <h3>出版著作《HOBISAYA》</h3>
-          <p>出版了匯集播客理論的第一本著作《HOBISAYA》——先是日文版，其後推出英文版《HOBISAYA — How to Take Back the Reins of Your Life》。</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2024</div>
-        <div class="body">
-          <h3>開始環遊世界的放浪生活</h3>
-          <p>開始以東南亞為中心、環遊世界的放浪生活。至今到訪的國家已達 12 個。</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>受邀出席第 61 屆「宣伝會議賞」啟動活動（日本最大級的文案獎之一）</h3>
-          <p>以前一年第 60 屆大獎得主的身分，作為線上嘉賓登臺，參與座談，分享首次參賽即奪冠的經歷。<a href="https://www.advertimes.com/20230929/article435336/" target="_blank" rel="noopener">AdverTimes 的活動報導</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>「宣伝會議賞」大獎得主專訪</h3>
-          <p>月刊《宣伝會議》（日本的廣告專門雜誌）刊登的大獎專訪〈希望十年後能說「那是人生的轉捩點」〉的網路轉載（AdverTimes／宣伝會議線上版）。<a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">AdverTimes 的專訪文章</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>榮獲第 60 屆「宣伝會議賞」大獎</h3>
-          <p>首次參賽即榮獲大獎。三浦工業的課題作品「『為什麼沒有熱水啦』『你為什麼覺得會有熱水』」。得獎專訪刊登於月刊《宣伝會議》2023 年 6 月號。<a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">AdverTimes 的專訪文章</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>作品刊登於美國《Fast Company》</h3>
-          <p>不使用電力、以太陽光發光的照明<a href="https://morimotoyuic.base.shop/items/67289621" target="_blank" rel="noopener">「NISSHOKU（日食）」</a>獲美國設計雜誌 Fast Company 專文介紹。2018 年在美術大學畢業後不久設計。以 designboom 為起點，也被巴西、俄羅斯、印度、中國、加拿大、英國等世界各國媒體報導，義大利的學會期刊更將其作為學術論文的案例研究引用（已確認 15 件刊登）。<a href="https://www.fastcompany.com/90844343/this-unusual-lamp-glows-like-a-solar-eclipse" target="_blank" rel="noopener">Fast Company 的文章</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>《先來聊聊AI（人工智慧）吧》/「Watashino」專欄對談</h3>
-          <p>在到宅介護事業所「Homecare Tsuchiya」的部落格專欄中，以 AI 與福祉為主題進行對談。分享了在工作中運用 AI 的經驗。 <a href="https://homecare-tsuchiya.com/blog/column/13517/" target="_blank" rel="noopener">對談文章（日文）</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2022</div>
-        <div class="body">
-          <h3>榮獲第 33 屆 MBC 廣播 CM 大獎金獎（日本鹿兒島廣播電臺的廣播廣告大獎）</h3>
-          <p>在廣播廣告大獎中榮獲金獎。</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2021–2022</div>
-        <div class="body">
-          <h3>出演株式會社 Kiara 對談系列「Kiara x Design」</h3>
-          <p>以設計師身分出演與株式會社 Kiara（日本企業）代表的對談系列。談及工作風格、Data Driven 設計、Mercari 的設計研究、區塊鏈、基本收入、Web3 等主題。 <a href="https://www.youtube.com/playlist?list=PLPQCtXNqXQgmcmhrh1J-ALXb5xVnrxiyw" target="_blank" rel="noopener">對談系列頁面（日文）</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>榮獲 ADF Milano Salone Design Award 優秀獎（Outstanding Performance）</h3>
-          <p>由青山設計論壇主辦，主題「Portable Space」。摺疊燈與圍巾椅（軟質塑膠製，源自摺紙的發想）獲獎，並獲《The Japan Times》（2019 年 4 月 28 日）介紹。<a href="https://www.japantimes.co.jp/life/2019/04/28/style/design-winners-favorites/" target="_blank" rel="noopener">The Japan Times 的文章</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>於斯德哥爾摩傢俱燈飾展「Greenhouse」參展</h3>
-          <p>在瑞典斯德哥爾摩舉辦的傢俱與燈飾展「Stockholm Furniture &amp; Light Fair」（2019 年 2 月）的年輕設計師單元「Greenhouse」，展出照明作品「Jellyfish light」。<a href="https://www.musabi.ac.jp/topics/20181127_03_01/" target="_blank" rel="noopener">武藏野美術大學的 Topics 頁面</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2017</div>
-        <div class="body">
-          <h3>獲選武藏野美術大學基礎設計學科畢業製作優秀作品（日本具代表性的美術大學之一）</h3>
-          <p>作品「SCARF CHAIR 圍巾椅」（塑膠，讓平面變成立體的椅子）。指導教授為柴田文江教授。<a href="https://selected.musabi.ac.jp/y2017/scd/s06" target="_blank" rel="noopener">大學的入選作品頁面</a></p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
 <!-- ============ LINKS ============ -->
 
 <!-- ============ ACHIEVEMENTS ============ -->
