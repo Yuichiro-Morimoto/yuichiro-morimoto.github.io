@@ -224,9 +224,9 @@ nav a:hover{color:var(--ink);text-decoration:none}
   margin-top:54px;font-size:clamp(15px,3vw,18px);font-weight:600;letter-spacing:.3em;
 }
 .hero .cta-row{margin-top:110px;display:flex;flex-wrap:wrap;gap:28px 64px;align-items:center}
-.hero-photo{position:absolute;right:6vw;top:120px;width:190px;height:190px;object-fit:cover;border-radius:20px}
-@media(min-width:901px){.hero .wrap{padding-right:290px}}
-@media(max-width:900px){.hero-photo{position:static;display:block;margin-top:64px;width:140px;height:140px}}
+
+
+@media(max-width:900px){.profile-photo{width:140px;height:140px}}
 .hobisaya-head{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
 .hobisaya-cat{width:148px;height:148px;object-fit:cover;border-radius:20px;flex:none}
 @media(max-width:640px){.hobisaya-cat{width:104px;height:104px}}
@@ -249,6 +249,7 @@ nav a:hover{color:var(--ink);text-decoration:none}
 
 /* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.profile-photo{width:190px;height:190px;object-fit:cover;border-radius:20px;display:block;margin:0 0 26px}
 .book-cover{width:170px;height:auto;display:block;margin-bottom:18px}
 .art-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;margin-bottom:18px}.art-duo a{display:block;text-decoration:none;color:inherit}.art-duo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.art-duo span{display:block;margin-top:8px;font-size:13px;color:#6b7280}
 .profile-grid p{margin-bottom:22px;max-width:680px}
@@ -363,11 +364,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 footer .f-logo{font-weight:700;letter-spacing:.06em}
 footer .f-logo span{color:var(--ink)}
 footer small{color:var(--faint);font-size:12px;letter-spacing:.04em}
-footer .f-sns{display:flex;gap:14px;align-items:center}
-footer .f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .2s,border-color .2s,color .2s}
-footer .f-sns a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-footer .f-sns svg{width:17px;height:17px;fill:currentColor}
-footer .f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-sns{display:flex;gap:14px;align-items:center}
+.f-sns a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--ink);transition:opacity .2s}
+.f-sns a:hover{opacity:.55}
+.f-sns svg{width:17px;height:17px;fill:currentColor}
+.f-sns svg.mic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){header .f-sns{display:none}}
 
 [hidden]{display:none!important}
 .lang-toggle{
@@ -454,10 +456,15 @@ footer small{font-size:13.5px}
       <a href="#profile">プロフィール</a>
       <a href="#yobimizu">RANTAU</a>
       <a href="#hobisaya">HOBISAYA</a>
-      <a href="#themes">話せるテーマ</a>
       <a href="#books">著書</a>
-      <a href="#achievements">実績</a>
       <a href="#contact">ご依頼</a>
+    </nav>
+    <nav class="f-sns" dir="ltr" aria-label="SNS">
+      <a href="https://www.youtube.com/@molly_travel1994" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@molly_japanese" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://x.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+      <a href="https://note.com/yuichiro_morimo" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
+      <a href="https://stand.fm/channels/687f93ed2d8270496ec18d41" target="_blank" rel="noopener" aria-label="stand.fm"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></a>
     </nav>
   </div>
 </header>
@@ -471,9 +478,7 @@ footer small{font-size:13.5px}
     <div class="role">旅する哲学屋</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">出演・登壇のご依頼</a>
-      <a class="btn btn-ghost" href="#themes">話せるテーマを見る</a>
     </div>
-    <img class="hero-photo" src="/profile.jpg" alt="遺跡に立つもりー">
   </div>
   <div class="waves" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -488,6 +493,7 @@ footer small{font-size:13.5px}
   <div class="wrap">
     <div class="sec-label">Profile</div>
     <h2 class="sec-title">プロフィール</h2>
+    <img class="profile-photo" src="/profile.jpg" alt="遺跡に立つもりー">
     <div class="profile-grid">
       <p>旅する哲学屋として、「HOBISAYA」と「RANTAU」、2つの活動をしています</p>
       <p>「HOBISAYA」は、既存の価値観に疑問を呈し、それとは異なる物事の見方を示すことで、他人の物差しから降り、自分の選択で生きるための考え方を探る活動です</p>
@@ -696,210 +702,7 @@ footer small{font-size:13.5px}
 </section>
 
 <!-- ============ BOOKS ============ -->
-<section id="themes">
-  <div class="wrap">
-    <div class="sec-label">Themes</div>
-    <h2 class="sec-title">話せるテーマ</h2>
-    <p class="sec-lead">トークショー、ポッドキャストのゲスト出演、講演、共著・寄稿のご相談用に、話せるテーマをまとめました。各テーマには、ポッドキャスト「ホビサヤ」での実際の配信実績（500回を超える配信からの棚卸し）を添えています。</p>
-    <div class="theme-grid">
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">01</span><h3>考え方・マインドセット（思考法）</h3></div>
-        <div class="record">約129回・44時間分の配信実績（ホビサヤ最大のテーマ）</div>
-        <ul>
-          <li><b>白黒つけるな、グレーで考えろ</b> — 煽らない、断定しない。ご意見番としての思考法</li>
-          <li><b>「頭がいい」は幻想である</b> — 頭の良さを分解すると、残るのは習慣と思考の型</li>
-          <li><b>今は決めない、という選択</b> — 即断即決が正解とは限らない場面の見極め</li>
-        </ul>
-        <div class="rep">代表回：<a href="https://www.youtube.com/watch?v=BpPvzhzJU9E" target="_blank" rel="noopener">「人は物事『A』と『B』があると、優越を付けたくなる」</a>ほか</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">02</span><h3>生き方とキャリアの「主導権」</h3></div>
-        <div class="record">約127回（仕事術76回＋生き方51回）の配信実績</div>
-        <ul>
-          <li><b>人生の主導権を取り戻す方法</b> — 他人の物差しから降りて、自分の選択で生きるための考え方（著書の核）</li>
-          <li><b>「好き」か「稼げる」かは、気にしなくていい</b> — 仕事の4象限は流動的。あえて「嫌な2割」を残すと全体がうまく回る理由</li>
-          <li><b>フリーか就職か、迷った時点で就職すべき</b> — 独立経験者だから話せる、フリーランスの現実と向き不向き</li>
-          <li><b>選択肢が減ると幸福になる</b> — ミニマルな暮らしと意思決定の話</li>
-        </ul>
-        <div class="rep">代表回：<a href="https://www.youtube.com/watch?v=n-tJbzAukS0" target="_blank" rel="noopener">「人生の満足感のカギは『主導権』」</a><a href="https://www.youtube.com/watch?v=PuV6_POZexY" target="_blank" rel="noopener">「生活の2割は『嫌なこと』を残しておく方が良い」</a><a href="https://www.youtube.com/watch?v=KQWZK5oG9O4" target="_blank" rel="noopener">「フリーランスのデメリット」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">03</span><h3>人間関係・コミュニケーション論</h3></div>
-        <div class="record">約53回・16.5時間の配信実績</div>
-        <ul>
-          <li><b>人間関係で悩むか、リセットするか</b> — 関係の棚卸しと距離の取り方</li>
-          <li><b>コミュニケーションの型</b> — 人によって意思疎通の基準は異なる</li>
-          <li><b>「あいつは読解力が無い」で片付けるな</b> — 伝わらない原因を相手のせいにしない話し方・聞き方</li>
-        </ul>
-        <div class="rep">代表回：著書『ホビサヤ』<a href="https://www.youtube.com/watch?v=lbICHiRXeOE" target="_blank" rel="noopener">第2章</a>・<a href="https://www.youtube.com/watch?v=N5mmSP41nuY" target="_blank" rel="noopener">第4章</a>の元になった配信ほか</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">04</span><h3>哲学・スピリチュアル × ロジック</h3></div>
-        <div class="record">約41回・13.5時間の配信実績</div>
-        <ul>
-          <li><b>スピリチュアルとロジックは、同じことを言っている</b> — 一見対極の2つが指す先の共通点</li>
-          <li><b>直感と分析の使い分け</b> — どちらかではなく、場面で切り替える実践論</li>
-        </ul>
-        <div class="rep">代表回：著書『ホビサヤ』<a href="https://www.youtube.com/watch?v=2glvf0fozdM" target="_blank" rel="noopener">第7章</a>の元になった配信ほか</div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">05</span><h3>AIとひとり事業</h3></div>
-        <div class="record">約20回、最近急増中のテーマ</div>
-        <ul>
-          <li><b>AI時代の鍵は「全部任せる覚悟」</b> — AIに仕事を任せ切ることで生まれる時間と、任せる側に残る仕事</li>
-          <li><b>ひとり事業 × AI運用の実践</b> — YouTube 3チャンネルの運営、書籍制作、アプリ開発までをAIと回す現場の話</li>
-          <li><b>「コンピュータの中に工場を持つ」個人の働き方</b> — 試すコストが激減した時代に、個人がどこまで作れるか</li>
-        </ul>
-        <div class="rep">代表回：<a href="https://www.youtube.com/watch?v=0-tGLYxpKH8" target="_blank" rel="noopener">「AIに『全部任せる』が出来ない人間たち」</a><a href="https://www.youtube.com/watch?v=zOxFAgi1h5k" target="_blank" rel="noopener">「アイデアをAIに話したら3分でアプリができた話」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">06</span><h3>旅と世界</h3></div>
-        <div class="record">旅行の語り・実況340回超、旅を語る回 約56回</div>
-        <ul>
-          <li><b>東南アジアを中心に12ヶ国ひとり旅の経験談</b> — 格安で、安全に、現地の人と仲良くなる旅の技術</li>
-          <li><b>現地の人の家に泊まる旅</b> — 観光地ではない「暮らし」を見に行くスタイル</li>
-          <li><b>旅しながら働く・稼ぐ</b> — 旅するポッドキャスターの収録と収益の仕組み</li>
-        </ul>
-        <div class="rep">代表回：<a href="https://www.youtube.com/watch?v=gpC7_FkikY0" target="_blank" rel="noopener">「東南アジアに戻りたい！海外放浪の日々を振り返る」</a><a href="https://www.youtube.com/watch?v=kOpwRDQ5KxI" target="_blank" rel="noopener">「『LCCってどうなの？』に答える」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">07</span><h3>語学学習（YellowPen式）</h3></div>
-        <div class="record">ポッドキャスト約55回＋語学チャンネルと著書が裏付け</div>
-        <ul>
-          <li><b>独学で語学を続ける方法</b> — 言語の「読み方」から入ると挫折しない</li>
-          <li><b>ハングルはアルファベットに置き換えて読む／タイ文字は仕組みで読む</b> — YellowPen式メソッドの解説（著書あり）</li>
-          <li><b>語学は「稼ぐ道具」より「世界を広げる趣味」</b> — 語学好きが語る、続けるコツ</li>
-        </ul>
-        <div class="rep">代表回：<a href="https://www.youtube.com/watch?v=Hls7rM5vKsI" target="_blank" rel="noopener">「語学に『挫折』などないことを証明する」</a><a href="https://www.youtube.com/watch?v=0XudIloiz4k" target="_blank" rel="noopener">「英語学習者の8割が陥る『学習ゾンビ』」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">08</span><h3>発信と収益化</h3></div>
-        <div class="record">3チャンネル運営と出版の実践が裏付け</div>
-        <ul>
-          <li><b>登録者10万人を目指すYouTube運営</b> — Shorts中心の伸ばし方、3チャンネルの回し方（YellowPen韓国語 登録者8万人超）</li>
-          <li><b>Kindle出版という、もう一つの収入源</b> — 個人が本を出して売るまでの全工程</li>
-          <li><b>不労所得 月18万円への道</b> — ポッドキャスト・YouTube・書籍を組み合わせる設計図</li>
-        </ul>
-        <div class="rep">代表回：<a href="https://www.youtube.com/watch?v=06Qp66n4wmc" target="_blank" rel="noopener">「無職YouTuber、先月の収益報告」</a><a href="https://www.youtube.com/watch?v=8ubBxpkfk_8" target="_blank" rel="noopener">「今後のYouTubeの方針について」</a></div>
-      </div>
-
-      <div class="theme">
-        <div class="t-head"><span class="t-no">09</span><h3>健康寿命とウェルビーイング</h3></div>
-        <div class="record">約16回の配信実績（実践を継続しながら蓄積中）</div>
-        <ul>
-          <li><b>「動けるおじさん」でいるための習慣</b> — ヨガ・瞑想・自重トレーニングを無理なく続ける方法</li>
-          <li><b>世界の朝の音で目覚める</b> — 自作アラームアプリと、旅先で集めた音の話</li>
-        </ul>
-        <div class="rep">代表回：<a href="https://www.youtube.com/watch?v=_jwVoOPt4-s" target="_blank" rel="noopener">「初めてヨガをやってみた話」</a><a href="https://www.youtube.com/watch?v=tS6vsVveAGI" target="_blank" rel="noopener">「初めて瞑想15分やってみたら世界がセピア色に見えた話」</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ ART ============ -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sec-label">Achievements</div>
-    <h2 class="sec-title">実績</h2>
-    <ul class="ach-list">
-      <li class="ach">
-        <div class="year">2025</div>
-        <div class="body">
-          <h3>書籍『ホビサヤ』を出版</h3>
-          <p>ポッドキャスト「ホビサヤ」の理論をまとめた初の著書『ホビサヤ 人生の主導権を取り戻す方法』を出版。英語版『HOBISAYA — How to Take Back the Reins of Your Life』も発売した。</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2024</div>
-        <div class="body">
-          <h3>世界放浪を開始</h3>
-          <p>東南アジアを中心に、世界を旅する放浪生活を開始。これまでに訪れた国は12ヶ国になった。</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>第61回「宣伝会議賞」キックオフイベントにゲスト出演</h3>
-          <p>前年の第60回グランプリ受賞者としてオンラインゲストで登壇し、初応募・初受賞の体験を語るセッションに参加しました。<a href="https://www.advertimes.com/20230929/article435336/" target="_blank" rel="noopener">イベントレポート</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>『宣伝会議賞』グランプリ受賞者インタビュー</h3>
-          <p>月刊『宣伝会議』に掲載されたグランプリインタビュー「『人生の転機だった』と10年後に言えるように」のWeb転載（AdverTimes.／宣伝会議オンライン）。<a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">インタビュー記事</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>第60回「宣伝会議賞」グランプリ受賞</h3>
-          <p>初応募でのグランプリ受賞。三浦工業の課題作「『なんでお湯出ないんだよ』『なんでお湯出ると思うんだよ』」。月刊『宣伝会議』2023年6月号にグランプリインタビュー掲載。<a href="https://www.advertimes.com/20230428/article418132/" target="_blank" rel="noopener">アドタイのインタビュー記事</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>米「Fast Company」に作品掲載</h3>
-          <p>電気を使わず太陽光で光る照明<a href="https://morimotoyuic.base.shop/items/67289621" target="_blank" rel="noopener">「NISSHOKU（日食）」</a>が、米デザイン誌 Fast Company の記事で紹介された。2018年に美大卒業直後に設計。designboom を起点に、ブラジル、ロシア、インド、中国、カナダ、英国など世界各国のメディアにも掲載され、イタリアの学会誌では学術論文のケーススタディとして引用された（掲載15件を確認）。<a href="https://www.fastcompany.com/90844343/this-unusual-lamp-glows-like-a-solar-eclipse" target="_blank" rel="noopener">Fast Company の記事</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2023</div>
-        <div class="body">
-          <h3>『ひとまずAI（人工知能）の話をしよう』 / わたしの 対談</h3>
-          <p>訪問介護事業所「ホームケア土屋」のブログコラムで、AIと福祉をテーマに対談。仕事でのAI活用について語りました。<a href="https://homecare-tsuchiya.com/blog/column/13517/" target="_blank" rel="noopener">対談記事</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2022</div>
-        <div class="body">
-          <h3>第33回 MBCラジオ CMグランプリ 金賞受賞</h3>
-          <p>ラジオCMのグランプリで金賞を受賞。</p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2021–2022</div>
-        <div class="body">
-          <h3>株式会社Kiaraとの対談シリーズ「Kiara x Design」に出演</h3>
-          <p>株式会社キアラ代表との対談シリーズにデザイナーとして出演。仕事スタイル、Data Drivenデザイン、メルカリのデザイン研究、ブロックチェーン、ベーシックインカム、Web3などをテーマに語りました。<a href="https://www.youtube.com/playlist?list=PLPQCtXNqXQgmcmhrh1J-ALXb5xVnrxiyw" target="_blank" rel="noopener">対談シリーズのページ</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>ADF Milano Salone Design Award 優秀賞（Outstanding Performance）受賞</h3>
-          <p>青山デザインフォーラム主催、テーマ「Portable Space」。折りたたみランプとスカーフチェア（ソフトビニール製、折り紙発想）が受賞し、The Japan Times（2019年4月28日）で紹介された。<a href="https://www.japantimes.co.jp/life/2019/04/28/style/design-winners-favorites/" target="_blank" rel="noopener">The Japan Times の記事</a></p>
-        </div>
-      </li>
-            <li class="ach">
-        <div class="year">2019</div>
-        <div class="body">
-          <h3>ストックホルム・ファニチャー＆ライトフェア「Greenhouse」に出展</h3>
-          <p>スウェーデン・ストックホルムで開かれる家具と照明の見本市「Stockholm Furniture &amp; Light Fair」（2019年2月）の若手デザイナー部門「Greenhouse」に、照明作品「Jellyfish light」を出展。<a href="https://www.musabi.ac.jp/topics/20181127_03_01/" target="_blank" rel="noopener">武蔵野美術大学のトピックス</a></p>
-        </div>
-      </li>
-      <li class="ach">
-        <div class="year">2017</div>
-        <div class="body">
-          <h3>武蔵野美術大学 基礎デザイン学科 卒業制作優秀作品に選出</h3>
-          <p>作品「スカーフチェア SCARF CHAIR」（ビニール、平面が立体になる椅子）。担当教員は柴田文江教授。<a href="https://selected.musabi.ac.jp/y2017/scd/s06" target="_blank" rel="noopener">大学の選出作品ページ</a></p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
 <!-- ============ LINKS ============ -->
 
 <!-- ============ ACHIEVEMENTS ============ -->
